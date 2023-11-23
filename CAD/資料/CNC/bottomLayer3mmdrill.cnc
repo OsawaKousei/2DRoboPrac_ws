@@ -1,0 +1,45 @@
+%
+(1001)
+(T3 D=6 CR=0 TAPER=118deg - ZMIN=-1 - center drill)
+N10 G90 G94
+N20 G17
+N30 G21
+(-Attention- Property Safe Retracts is set to Clearance Height.)
+(Ensure the clearance height will clear the part and or fixtures.)
+(Raise the Z-axis to a safe height before starting the program.)
+
+(2)
+N40 T3 M6
+N50 S20000 M3
+N60 G17 G90 G94
+N70 G54
+N80 M8
+N90 G0 G43 Z2.3
+N100 G0 X150 Y120
+N110 Z2.3
+N120 G98 G81 X150 Y120 Z-1 R2.3 F30
+N130 X135 Y125
+N140 X115
+N150 Y105
+N160 X135
+N170 X130 Y90
+N180 X150
+N190 X130 Y60
+N200 X150 Y40
+N210 Y10
+N220 X110 Y20
+N230 X10 Y10
+N240 Y40
+N250 X30 Y60
+N260 X10 Y90
+N270 X30
+N280 X25 Y105
+N290 X45
+N300 Y125
+N310 X25
+N320 X10 Y120
+N330 G80
+N340 G0 Z2.3
+N350 M9
+N360 M30
+%
