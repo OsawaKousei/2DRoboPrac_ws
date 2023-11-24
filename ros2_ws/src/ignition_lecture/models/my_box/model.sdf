@@ -24,8 +24,7 @@
         <visual name="box_visual">
           <geometry>
             <mesh>
-              <uri>meshes/laser_marker.stl</uri>
-              <!-- <uri>package://ignition_lecture/models/my_box/meshes/laser_marker.stl</uri> -->
+              <uri>package://ignition_lecture/models/my_box/meshes/laser_marker.stl</uri>
               <scale>0.001 0.001 0.001</scale>
             </mesh>
           </geometry>

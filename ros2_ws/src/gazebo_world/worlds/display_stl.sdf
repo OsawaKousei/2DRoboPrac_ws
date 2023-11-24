@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 
 <sdf version="1.6">
-  <world name="visualize_lidar_world">
+  <world name="gazebo_world">
 
     <physics name="1ms" type="ignored">
       <max_step_size>0.001</max_step_size>
