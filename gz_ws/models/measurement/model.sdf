@@ -7,7 +7,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://measurement/meshes/measurement.stl</uri>
+            <uri>model://measurement/meshes/HaruRobo2024field.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -23,7 +23,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://measurement/meshes/measurement.dae</uri>
+            <uri>model://measurement/meshes/HaruRobo2024field.dae</uri>
           </mesh>
         </geometry>
       </visual>
