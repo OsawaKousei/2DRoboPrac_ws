@@ -12,6 +12,7 @@ ament_auto_find_build_dependencies()  # packageから自動でfind_packageして
 install(DIRECTORY
   launch
   worlds
+  models
   DESTINATION share/${PROJECT_NAME}/
 )
 

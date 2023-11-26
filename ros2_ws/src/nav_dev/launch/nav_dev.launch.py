@@ -18,7 +18,13 @@ def generate_launch_description():
     # Setup project paths
     pkg_project_bringup = get_package_share_directory('nav_dev')
     pkg_project_gazebo = get_package_share_directory('nav_dev')
+    pkg_project_description = get_package_share_directory('nav_dev')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
+
+    # Load the SDF file from "description" package
+    sdf_file  =  os.path.join(pkg_project_description, 'models', 'LidarRobo', 'model.sdf')
+    with open(sdf_file, 'r') as infp:
+        robot_desc = infp.read()
 
     # Setup to launch the simulator and Gazebo world
     gz_sim = IncludeLaunchDescription(
@@ -29,6 +35,18 @@ def generate_launch_description():
             'worlds',
             'nav_dev_world1.sdf'
         ])}.items(),
+    )
+
+    # Takes the description and joint angles as inputs and publishes the 3D poses of the robot links
+    robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='robot_state_publisher',
+        output='both',
+        parameters=[
+            {'use_sim_time': True},
+            {'robot_description': robot_desc},
+        ]
     )
 
     # Visualize in RViz
@@ -42,5 +60,6 @@ def generate_launch_description():
     return LaunchDescription([
         gz_sim,
         DeclareLaunchArgument('rviz', default_value='true',description='Open RViz.'),
+        robot_state_publisher,
         rviz
     ])
