@@ -22,7 +22,7 @@ def generate_launch_description():
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
     # Load the SDF file from "description" package
-    sdf_file  =  os.path.join(pkg_project_description, 'models', 'LidarRobo', 'model.sdf')
+    sdf_file  =  os.path.join(pkg_project_description, 'models', 'simpleDiff', 'model.sdf')
     with open(sdf_file, 'r') as infp:
         robot_desc = infp.read()
 
