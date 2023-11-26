@@ -33,4 +33,8 @@ ament_auto_add_executable(
 test_node src/test_node.cpp
 )
 
+ament_auto_add_executable(
+teleop_node src/teleop_node.cpp
+)
+
 ament_auto_package()
