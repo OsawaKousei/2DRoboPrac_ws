@@ -68,10 +68,17 @@ def generate_launch_description():
         output='screen'
     )
 
+    rosnode1 =  Node(
+                package='nav_dev',
+                executable='test_node',
+                output='screen'
+                )
+
     return LaunchDescription([
         gz_sim,
         DeclareLaunchArgument('rviz', default_value='true',description='Open RViz.'),
         bridge,
         robot_state_publisher,
-        rviz
+        rviz,
+        rosnode1
     ])
