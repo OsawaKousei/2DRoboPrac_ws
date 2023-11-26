@@ -16,6 +16,7 @@ def generate_launch_description():
     # Configure ROS nodes for launch
 
     # Setup project paths
+    pkg_project_bringup = get_package_share_directory('nav_dev')
     pkg_project_gazebo = get_package_share_directory('nav_dev')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
@@ -30,6 +31,16 @@ def generate_launch_description():
         ])}.items(),
     )
 
+    # Visualize in RViz
+    rviz = Node(
+       package='rviz2',
+       executable='rviz2',
+       arguments=['-d', os.path.join(pkg_project_bringup, 'config', 'diff_drive.rviz')],
+       condition=IfCondition(LaunchConfiguration('rviz'))
+    )
+
     return LaunchDescription([
-        gz_sim
+        gz_sim,
+        DeclareLaunchArgument('rviz', default_value='true',description='Open RViz.'),
+        rviz
     ])
