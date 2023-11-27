@@ -86,7 +86,8 @@ def generate_launch_description():
 
     lidar_node =  Node(
                 package='nav_dev',
-                executable='lidar_node'
+                executable='lidar_node',
+                prefix="xterm -e"
                 )
     
     teleop_node =  Node(
@@ -109,6 +110,5 @@ def generate_launch_description():
         bridge,
         map_static_tf,
         robot_state_publisher,
-        rviz,
         lidar_node
     ])

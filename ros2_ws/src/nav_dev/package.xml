@@ -16,6 +16,9 @@
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>sensor_msgs</depend>
+  <exec_depend>ros_ign_bridge</exec_depend>
+  <exec_depend>ros_ign_gazebo</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
 
   <depend>rclcpp_components</depend>
   <depend>key_event_nodes</depend>

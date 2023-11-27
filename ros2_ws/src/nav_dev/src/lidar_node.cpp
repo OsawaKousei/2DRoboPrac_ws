@@ -17,8 +17,35 @@ public:
 
             auto message = geometry_msgs::msg::Twist();
 
-            message.linear.x = -1;
+            bool allMore = true;
+
+            message.linear.x = 0;
             message.angular.y = 0;
+
+            RCLCPP_INFO(this->get_logger(), "count:%d\r\n", (int)sizeof(msg.ranges));
+            RCLCPP_INFO(this->get_logger(), "angMax:%f\r\n",  msg.angle_max);
+            RCLCPP_INFO(this->get_logger(), "angMin:%f\r\n",  msg.angle_min);
+            RCLCPP_INFO(this->get_logger(), "max:%f\r\n", msg.range_max);
+            RCLCPP_INFO(this->get_logger(), "min:%f\r\n", msg.range_min);
+           
+
+            for (int i = 0; i < (int)sizeof(msg.ranges); i++)
+            {
+                if (1 < msg.ranges[i])
+                {
+                allMore = false;
+                RCLCPP_INFO(this->get_logger(), "detect:%f\r\n", msg.ranges[i]);
+                break;
+                }
+            }
+            if (allMore) //if all bigger than one
+            {
+                message.angular.z = 1;
+            }
+            else
+            {
+                message.linear.x = 1;
+            }
 
             this->publisher_->publish(message);
         }; 
