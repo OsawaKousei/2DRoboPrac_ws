@@ -18,6 +18,15 @@ def generate_launch_description():
 
     # Setup project paths
     pkg_project_bringup = get_package_share_directory('rviz_test')
+    model_path = os.path.join(get_package_share_directory('rviz_test'), 'model', '01-first.urdf')
+
+    robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='robot_state_publisher',
+        output='both',
+        arguments=[model_path]
+    )
 
     # Visualize in RViz
     rviz = Node(
@@ -27,5 +36,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        robot_state_publisher,
         rviz
     ])

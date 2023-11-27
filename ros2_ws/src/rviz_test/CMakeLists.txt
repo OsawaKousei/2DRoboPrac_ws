@@ -13,6 +13,7 @@ install(DIRECTORY
   launch
   models
   config
+  meshes
   DESTINATION share/${PROJECT_NAME}/
 )
 
