@@ -57,9 +57,10 @@
       <uri>model://robots/LidarRobo</uri>
     </include>
 
-      <plugin
-        filename="ignition-gazebo-joint-state-publisher-system"
+      <!-- Joint state publisher -->
+      <plugin filename="libignition-gazebo-joint-state-publisher-system.so" 
         name="ignition::gazebo::systems::JointStatePublisher">
+        <topic>joint_states</topic>
       </plugin>
 
       <plugin
@@ -71,11 +72,15 @@
         <static_update_frequency>1</static_update_frequency>
       </plugin>
 
+      <!-- Global odometer -->
       <plugin
         filename="ignition-gazebo-odometry-publisher-system"
         name="ignition::gazebo::systems::OdometryPublisher">
-        <odom_frame>diff_drive/odom</odom_frame>
-        <robot_base_frame>diff_drive</robot_base_frame>
+        <odom_publish_frequency>50</odom_publish_frequency>
+        <odom_topic>/odom</odom_topic>
+        <odom_frame>odom</odom_frame>
+        <robot_base_frame>base_footprint</robot_base_frame>
+        <tf_topic>/odom/tf</tf_topic>
       </plugin>
     </model>
   </world>

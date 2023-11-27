@@ -29,7 +29,7 @@ def generate_launch_description():
     # Load the SDF file from "description" package
     sdf = os.path.join(
         get_package_share_directory('nav_dev'),
-        'models', 'simpleDiff', 'model.sdf')
+        'models', 'LidarRobo', 'model.sdf')
 
     doc = xacro.parse(open(sdf))
     xacro.process_doc(doc)
@@ -45,13 +45,16 @@ def generate_launch_description():
         ])}.items(),
     )
 
-    Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            name='robot_state_publisher',
-            output='screen',
-            parameters=[{'use_sim_time': use_sim_time,
-                         'robot_description': doc.toxml()}]),
+    robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='robot_state_publisher',
+        output='both',
+        parameters=[
+            {'use_sim_time': True},
+            {'robot_description': doc.toxml()},
+        ]
+    )
 
     # Visualize in RViz
     rviz = Node(
@@ -100,6 +103,7 @@ def generate_launch_description():
         DeclareLaunchArgument('rviz', default_value='true',description='Open RViz.'),
         bridge,
         map_static_tf,
+        robot_state_publisher,
         rviz,
         teleop_node
     ])
