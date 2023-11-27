@@ -69,7 +69,7 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         parameters=[{
-            'config_file': os.path.join(pkg_project_bringup, 'config', 'teleop_bridge.yaml'),
+            'config_file': os.path.join(pkg_project_bringup, 'config', 'lidar_bridge.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
         }],
         remappings=[
@@ -84,6 +84,11 @@ def generate_launch_description():
                         arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
 
 
+    lidar_node =  Node(
+                package='nav_dev',
+                executable='lidar_node'
+                )
+    
     teleop_node =  Node(
                 package='nav_dev',
                 executable='teleop_node',
@@ -105,5 +110,5 @@ def generate_launch_description():
         map_static_tf,
         robot_state_publisher,
         rviz,
-        teleop_node
+        lidar_node
     ])

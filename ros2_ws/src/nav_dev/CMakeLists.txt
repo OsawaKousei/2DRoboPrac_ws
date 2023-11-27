@@ -37,4 +37,8 @@ ament_auto_add_executable(
 teleop_node src/teleop_node.cpp
 )
 
+ament_auto_add_executable(
+lidar_node src/lidar_node.cpp
+)
+
 ament_auto_package()
