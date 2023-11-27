@@ -29,6 +29,15 @@
       <render_engine>ogre2</render_engine>
     </plugin>
 
+    <plugin
+      filename="ignition-gazebo-contact-system"
+      name="ignition::gazebo::systems::Contact">
+    </plugin>
+
+    <plugin filename="libignition-gazebo-imu-system.so"
+      name="ignition::gazebo::systems::Imu">
+    </plugin>
+
     <gui fullscreen="0">
           <!-- 3D scene -->
           <plugin filename="MinimalScene" name="3D View">
@@ -309,31 +318,6 @@
     <include>
       <uri>model://robots/LidarRobo</uri>
     </include>
-      <!-- Joint state publisher -->
-      <plugin filename="libignition-gazebo-joint-state-publisher-system.so" 
-        name="ignition::gazebo::systems::JointStatePublisher">
-        <topic>joint_states</topic>
-      </plugin>
-
-      <plugin
-        filename="ignition-gazebo-pose-publisher-system"
-        name="ignition::gazebo::systems::PosePublisher">
-        <publish_link_pose>true</publish_link_pose>
-        <use_pose_vector_msg>true</use_pose_vector_msg>
-        <static_publisher>true</static_publisher>
-        <static_update_frequency>1</static_update_frequency>
-      </plugin>
-
-      <!-- Global odometer -->
-      <plugin
-        filename="ignition-gazebo-odometry-publisher-system"
-        name="ignition::gazebo::systems::OdometryPublisher">
-        <odom_publish_frequency>50</odom_publish_frequency>
-        <odom_topic>/odom</odom_topic>
-        <odom_frame>odom</odom_frame>
-        <robot_base_frame>base_footprint</robot_base_frame>
-        <tf_topic>/odom/tf</tf_topic>
-      </plugin>
     </model>
   </world>
 </sdf>

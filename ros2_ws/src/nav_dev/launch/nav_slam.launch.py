@@ -72,17 +72,11 @@ def generate_launch_description():
             'config_file': os.path.join(pkg_project_bringup, 'config', 'lidar_bridge.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
         }],
+        #/odom/tfをtfとして再発行？
         remappings=[
             ("/odom/tf", "tf"),
         ]
     )
-
-    map_static_tf = Node(package='tf2_ros',
-                        executable='static_transform_publisher',
-                        name='static_transform_publisher',
-                        output='log',
-                        arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
-
 
     lidar_node =  Node(
                 package='nav_dev',
@@ -108,7 +102,7 @@ def generate_launch_description():
             description='World name'),
         DeclareLaunchArgument('rviz', default_value='true',description='Open RViz.'),
         bridge,
-        map_static_tf,
         robot_state_publisher,
+        rviz,
         lidar_node
     ])

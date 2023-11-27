@@ -247,5 +247,30 @@
         <odom_publish_frequency>1</odom_publish_frequency>
         <topic>cmd_vel</topic>
     </plugin>
+     <!-- Joint state publisher -->
+      <plugin filename="libignition-gazebo-joint-state-publisher-system.so" 
+        name="ignition::gazebo::systems::JointStatePublisher">
+        <topic>joint_states</topic>
+      </plugin>
+
+      <plugin
+        filename="ignition-gazebo-pose-publisher-system"
+        name="ignition::gazebo::systems::PosePublisher">
+        <publish_link_pose>true</publish_link_pose>
+        <use_pose_vector_msg>true</use_pose_vector_msg>
+        <static_publisher>true</static_publisher>
+        <static_update_frequency>1</static_update_frequency>
+      </plugin>
+
+      <!-- Global odometer -->
+      <plugin
+        filename="ignition-gazebo-odometry-publisher-system"
+        name="ignition::gazebo::systems::OdometryPublisher">
+        <odom_publish_frequency>50</odom_publish_frequency>
+        <odom_topic>/odom/tf</odom_topic>
+        <odom_frame>odom_test</odom_frame>
+        <robot_base_frame>base_footprint</robot_base_frame>
+        <tf_topic>/odom/tf</tf_topic>
+      </plugin>
   </model>
 </sdf>
