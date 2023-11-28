@@ -34,6 +34,33 @@ def generate_launch_description():
     doc = xacro.parse(open(sdf))
     xacro.process_doc(doc)
 
+    # Spawn robot
+    ignition_spawn_entity = Node(
+        package='ros_ign_gazebo',
+        executable='create',
+        output='screen',
+        arguments=['-entity', "LiadarRobo",
+                   '-name', "Lidarrobo",
+                   '-file', PathJoinSubstitution([
+                        get_package_share_directory('nav_dev'),
+                        "models", "LidarRobo", "model.sdf"]),
+                   '-allow_renaming', 'true',
+                   '-x', '0.1',
+                   '-y', '0.1',
+                   '-z', '0.075'],
+        )
+    
+    # Spawn world
+    ignition_spawn_world = Node(
+        package='ros_ign_gazebo',
+        executable='create',
+        output='screen',
+        arguments=['-file', PathJoinSubstitution([
+                        get_package_share_directory('nav_dev'),
+                        "models", "field", "model.sdf"]),
+                   '-allow_renaming', 'false'],
+        )
+
     # Setup to launch the simulator and Gazebo world
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -41,7 +68,7 @@ def generate_launch_description():
         launch_arguments={'gz_args': PathJoinSubstitution([
             pkg_project_gazebo,
             'worlds',
-            'nav_slam_world1.sdf'
+            'world_only.sdf'
         ])}.items(),
     )
 
@@ -60,8 +87,11 @@ def generate_launch_description():
     rviz = Node(
        package='rviz2',
        executable='rviz2',
+       name="rviz2",
        arguments=['-d', os.path.join(pkg_project_bringup, 'config', 'slam.rviz')],
-       condition=IfCondition(LaunchConfiguration('rviz'))
+       parameters=[{'use_sim_time': use_sim_time}],
+       condition=IfCondition(LaunchConfiguration('rviz')),
+       output='screen'
     )
 
     # Bridge ROS topics and Gazebo messages for establishing communication
@@ -72,7 +102,7 @@ def generate_launch_description():
             'config_file': os.path.join(pkg_project_bringup, 'config', 'lidar_bridge.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
         }],
-        #/odom/tfをtfとして再発行？
+        #/odom/tfをtfとして再発行
         remappings=[
             ("/odom/tf", "tf"),
         ]
@@ -91,6 +121,8 @@ def generate_launch_description():
                 )
 
     return LaunchDescription([
+        ignition_spawn_entity,
+        ignition_spawn_world,
         gz_sim,
         DeclareLaunchArgument(
             'use_sim_time',
