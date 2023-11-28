@@ -48,18 +48,19 @@ def generate_launch_description():
     
     world_only = os.path.join(get_package_share_directory('nav_dev'), "models", "worlds", "world_only.sdf")
 
-    return LaunchDescription([
-        ign_resource_path,
-        ignition_spawn_entity,
-        ignition_spawn_world,
-        IncludeLaunchDescription(
+    ign_gz = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 [os.path.join(get_package_share_directory('ros_ign_gazebo'),
                               'launch', 'ign_gazebo.launch.py')]),
             launch_arguments=[('ign_args', [' -r -v 3 ' +
                               world_only
-                             ])]),
-                             
+                             ])])
+
+    return LaunchDescription([
+        ign_resource_path,
+        ignition_spawn_entity,
+        ignition_spawn_world,
+        ign_gz,
         DeclareLaunchArgument(
             'use_sim_time',
             default_value=use_sim_time,
