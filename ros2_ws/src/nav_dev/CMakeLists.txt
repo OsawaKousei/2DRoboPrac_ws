@@ -6,17 +6,13 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # find dependencies
-find_package(ament_cmake_auto REQUIRED)
-ament_auto_find_build_dependencies()  # packageから自動でfind_packageしてくれる
+find_package(ament_cmake REQUIRED)
+# uncomment the following section in order to fill in
+# further dependencies manually.
+# find_package(<dependency> REQUIRED)
 
-install(DIRECTORY
-  launch
-  worlds
-  models
-  config
-  maps
-  params
-  DESTINATION share/${PROJECT_NAME}/
+install(DIRECTORY launch models maps params
+  DESTINATION share/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)
@@ -31,16 +27,4 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-ament_auto_add_executable(
-test_node src/test_node.cpp
-)
-
-ament_auto_add_executable(
-teleop_node src/teleop_node.cpp
-)
-
-ament_auto_add_executable(
-lidar_node src/lidar_node.cpp
-)
-
-ament_auto_package()
+ament_package()
