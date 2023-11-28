@@ -6,6 +6,7 @@ from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
+import xacro
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -74,7 +75,21 @@ def generate_launch_description():
                         name='static_transform_publisher',
                         output='log',
                         arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
+    
+    sdf = os.path.join(
+        get_package_share_directory('nav_dev'),
+        'models', 'turtlebot3', 'model.sdf')
 
+    doc = xacro.parse(open(sdf))
+    xacro.process_doc(doc)
+
+    robot_state_publisher = Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            name='robot_state_publisher',
+            output='both',
+            parameters=[{'use_sim_time': use_sim_time,
+                         'robot_description': doc.toxml()}])
 
     return LaunchDescription([
         ign_resource_path,
@@ -94,10 +109,7 @@ def generate_launch_description():
         bridge,
         map_static_tf,
        
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([launch_file_dir, '/robot_state_publisher.launch.py']),
-            launch_arguments={'use_sim_time': use_sim_time}.items(),
-        ),
+        robot_state_publisher,
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([launch_file_dir, '/navigation2.launch.py']),
