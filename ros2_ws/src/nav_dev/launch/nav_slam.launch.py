@@ -113,7 +113,7 @@ def generate_launch_description():
 
     # Bridge ROS topics and Gazebo messages for establishing communication
     bridge = Node(
-        package='ros_gz_bridge',
+        package='ros_ign_bridge',
         executable='parameter_bridge',
         parameters=[{
             'config_file': os.path.join(pkg_project_bringup, 'config', 'lidar_bridge.yaml'),
