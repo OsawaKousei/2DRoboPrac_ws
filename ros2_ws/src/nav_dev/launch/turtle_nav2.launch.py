@@ -12,13 +12,14 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     world_name = LaunchConfiguration('world_name', default='turtlebot3_world')
 
-    pkg = 'nav_dev'
+    pkg_share_dir = get_package_share_directory('nav_dev')
+    model_path = os.path.join(pkg_share_dir,"models")
 
     ign_resource_path = SetEnvironmentVariable(
         name='IGN_GAZEBO_RESOURCE_PATH',value=[
         os.path.join("/opt/ros/humble", "share"),
         ":" +
-        os.path.join(get_package_share_directory(pkg), "models")])
+        model_path])
 
     # Spawn robot
     ignition_spawn_entity = Node(
@@ -28,8 +29,7 @@ def generate_launch_description():
         arguments=['-entity', 'waffle',
                    '-name', 'waffle',
                    '-file', PathJoinSubstitution([
-                        get_package_share_directory(pkg),
-                        "models", "turtlebot3", "model.sdf"]),
+                        model_path, "turtlebot3", "model.sdf"]),
                    '-allow_renaming', 'true',
                    '-x', '-2.0',
                    '-y', '-0.5',
@@ -42,12 +42,11 @@ def generate_launch_description():
         executable='create',
         output='screen',
         arguments=['-file', PathJoinSubstitution([
-                        get_package_share_directory(pkg),
-                        "models", "worlds", "model.sdf"]),
+                        model_path, "worlds", "model.sdf"]),
                    '-allow_renaming', 'false'],
         )
     
-    world_only = os.path.join(get_package_share_directory(pkg), "models", "worlds", "world_only.sdf")
+    world_only = os.path.join(model_path, "worlds", "world_only.sdf")
 
     ign_gz = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
@@ -57,13 +56,11 @@ def generate_launch_description():
                               world_only
                              ])])
 
-    pkg_project_bringup = get_package_share_directory(pkg)
-
     bridge = Node(
         package='ros_ign_bridge',
         executable='parameter_bridge',
         parameters=[{
-            'config_file': os.path.join(pkg_project_bringup, 'config', 'lidar_bridge.yaml'),
+            'config_file': os.path.join(pkg_share_dir, 'config', 'lidar_bridge.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
         },{'use_sim_time': use_sim_time}],
         remappings=[
@@ -79,8 +76,7 @@ def generate_launch_description():
                         arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
 
     sdf = os.path.join(
-        get_package_share_directory(pkg),
-        'models', 'turtlebot3', 'model.sdf')
+        model_path, 'turtlebot3', 'model.sdf')
 
     doc = xacro.parse(open(sdf))
     xacro.process_doc(doc)
@@ -96,7 +92,7 @@ def generate_launch_description():
     map_dir = LaunchConfiguration(
         'map',
         default=os.path.join(
-            get_package_share_directory(pkg),
+            pkg_share_dir,
             'maps',
             'turtlebot3_world.yaml'))
 
@@ -104,7 +100,7 @@ def generate_launch_description():
     param_dir = LaunchConfiguration(
         'params_file',
         default=os.path.join(
-            get_package_share_directory(pkg),
+            pkg_share_dir,
             'params',
             param_file_name))
 
