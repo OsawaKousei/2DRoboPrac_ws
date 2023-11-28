@@ -51,6 +51,14 @@ def generate_launch_description():
     
     world_only = os.path.join(get_package_share_directory('nav_dev'), "models", "worlds", "world_only.sdf")
 
+    ign_gz = IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [os.path.join(get_package_share_directory('ros_ign_gazebo'),
+                              'launch', 'ign_gazebo.launch.py')]),
+            launch_arguments=[('ign_args', [' -r -v 3 ' +
+                              world_only
+                             ])])
+
     pkg_project_bringup = get_package_share_directory('nav_dev')
 
     bridge = Node(
@@ -91,14 +99,8 @@ def generate_launch_description():
         ign_resource_path,
         ignition_spawn_entity,
         ignition_spawn_world,
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                [os.path.join(get_package_share_directory('ros_ign_gazebo'),
-                              'launch', 'ign_gazebo.launch.py')]),
-            launch_arguments=[('ign_args', [' -r -v 3 ' +
-                              world_only
-                             ])]),
-                             
+        ign_gz,
+    
         DeclareLaunchArgument(
             'use_sim_time',
             default_value=use_sim_time,
@@ -111,24 +113,10 @@ def generate_launch_description():
 
         bridge,
         map_static_tf,
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='true',
-            description='Use simulation (Gazebo) clock if true'),
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='true',
-            description='Use simulation (Gazebo) clock if true'),
-        
         robot_state_publisher,
 
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([launch_file_dir, '/robot_state_publisher.launch.py']),
-            launch_arguments={'use_sim_time': use_sim_time}.items(),
-        ),
-
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([launch_file_dir, '/navigation2.launch.py']),
+            PythonLaunchDescriptionSource([launch_file_dir, '/nav_nav2.launch.py']),
             launch_arguments={'use_sim_time': use_sim_time}.items(),
         ),
     ])
