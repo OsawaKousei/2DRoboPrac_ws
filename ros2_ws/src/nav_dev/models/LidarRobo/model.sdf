@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
-  <link name="base_footprint"/>
-    <model name="my_robo" canonical_link='chassis'>
+    <model name="my_robo">
+      <link name="base_footprint"/>
       <link name="chassis">
         <inertial> <!--inertial properties of the link mass, inertia matix-->
           <mass>1.14395</mass>
