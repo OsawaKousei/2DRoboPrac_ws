@@ -119,7 +119,7 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time,
                          'robot_description': doc.toxml()}])
     
-    #nav2のちずのパスを取得
+    #nav2の地図のパスを取得
     map_dir = LaunchConfiguration(
         'map',
         default=os.path.join(
