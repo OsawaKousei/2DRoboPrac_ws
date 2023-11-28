@@ -1,0 +1,4 @@
+PLUGIN;lib/libkey_hit_event_node.so
+key_event::KeyHitEventNode;lib/libkey_hit_event_node.so
+EXECUTABLE;lib/libkey_hit_event_node.so
+key_hit_event_node;lib/libkey_hit_event_node.so

@@ -1,0 +1,120 @@
+[0.033s] Invoking command in '/home/kousei/2DRoboPrac_ws/build/nav_dev': AMENT_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/install/key_event_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/2DRoboPrac_ws/install/key_event_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev -DCMAKE_INSTALL_PREFIX=/home/kousei/2DRoboPrac_ws/install/nav_dev
+[0.066s] -- The C compiler identification is GNU 11.4.0
+[0.107s] -- The CXX compiler identification is GNU 11.4.0
+[0.112s] -- Detecting C compiler ABI info
+[0.158s] -- Detecting C compiler ABI info - done
+[0.163s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.163s] -- Detecting C compile features
+[0.163s] -- Detecting C compile features - done
+[0.165s] -- Detecting CXX compiler ABI info
+[0.218s] -- Detecting CXX compiler ABI info - done
+[0.223s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.223s] -- Detecting CXX compile features
+[0.224s] -- Detecting CXX compile features - done
+[0.225s] -- Found ament_cmake_auto: 1.3.6 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.348s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.452s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.456s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.484s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.566s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.568s] -- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.633s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.650s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.685s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.692s] -- Looking for pthread.h
+[0.738s] -- Looking for pthread.h - found
+[0.738s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.787s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.788s] -- Found Threads: TRUE  
+[1.049s] -- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.070s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.070s] -- Configured cppcheck include dirs: /home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev/include
+[1.070s] -- Configured cppcheck exclude dirs and/or files: 
+[1.071s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.071s] -- Added test 'lint_cmake' to check CMake code style
+[1.072s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.074s] -- Added test 'uncrustify' to check C / C++ code style
+[1.074s] -- Configured uncrustify additional arguments: 
+[1.074s] -- Added test 'xmllint' to check XML markup files
+[1.076s] -- Configuring done
+[1.087s] -- Generating done
+[1.088s] -- Build files have been written to: /home/kousei/2DRoboPrac_ws/build/nav_dev
+[1.095s] Invoked command in '/home/kousei/2DRoboPrac_ws/build/nav_dev' returned '0': AMENT_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/install/key_event_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/2DRoboPrac_ws/install/key_event_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev -DCMAKE_INSTALL_PREFIX=/home/kousei/2DRoboPrac_ws/install/nav_dev
+[1.097s] Invoking command in '/home/kousei/2DRoboPrac_ws/build/nav_dev': AMENT_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/install/key_event_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/2DRoboPrac_ws/install/key_event_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/build/nav_dev -- -j16 -l16
+[1.130s] [ 50%] [32mBuilding CXX object CMakeFiles/teleop_node.dir/src/teleop_node.cpp.o[0m
+[1.130s] [ 50%] [32mBuilding CXX object CMakeFiles/lidar_node.dir/src/lidar_node.cpp.o[0m
+[6.600s] [ 75%] [32m[1mLinking CXX executable lidar_node[0m
+[6.885s] [ 75%] Built target lidar_node
+[8.045s] [100%] [32m[1mLinking CXX executable teleop_node[0m
+[8.414s] [100%] Built target teleop_node
+[8.421s] Invoked command in '/home/kousei/2DRoboPrac_ws/build/nav_dev' returned '0': AMENT_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/install/key_event_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/2DRoboPrac_ws/install/key_event_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/build/nav_dev -- -j16 -l16
+[8.439s] Invoking command in '/home/kousei/2DRoboPrac_ws/build/nav_dev': AMENT_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/install/key_event_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/2DRoboPrac_ws/install/key_event_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/build/nav_dev
+[8.446s] -- Install configuration: ""
+[8.446s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/launch
+[8.446s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/launch/turtle_nav2.launch.py
+[8.446s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/launch/nav_slam.launch.py
+[8.446s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models
+[8.446s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/LidarRobo
+[8.446s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/LidarRobo/model.config
+[8.447s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/LidarRobo/meshes
+[8.447s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/LidarRobo/meshes/2DRoboPrac.stl
+[8.451s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/LidarRobo/meshes/2DRoboPrac.dae
+[8.456s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/LidarRobo/meshes/2DRoboPrac.blend
+[8.463s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/LidarRobo/model.sdf
+[8.463s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/field
+[8.463s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/field/model.config
+[8.463s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/field/meshes
+[8.463s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/field/meshes/HaruRobo2024field.dae
+[8.463s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/field/meshes/HaruRobo2024field.stl
+[8.463s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/field/meshes/Harurobo2024field.blend
+[8.465s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/field/model.sdf
+[8.465s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/turtlebot3
+[8.465s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/turtlebot3/model.config
+[8.466s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/turtlebot3/meshes
+[8.466s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/turtlebot3/meshes/r200.dae
+[8.466s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/turtlebot3/meshes/tire.dae
+[8.467s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/turtlebot3/meshes/burger_base.dae
+[8.467s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/turtlebot3/meshes/lds.dae
+[8.467s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/turtlebot3/meshes/waffle_pi_base.dae
+[8.467s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/turtlebot3/meshes/waffle_base.dae
+[8.468s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/turtlebot3/model.sdf
+[8.468s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/worlds
+[8.468s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/worlds/world_only.sdf
+[8.468s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/worlds/meshes
+[8.468s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/worlds/meshes/hexagon.dae
+[8.468s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/worlds/meshes/wall.dae
+[8.468s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/worlds/nav_slam.sdf
+[8.469s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/models/worlds/model.sdf
+[8.469s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/maps
+[8.469s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/maps/turtlebot3_world.pgm
+[8.470s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/maps/turtlebot3_world.yaml
+[8.470s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/params
+[8.470s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/params/waffle.yaml
+[8.470s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/config
+[8.470s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/config/nav_slam.rviz
+[8.470s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/config/turtle_nav2.rviz
+[8.470s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/config/ros_gz_bridge.yaml
+[8.471s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/include
+[8.471s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/include/nav_dev
+[8.471s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/lib/nav_dev/teleop_node
+[8.474s] -- Set runtime path of "/home/kousei/2DRoboPrac_ws/install/nav_dev/lib/nav_dev/teleop_node" to ""
+[8.474s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/lib/nav_dev/lidar_node
+[8.476s] -- Set runtime path of "/home/kousei/2DRoboPrac_ws/install/nav_dev/lib/nav_dev/lidar_node" to ""
+[8.476s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/ament_index/resource_index/package_run_dependencies/nav_dev
+[8.476s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/ament_index/resource_index/parent_prefix_path/nav_dev
+[8.476s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/environment/ament_prefix_path.sh
+[8.476s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/environment/ament_prefix_path.dsv
+[8.476s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/environment/path.sh
+[8.476s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/environment/path.dsv
+[8.476s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/local_setup.bash
+[8.477s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/local_setup.sh
+[8.477s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/local_setup.zsh
+[8.477s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/local_setup.dsv
+[8.477s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/package.dsv
+[8.477s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/ament_index/resource_index/packages/nav_dev
+[8.477s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/cmake/ament_cmake_export_dependencies-extras.cmake
+[8.477s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/cmake/ament_cmake_export_include_directories-extras.cmake
+[8.477s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/cmake/nav_devConfig.cmake
+[8.477s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/cmake/nav_devConfig-version.cmake
+[8.477s] -- Installing: /home/kousei/2DRoboPrac_ws/install/nav_dev/share/nav_dev/package.xml
+[8.478s] Invoked command in '/home/kousei/2DRoboPrac_ws/build/nav_dev' returned '0': AMENT_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/install/key_event_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/install/key_event_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kousei/2DRoboPrac_ws/install/key_event_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/build/nav_dev

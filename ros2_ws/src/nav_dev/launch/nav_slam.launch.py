@@ -69,7 +69,7 @@ def generate_launch_description():
         executable='parameter_bridge',
         parameters=[{
             #brigdeの設定ファイルを指定
-            'config_file': os.path.join(pkg_share_dir, 'config', 'ros_gz_bridge.yaml'),
+            'config_file': os.path.join(pkg_share_dir, 'config', 'nav_slam.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
         },{'use_sim_time': use_sim_time}],
         remappings=[
@@ -134,7 +134,7 @@ def generate_launch_description():
     rviz_config_dir = os.path.join(
         pkg_share_dir,
         'config',
-        'turtle_nav2.rviz')
+        'nav_slam.rviz')
     
     
     #nav2の起動設定
@@ -188,6 +188,6 @@ def generate_launch_description():
             default_value=param_dir,
             description='Full path to param file to load'),
 
-        nav2,
+        #nav2,
         rviz2,
     ])
