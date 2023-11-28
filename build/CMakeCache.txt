@@ -237,6 +237,9 @@ SITE:STRING=kousei-dynabook-ubuntu
 //The directory containing a CMake configuration file for ament_cmake.
 ament_cmake_DIR:PATH=/opt/ros/humble/share/ament_cmake/cmake
 
+//The directory containing a CMake configuration file for ament_cmake_auto.
+ament_cmake_auto_DIR:PATH=/opt/ros/humble/share/ament_cmake_auto/cmake
+
 //The directory containing a CMake configuration file for ament_cmake_core.
 ament_cmake_core_DIR:PATH=/opt/ros/humble/share/ament_cmake_core/cmake
 

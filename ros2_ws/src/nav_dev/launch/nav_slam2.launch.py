@@ -68,7 +68,7 @@ def generate_launch_description():
         package='ros_ign_bridge',
         executable='parameter_bridge',
         parameters=[{
-            #brigdeのcofigファイルを指定
+            #brigdeの設定ファイルを指定
             'config_file': os.path.join(pkg_share_dir, 'config', 'ros_gz_bridge.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
         },{'use_sim_time': use_sim_time}],
@@ -123,7 +123,7 @@ def generate_launch_description():
     #nav2のランチファイルのパスを取得
     nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
 
-    #rviz2の設定フィルのパスを取得(今回はnav2用に頒布されているものを指定)
+    #rviz2の設定フィルのパスを取得
     rviz_config_dir = os.path.join(
         pkg_share_dir,
         'config',
