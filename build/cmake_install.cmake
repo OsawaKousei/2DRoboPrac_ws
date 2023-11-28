@@ -48,6 +48,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev/models"
     "/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev/maps"
     "/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev/params"
+    "/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev/config"
     )
 endif()
 

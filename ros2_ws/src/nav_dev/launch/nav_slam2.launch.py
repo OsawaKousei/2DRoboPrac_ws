@@ -141,9 +141,9 @@ def generate_launch_description():
 
     #rviz2の設定フィルのパスを取得(今回はnav2用に頒布されているものを指定)
     rviz_config_dir = os.path.join(
-        get_package_share_directory('nav2_bringup'),
-        'rviz',
-        'nav2_default_view.rviz')
+        pkg_share_dir,
+        'config',
+        'turtle_nav2.rviz')
     
     #nav2の起動設定
     nav2 = IncludeLaunchDescription(
