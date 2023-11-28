@@ -14,45 +14,47 @@ def generate_launch_description():
     pkg_share_dir = get_package_share_directory('nav_dev')
     model_path = os.path.join(pkg_share_dir, "models")
 
-    launch_file_dir = os.path.join(pkg_share_dir, 'launch')
-
-    
-
+    #ignition gazeboがモデルにアクセスできるように設定
     ign_resource_path = SetEnvironmentVariable(
         name='IGN_GAZEBO_RESOURCE_PATH',value=[
         os.path.join("/opt/ros/humble", "share"),
         ":" +
         model_path])
 
-    # Spawn robot
+    #ロボットをスポーンさせる設定
     ignition_spawn_entity = Node(
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
         arguments=['-entity', 'waffle',
                    '-name', 'waffle',
+                   #ロボットのsdfファイルを指定
                    '-file', PathJoinSubstitution([
                         pkg_share_dir,
                         "models", "turtlebot3", "model.sdf"]),
+                    #ロボットの位置を指定
                    '-allow_renaming', 'true',
                    '-x', '-2.0',
                    '-y', '-0.5',
                    '-z', '0.01'],
         )
     
-    # Spawn world
+    #フィールドをスポーンさせる設定
     ignition_spawn_world = Node(
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
+            #フィールドのsdfファイルを指定
         arguments=['-file', PathJoinSubstitution([
                         pkg_share_dir,
                         "models", "worlds", "model.sdf"]),
                    '-allow_renaming', 'false'],
         )
     
+    #ワールドのsdfファイルを設定(worldタグのあるsdfファイル)
     world_only = os.path.join(pkg_share_dir, "models", "worlds", "world_only.sdf")
 
+    #ignition gazeboの起動設定
     ign_gz = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 [os.path.join(get_package_share_directory('ros_ign_gazebo'),
@@ -61,6 +63,7 @@ def generate_launch_description():
                               world_only
                              ])])
     
+    #ros_ign_bridgeの起動設定
     bridge = Node(
         package='ros_ign_bridge',
         executable='parameter_bridge',
@@ -91,19 +94,23 @@ def generate_launch_description():
         output='screen'
     )
 
+    #mapトピックの設定
     map_static_tf = Node(package='tf2_ros',
                         executable='static_transform_publisher',
                         name='static_transform_publisher',
                         output='log',
                         arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
     
+    #ロボットのsdfファイルのパスを取得
     sdf = os.path.join(
         get_package_share_directory('nav_dev'),
         'models', 'turtlebot3', 'model.sdf')
 
+    #xacroでsdfファイルをurdfに変換
     doc = xacro.parse(open(sdf))
     xacro.process_doc(doc)
 
+    #robot_state_publsherの起動設定
     robot_state_publisher = Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
@@ -112,6 +119,7 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time,
                          'robot_description': doc.toxml()}])
     
+    #nav2のちずのパスを取得
     map_dir = LaunchConfiguration(
         'map',
         default=os.path.join(
@@ -119,6 +127,7 @@ def generate_launch_description():
             'maps',
             'turtlebot3_world.yaml'))
 
+    #nav2のパラメータのパスを取得
     param_file_name = 'waffle.yaml'
     param_dir = LaunchConfiguration(
         'params_file',
@@ -127,13 +136,16 @@ def generate_launch_description():
             'params',
             param_file_name))
 
+    #nav2のランチファイルのパスを取得
     nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
 
+    #rviz2の設定フィルのパスを取得(今回はnav2用に頒布されているものを指定)
     rviz_config_dir = os.path.join(
         get_package_share_directory('nav2_bringup'),
         'rviz',
         'nav2_default_view.rviz')
     
+    #nav2の起動設定
     nav2 = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([nav2_launch_file_dir, '/bringup_launch.py']),
             launch_arguments={
@@ -142,6 +154,7 @@ def generate_launch_description():
                 'params_file': param_dir}.items(),
         )
     
+    #rviz2の起動設定
     rviz2 = Node(
             package='rviz2',
             executable='rviz2',
