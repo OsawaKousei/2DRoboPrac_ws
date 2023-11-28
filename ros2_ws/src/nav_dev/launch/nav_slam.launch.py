@@ -43,7 +43,7 @@ def generate_launch_description():
                    '-name', "Lidarrobo",
                    '-file', PathJoinSubstitution([
                         get_package_share_directory('nav_dev'),
-                        "models", "LidarRobo", "model.sdf"]),
+                        "models", "lidarRobo", "model.sdf"]),
                    '-allow_renaming', 'true',
                    '-x', '0.1',
                    '-y', '0.1',
