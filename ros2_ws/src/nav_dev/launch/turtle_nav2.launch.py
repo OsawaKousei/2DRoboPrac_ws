@@ -8,29 +8,27 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 import xacro
 
-TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']   # waffle
-
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     world_name = LaunchConfiguration('world_name', default='turtlebot3_world')
 
-    launch_file_dir = os.path.join(get_package_share_directory('nav_dev'), 'launch')
+    pkg = 'nav_dev'
 
     ign_resource_path = SetEnvironmentVariable(
         name='IGN_GAZEBO_RESOURCE_PATH',value=[
         os.path.join("/opt/ros/humble", "share"),
         ":" +
-        os.path.join(get_package_share_directory('nav_dev'), "models")])
+        os.path.join(get_package_share_directory(pkg), "models")])
 
     # Spawn robot
     ignition_spawn_entity = Node(
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-entity', TURTLEBOT3_MODEL,
-                   '-name', TURTLEBOT3_MODEL,
+        arguments=['-entity', 'waffle',
+                   '-name', 'waffle',
                    '-file', PathJoinSubstitution([
-                        get_package_share_directory('nav_dev'),
+                        get_package_share_directory(pkg),
                         "models", "turtlebot3", "model.sdf"]),
                    '-allow_renaming', 'true',
                    '-x', '-2.0',
@@ -44,12 +42,12 @@ def generate_launch_description():
         executable='create',
         output='screen',
         arguments=['-file', PathJoinSubstitution([
-                        get_package_share_directory('nav_dev'),
+                        get_package_share_directory(pkg),
                         "models", "worlds", "model.sdf"]),
                    '-allow_renaming', 'false'],
         )
     
-    world_only = os.path.join(get_package_share_directory('nav_dev'), "models", "worlds", "world_only.sdf")
+    world_only = os.path.join(get_package_share_directory(pkg), "models", "worlds", "world_only.sdf")
 
     ign_gz = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
@@ -59,7 +57,7 @@ def generate_launch_description():
                               world_only
                              ])])
 
-    pkg_project_bringup = get_package_share_directory('nav_dev')
+    pkg_project_bringup = get_package_share_directory(pkg)
 
     bridge = Node(
         package='ros_ign_bridge',
@@ -81,7 +79,7 @@ def generate_launch_description():
                         arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
 
     sdf = os.path.join(
-        get_package_share_directory('nav_dev'),
+        get_package_share_directory(pkg),
         'models', 'turtlebot3', 'model.sdf')
 
     doc = xacro.parse(open(sdf))
@@ -98,7 +96,7 @@ def generate_launch_description():
     map_dir = LaunchConfiguration(
         'map',
         default=os.path.join(
-            get_package_share_directory('nav_dev'),
+            get_package_share_directory(pkg),
             'maps',
             'turtlebot3_world.yaml'))
 
@@ -106,7 +104,7 @@ def generate_launch_description():
     param_dir = LaunchConfiguration(
         'params_file',
         default=os.path.join(
-            get_package_share_directory('nav_dev'),
+            get_package_share_directory(pkg),
             'params',
             param_file_name))
 
