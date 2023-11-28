@@ -12,7 +12,7 @@ ament_auto_find_build_dependencies()
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-install(DIRECTORY launch models maps params config worlds
+install(DIRECTORY launch models maps params config
   DESTINATION share/${PROJECT_NAME}
 )
 
