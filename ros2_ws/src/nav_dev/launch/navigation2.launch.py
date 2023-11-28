@@ -8,9 +8,6 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
-TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
-
-
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     map_dir = LaunchConfiguration(
@@ -20,7 +17,7 @@ def generate_launch_description():
             'maps',
             'turtlebot3_world.yaml'))
 
-    param_file_name = TURTLEBOT3_MODEL + '.yaml'
+    param_file_name = 'waffle.yaml'
     param_dir = LaunchConfiguration(
         'params_file',
         default=os.path.join(

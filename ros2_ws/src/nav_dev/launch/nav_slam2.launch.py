@@ -7,8 +7,6 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 
-TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']   # waffle
-
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     world_name = LaunchConfiguration('world_name', default='nav_dev_world')
@@ -26,8 +24,8 @@ def generate_launch_description():
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-entity', TURTLEBOT3_MODEL,
-                   '-name', TURTLEBOT3_MODEL,
+        arguments=['-entity', 'waffle',
+                   '-name', 'waffle',
                    '-file', PathJoinSubstitution([
                         get_package_share_directory('nav_dev'),
                         "models", "turtlebot3", "model.sdf"]),
