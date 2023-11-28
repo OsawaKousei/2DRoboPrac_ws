@@ -1,7 +1,4 @@
-/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch/ros_ign_bridge.launch.py
 /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch/nav_slam2.launch.py
-/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch/navigation2.launch.py
-/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch/robot_state_publisher.launch.py
 /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo/model.config
 /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo/meshes/2DRoboPrac.stl
 /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo/meshes/2DRoboPrac.dae

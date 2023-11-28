@@ -1,0 +1,76 @@
+[0.066s] Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/ign_template': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial:/home/kousei/2DRoboPrac_ws/ros2_ws/install/rviz_test:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template:/opt/ros/humble /usr/bin/cmake /home/kousei/2DRoboPrac_ws/ros2_ws/src/ign_template -DCMAKE_INSTALL_PREFIX=/home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template
+[0.105s] -- The C compiler identification is GNU 11.4.0
+[0.145s] -- The CXX compiler identification is GNU 11.4.0
+[0.150s] -- Detecting C compiler ABI info
+[0.195s] -- Detecting C compiler ABI info - done
+[0.200s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.200s] -- Detecting C compile features
+[0.201s] -- Detecting C compile features - done
+[0.203s] -- Detecting CXX compiler ABI info
+[0.252s] -- Detecting CXX compiler ABI info - done
+[0.260s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.260s] -- Detecting CXX compile features
+[0.260s] -- Detecting CXX compile features - done
+[0.262s] -- Found ament_cmake_auto: 1.3.6 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.376s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.481s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.484s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.514s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.593s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.595s] -- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.661s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.679s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.712s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.718s] -- Looking for pthread.h
+[0.766s] -- Looking for pthread.h - found
+[0.766s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.809s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.810s] -- Found Threads: TRUE  
+[1.001s] -- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.018s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.018s] -- Configured cppcheck include dirs: /home/kousei/2DRoboPrac_ws/ros2_ws/src/ign_template/include
+[1.018s] -- Configured cppcheck exclude dirs and/or files: 
+[1.019s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.019s] -- Added test 'lint_cmake' to check CMake code style
+[1.019s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.020s] -- Added test 'uncrustify' to check C / C++ code style
+[1.020s] -- Configured uncrustify additional arguments: 
+[1.020s] -- Added test 'xmllint' to check XML markup files
+[1.022s] -- Configuring done
+[1.029s] -- Generating done
+[1.030s] -- Build files have been written to: /home/kousei/2DRoboPrac_ws/ros2_ws/build/ign_template
+[1.038s] Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/ign_template' returned '0': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial:/home/kousei/2DRoboPrac_ws/ros2_ws/install/rviz_test:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template:/opt/ros/humble /usr/bin/cmake /home/kousei/2DRoboPrac_ws/ros2_ws/src/ign_template -DCMAKE_INSTALL_PREFIX=/home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template
+[1.038s] Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/ign_template': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial:/home/kousei/2DRoboPrac_ws/ros2_ws/install/rviz_test:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template:/opt/ros/humble /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/ign_template -- -j16 -l16
+[1.066s] [ 50%] [32mBuilding CXX object CMakeFiles/teleop_node.dir/src/teleop_node.cpp.o[0m
+[6.926s] [100%] [32m[1mLinking CXX executable teleop_node[0m
+[7.252s] [100%] Built target teleop_node
+[7.260s] Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/ign_template' returned '0': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial:/home/kousei/2DRoboPrac_ws/ros2_ws/install/rviz_test:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template:/opt/ros/humble /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/ign_template -- -j16 -l16
+[7.274s] Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/ign_template': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial:/home/kousei/2DRoboPrac_ws/ros2_ws/install/rviz_test:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template:/opt/ros/humble /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/ign_template
+[7.279s] -- Install configuration: ""
+[7.279s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template//launch
+[7.279s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template//launch/basic_world1.launch.py
+[7.279s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template//launch/basic_world2.launch.py
+[7.279s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template//worlds
+[7.279s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template//worlds/basic_world1.sdf
+[7.279s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/include
+[7.279s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/include/ign_template
+[7.279s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/lib/ign_template/teleop_node
+[7.282s] -- Set runtime path of "/home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/lib/ign_template/teleop_node" to ""
+[7.282s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ament_index/resource_index/package_run_dependencies/ign_template
+[7.282s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ament_index/resource_index/parent_prefix_path/ign_template
+[7.282s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/environment/ament_prefix_path.sh
+[7.282s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/environment/ament_prefix_path.dsv
+[7.282s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/environment/path.sh
+[7.282s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/environment/path.dsv
+[7.282s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/local_setup.bash
+[7.282s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/local_setup.sh
+[7.282s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/local_setup.zsh
+[7.282s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/local_setup.dsv
+[7.282s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/package.dsv
+[7.283s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ament_index/resource_index/packages/ign_template
+[7.283s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/cmake/ament_cmake_export_dependencies-extras.cmake
+[7.283s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/cmake/ament_cmake_export_include_directories-extras.cmake
+[7.283s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/cmake/ign_templateConfig.cmake
+[7.283s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/cmake/ign_templateConfig-version.cmake
+[7.283s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template/share/ign_template/package.xml
+[7.284s] Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/ign_template' returned '0': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial:/home/kousei/2DRoboPrac_ws/ros2_ws/install/rviz_test:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/ign_template:/opt/ros/humble /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/ign_template
