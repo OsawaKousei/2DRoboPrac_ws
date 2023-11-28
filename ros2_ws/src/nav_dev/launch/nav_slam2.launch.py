@@ -9,46 +9,47 @@ from launch_ros.actions import Node
 import xacro
 
 def generate_launch_description():
+    #よく使う変数を設定
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     world_name = LaunchConfiguration('world_name', default='nav_dev_world')
+    pkg_share_dir = get_package_share_directory('nav_dev')
+    model_path = os.path.join(get_package_share_directory('nav_dev'), "models")
 
-    launch_file_dir = os.path.join(get_package_share_directory('nav_dev'), 'launch')
-
+    #gazeboがモデルにアクセスできるようにするための設定
     ign_resource_path = SetEnvironmentVariable(
         name='IGN_GAZEBO_RESOURCE_PATH',value=[
         os.path.join("/opt/ros/humble", "share"),
-        ":" +
-        os.path.join(get_package_share_directory('nav_dev'), "models")])
+        ":" + model_path])
 
-    # Spawn robot
+    #ロボットをスポーンさせる
     ignition_spawn_entity = Node(
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
         arguments=['-entity', 'waffle',
                    '-name', 'waffle',
-                   '-file', PathJoinSubstitution([
-                        get_package_share_directory('nav_dev'),
-                        "models", "turtlebot3", "model.sdf"]),
+                   #ロボットのsdfファイルを指定
+                   '-file', PathJoinSubstitution([model_path, "turtlebot3", "model.sdf"]),
                    '-allow_renaming', 'true',
+                   #ロボットをスポーンさせる位置を指定
                    '-x', '-2.0',
                    '-y', '-0.5',
                    '-z', '0.01'],
         )
     
-    # Spawn world
+    #フィールドをスポーンさせる
     ignition_spawn_world = Node(
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-file', PathJoinSubstitution([
-                        get_package_share_directory('nav_dev'),
-                        "models", "worlds", "model.sdf"]),
+        arguments=['-file', PathJoinSubstitution([model_path, "worlds", "model.sdf"]),#フィールドのsdfファイルを指定
                    '-allow_renaming', 'false'],
         )
     
-    world_only = os.path.join(get_package_share_directory('nav_dev'), "models", "worlds", "world_only.sdf")
+    #シミュレーション環境のsdfファイルを指定(worldタグを持つsdfファイル)
+    world_only = os.path.join(model_path, "worlds", "world_only.sdf")
 
+    #ign gazeboの起動
     ign_gz = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 [os.path.join(get_package_share_directory('ros_ign_gazebo'),
@@ -56,33 +57,38 @@ def generate_launch_description():
             launch_arguments=[('ign_args', [' -r -v 3 ' +
                               world_only
                              ])])
-    
+    #ros_ign_bridgeの起動
     bridge = Node(
         package='ros_ign_bridge',
         executable='parameter_bridge',
         parameters=[{
-            'config_file': os.path.join(get_package_share_directory('nav_dev'), 'config', 'lidar_bridge.yaml'),
+            #brigdeのcofigファイルを指定
+            'config_file': os.path.join(pkg_share_dir, 'config', 'lidar_bridge.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
         },{'use_sim_time': use_sim_time}],
+        #topicの名前を変更
         remappings=[
             ("/odom/tf", "tf"),
         ],
         output='screen'
     )
 
+    #mapトピックの発行？
     map_static_tf = Node(package='tf2_ros',
                         executable='static_transform_publisher',
                         name='static_transform_publisher',
                         output='log',
                         arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
     
+    #ロボットのsdfファイルを指定
     sdf = os.path.join(
-        get_package_share_directory('nav_dev'),
-        'models', 'turtlebot3', 'model.sdf')
+        model_path, 'turtlebot3', 'model.sdf')
 
+    #xacroでsdfファイルをurdfファイルに変換
     doc = xacro.parse(open(sdf))
     xacro.process_doc(doc)
 
+    #robot_state_publisherを起動
     robot_state_publisher = Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
@@ -91,28 +97,33 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time,
                          'robot_description': doc.toxml()}])
     
+    #nav2のマップファイルを指定
     map_dir = LaunchConfiguration(
         'map',
         default=os.path.join(
-            get_package_share_directory('nav_dev'),
+            pkg_share_dir,
             'maps',
             'turtlebot3_world.yaml'))
 
+    #nav2のパラメータファイルを指定
     param_file_name = 'waffle.yaml'
     param_dir = LaunchConfiguration(
         'params_file',
         default=os.path.join(
-            get_package_share_directory('nav_dev'),
+            pkg_share_dir,
             'params',
             param_file_name))
 
+    #nav2の起動ファイルの位置を指定
     nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
 
+    #rviz2の設定ファイルを指定(今回はnav2用に提供された設定を使用)
     rviz_config_dir = os.path.join(
         get_package_share_directory('nav2_bringup'),
         'rviz',
         'nav2_default_view.rviz')
     
+    #nav2の起動
     nav2 = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([nav2_launch_file_dir, '/bringup_launch.py']),
             launch_arguments={
@@ -121,6 +132,7 @@ def generate_launch_description():
                 'params_file': param_dir}.items(),
         )
     
+    #rviz2の起動
     rviz2 = Node(
             package='rviz2',
             executable='rviz2',
