@@ -7,6 +7,7 @@ from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 
 from launch_ros.actions import Node
@@ -26,6 +27,12 @@ def generate_launch_description():
 
     launch_file_dir = os.path.join(get_package_share_directory('nav_dev'), 'launch')
 
+    ign_resource_path = SetEnvironmentVariable(
+        name='IGN_GAZEBO_RESOURCE_PATH',value=[
+        os.path.join("/opt/ros/humble", "share"),
+        ":" +
+        os.path.join(get_package_share_directory('nav_dev'), "models")])
+
     # Load the SDF file from "description" package
     sdf = os.path.join(
         get_package_share_directory('nav_dev'),
@@ -39,15 +46,15 @@ def generate_launch_description():
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-entity', "LiadarRobo",
-                   '-name', "Lidarrobo",
+        arguments=['-entity', "waffle",
+                   '-name', "waffle",
                    '-file', PathJoinSubstitution([
                         get_package_share_directory('nav_dev'),
-                        "models", "LidarRobo", "model.sdf"]),
+                        "models", "turtlebot3", "model.sdf"]),
                    '-allow_renaming', 'true',
-                   '-x', '0.1',
-                   '-y', '0.1',
-                   '-z', '0.075'],
+                   '-x', '-2',
+                   '-y', '0.5',
+                   '-z', '0.01'],
         )
     
     # Spawn world
@@ -57,9 +64,11 @@ def generate_launch_description():
         output='screen',
         arguments=['-file', PathJoinSubstitution([
                         get_package_share_directory('nav_dev'),
-                        "models", "field", "model.sdf"]),
+                        "models", "worlds", "model.sdf"]),
                    '-allow_renaming', 'false'],
         )
+    
+    world_only = os.path.join(get_package_share_directory('nav_dev'), "models", "worlds", "world_only.sdf")
 
     # Setup to launch the simulator and Gazebo world
     gz_sim = IncludeLaunchDescription(
@@ -69,8 +78,16 @@ def generate_launch_description():
             pkg_project_gazebo,
             'worlds',
             'world_only.sdf'
-        ])}.items(),
+        ])}.items()
     )
+
+    ign_gz = IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [os.path.join(get_package_share_directory('ros_ign_gazebo'),
+                              'launch', 'ign_gazebo.launch.py')]),
+            launch_arguments=[('ign_args', [' -r -v 3 ' +
+                              world_only
+                             ])])
 
     robot_state_publisher = Node(
         package='robot_state_publisher',
@@ -101,7 +118,7 @@ def generate_launch_description():
         parameters=[{
             'config_file': os.path.join(pkg_project_bringup, 'config', 'lidar_bridge.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
-        }],
+        },{'use_sim_time': use_sim_time}],
         #/odom/tfをtfとして再発行
         remappings=[
             ("/odom/tf", "tf"),
@@ -113,35 +130,99 @@ def generate_launch_description():
                         name='static_transform_publisher',
                         output='log',
                         arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
+ 
+    map_dir = LaunchConfiguration(
+        'map',
+        default=os.path.join(
+            get_package_share_directory('nav_dev'),
+            'maps',
+            'turtlebot3_world.yaml'))
 
-    lidar_node =  Node(
-                package='nav_dev',
-                executable='lidar_node',
-                prefix="xterm -e"
-                )
+    param_file_name = 'waffle.yaml'
+
+    param_dir = LaunchConfiguration(
+        'params_file',
+        default=os.path.join(
+            get_package_share_directory('nav_dev'),
+            'params',
+            param_file_name))
     
-    teleop_node =  Node(
-                package='nav_dev',
-                executable='teleop_node',
-                prefix="xterm -e"
-                )
+    nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
+
+    rviz_config_dir = os.path.join(
+        get_package_share_directory('nav2_bringup'),
+        'rviz',
+        'nav2_default_view.rviz')
+
+
 
     return LaunchDescription([
+        ign_resource_path,
         ignition_spawn_entity,
         ignition_spawn_world,
-        gz_sim,
+        ign_gz,
+
         DeclareLaunchArgument(
             'use_sim_time',
             default_value=use_sim_time,
             description='If true, use simulated clock'),
+        
         DeclareLaunchArgument(
             'world_name',
             default_value=world_name,
             description='World name'),
+        
         DeclareLaunchArgument('rviz', default_value='true',description='Open RViz.'),
+        
         bridge,
         map_static_tf,
+
+        DeclareLaunchArgument(
+            'use_sim_time',
+            default_value=use_sim_time,
+            description='If true, use simulated clock'),
+        
+        DeclareLaunchArgument(
+            'use_sim_time',
+            default_value=use_sim_time,
+            description='If true, use simulated clock'),
+
         robot_state_publisher,
-        rviz,
-        lidar_node
+
+        DeclareLaunchArgument(
+            'map',
+            default_value=map_dir,
+            description='Full path to map file to load'),
+
+        DeclareLaunchArgument(
+            'params_file',
+            default_value=param_dir,
+            description='Full path to param file to load'),
+
+        DeclareLaunchArgument(
+            'use_sim_time',
+            default_value='true',
+            description='Use simulation (Gazebo) clock if true'),
+        
+        DeclareLaunchArgument(
+            'use_sim_time',
+            default_value='true',
+            description='Use simulation (Gazebo) clock if true'),
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([nav2_launch_file_dir, '/bringup_launch.py']),
+            launch_arguments={
+                'map': map_dir,
+                'use_sim_time': use_sim_time,
+                'params_file': param_dir}.items(),
+        ),
+
+        Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d', rviz_config_dir],
+            parameters=[{'use_sim_time': use_sim_time}],
+            output='screen'),
+
     ])

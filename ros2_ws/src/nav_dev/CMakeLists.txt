@@ -14,6 +14,8 @@ install(DIRECTORY
   worlds
   models
   config
+  maps
+  params
   DESTINATION share/${PROJECT_NAME}/
 )
 
