@@ -55,6 +55,26 @@ def generate_launch_description():
             launch_arguments=[('ign_args', [' -r -v 3 ' +
                               world_only
                              ])])
+    
+    bridge = Node(
+        package='ros_ign_bridge',
+        executable='parameter_bridge',
+        parameters=[{
+            'config_file': os.path.join(get_package_share_directory('nav_dev'), 'config', 'lidar_bridge.yaml'),
+            'qos_overrides./tf_static.publisher.durability': 'transient_local',
+        },{'use_sim_time': use_sim_time}],
+        remappings=[
+            ("/odom/tf", "tf"),
+        ],
+        output='screen'
+    )
+
+    map_static_tf = Node(package='tf2_ros',
+                        executable='static_transform_publisher',
+                        name='static_transform_publisher',
+                        output='log',
+                        arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
+
 
     return LaunchDescription([
         ign_resource_path,
@@ -70,12 +90,10 @@ def generate_launch_description():
             'world_name',
             default_value=world_name,
             description='World name'),
-
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([launch_file_dir, '/ros_ign_bridge.launch.py']),
-            launch_arguments={'use_sim_time': use_sim_time}.items(),
-        ),
-
+        
+        bridge,
+        map_static_tf,
+       
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([launch_file_dir, '/robot_state_publisher.launch.py']),
             launch_arguments={'use_sim_time': use_sim_time}.items(),
