@@ -136,6 +136,7 @@ def generate_launch_description():
         'config',
         'turtle_nav2.rviz')
     
+    
     #nav2の起動設定
     nav2 = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([nav2_launch_file_dir, '/bringup_launch.py']),
@@ -187,6 +188,6 @@ def generate_launch_description():
             default_value=param_dir,
             description='Full path to param file to load'),
 
-        #nav2,
-        #rviz2,
+        nav2,
+        rviz2,
     ])
