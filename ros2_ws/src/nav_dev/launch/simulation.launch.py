@@ -11,7 +11,7 @@ TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']   # waffle
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-    world_name = LaunchConfiguration('world_name', default='turtlebot3_world')
+    world_name = LaunchConfiguration('world_name', default='nav_dev_world')
 
     launch_file_dir = os.path.join(get_package_share_directory('nav_dev'), 'launch')
 
