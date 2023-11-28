@@ -1,0 +1,59 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/kousei/2DRoboPrac_ws/ros2_ws/build/urdf_tutorial
+-- Install configuration: ""
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/images
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/images/myfirst.png
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/images/flexible.png
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/images/origins.png
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/images/visual.png
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/images/multipleshapes.png
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/images/materials.png
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/launch
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/launch/display.launch.py
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/meshes
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/meshes/l_finger_color.png
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/meshes/l_finger_tip.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/meshes/l_finger_tip_color.png
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/meshes/l_finger.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/rviz
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/rviz/urdf.rviz
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/urdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/urdf/08-macroed.urdf.xacro
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/urdf/06-flexible.urdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/urdf/07-physics.urdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/urdf/03-origins.urdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/urdf/05-visual.urdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/urdf/02-multipleshapes.urdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/urdf/04-materials.urdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/urdf/01-myfirst.urdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/ament_index/resource_index/package_run_dependencies/urdf_tutorial
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/ament_index/resource_index/parent_prefix_path/urdf_tutorial
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/environment/ament_prefix_path.sh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/environment/ament_prefix_path.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/environment/path.sh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/environment/path.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/local_setup.bash
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/local_setup.sh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/local_setup.zsh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/local_setup.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/package.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/ament_index/resource_index/packages/urdf_tutorial
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/cmake/urdf_tutorialConfig.cmake
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/cmake/urdf_tutorialConfig-version.cmake
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urdf_tutorial/share/urdf_tutorial/package.xml
