@@ -1,6 +1,0 @@
-{
-  "package_name": "key_event_msgs",
-  "non_idl_tuples": [
-    "/home/kousei/2DRoboPrac_ws/ros2_ws/src/key_event_msgs:msg/KeyEvent.msg"
-  ]
-}

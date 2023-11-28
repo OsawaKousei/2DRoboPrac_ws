@@ -1,4 +1,0 @@
-source;share/key_event_msgs/local_setup.bash
-source;share/key_event_msgs/local_setup.dsv
-source;share/key_event_msgs/local_setup.sh
-source;share/key_event_msgs/local_setup.zsh
