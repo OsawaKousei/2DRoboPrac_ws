@@ -6,7 +6,7 @@
 
     <link name="base_link">
       <inertial>
-        <pose>-0.064 0 0.048 0 0 0</pose>
+        <pose>0.1 0 0.048 0 0 0</pose>
         <inertia>
           <ixx>4.2111447e-02</ixx>
           <ixy>0</ixy>
@@ -315,7 +315,7 @@
     </joint>
 
     <link name='caster_back_right_link'>
-      <pose>-0.177 -0.064 -0.004 -1.57 0 0</pose>
+      <pose>0.15 -0.064 -0.004 -1.57 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia>
@@ -365,7 +365,7 @@
     </joint>
 
     <link name='caster_back_left_link'>
-      <pose>-0.177 0.064 -0.004 -1.57 0 0</pose>
+      <pose>0.15 0.064 -0.004 -1.57 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia>
