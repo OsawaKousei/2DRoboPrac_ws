@@ -108,6 +108,14 @@ def generate_launch_description():
                 executable='lidar_node',
                 output='screen'
                 )
+
+    teleop_node = Node(
+                package='nav_dev',
+                executable='teleop_node',
+                output='screen',
+                #別ターミナルで起動する設定
+                prefix="xterm -e"
+                )  
     
     #nav2の地図のパスを取得
     map_dir = LaunchConfiguration(
@@ -175,7 +183,7 @@ def generate_launch_description():
 
         robot_state_publisher,
 
-        lidar_node,
+        teleop_node,
 
         DeclareLaunchArgument(
             'map',

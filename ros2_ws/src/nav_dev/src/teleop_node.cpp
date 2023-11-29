@@ -56,7 +56,7 @@ public:
             this->publisher_->publish(message);
         };
 
-        timer_ = this->create_wall_timer(100ms, publish_callback);
+        timer_ = this->create_wall_timer(00ms, publish_callback);
 
         //キーボードの値取得用のsubscriber
         sub_ = this->create_subscription<key_event_msgs::msg::KeyEvent>(
