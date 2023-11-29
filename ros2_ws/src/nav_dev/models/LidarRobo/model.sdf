@@ -46,13 +46,15 @@
       <child>chassis</child>
     </joint>
 
+      <!--lidarの取り付け-->
       <link name='lidar'>
-        <!--lidarの取り付け-->
         <pose>0.08 0.2 0 0 0 1.5707</pose>
         <sensor name='gpu_lidar' type='gpu_lidar'>
               <topic>/scan</topic>
+              <!--fixed_frameを/tfと合わせるための設定、sensorが付いてるlinkの名前に合わせる-->
               <ignition_frame_id>lidar</ignition_frame_id>
               <update_rate>5</update_rate> <!--Hz-->
+              <!--光線の設定-->
               <ray>
                   <scan>
                       <horizontal>
@@ -196,10 +198,10 @@
         <parent>chassis</parent>
         <child>right_wheel</child>
         <axis>
-          <xyz expressed_in='__model__'>1 0 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
+          <xyz expressed_in='__model__'>1 0 0</xyz>
           <limit>
-            <lower>-1.79769e+308</lower>    <!--negative infinity-->
-            <upper>1.79769e+308</upper>     <!--positive infinity-->
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
           </limit>
         </axis>
       </joint>
@@ -239,11 +241,13 @@
           </collision>
       </link>
   
+      <!--ballタイプのジョイントはrobot_state_publihserが変換しないので、rviz2側でtfを取得できない-->
       <joint name='caster_wheel' type='ball'>
           <parent>chassis</parent>
           <child>caster</child>
       </joint>
       
+      <!--差動二輪のためのプラグイン-->
       <plugin
           filename="libignition-gazebo-diff-drive-system.so"
           name="ignition::gazebo::systems::DiffDrive">
@@ -252,13 +256,16 @@
           <wheel_separation>1.2</wheel_separation>
           <wheel_radius>0.4</wheel_radius>
           <odom_publish_frequency>1</odom_publish_frequency>
+          <!--速度司令を受け取るトピックを指定-->
           <topic>/cmd_vel</topic>
       </plugin>
-      <!-- Joint state publisher -->
-        <plugin filename="libignition-gazebo-joint-state-publisher-system.so" 
-          name="ignition::gazebo::systems::JointStatePublisher">
-          <topic>joint_states</topic>
-        </plugin>
+
+      <!--↓ros2との連携に使うプラグインたち↓-->
+      
+      <plugin filename="libignition-gazebo-joint-state-publisher-system.so" 
+        name="ignition::gazebo::systems::JointStatePublisher">
+        <topic>joint_states</topic>
+      </plugin>
 
         <plugin
           filename="ignition-gazebo-pose-publisher-system"
@@ -269,7 +276,6 @@
           <static_update_frequency>1</static_update_frequency>
         </plugin>
 
-        <!-- Global odometer -->
         <plugin
           filename="ignition-gazebo-odometry-publisher-system"
           name="ignition::gazebo::systems::OdometryPublisher">

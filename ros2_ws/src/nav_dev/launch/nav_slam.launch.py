@@ -106,8 +106,7 @@ def generate_launch_description():
     lidar_node = Node(
                 package='nav_dev',
                 executable='lidar_node',
-                output='screen',
-                prefix="xterm -e"
+                output='screen'
                 )
     
     #nav2の地図のパスを取得
@@ -187,7 +186,5 @@ def generate_launch_description():
             'params_file',
             default_value=param_dir,
             description='Full path to param file to load'),
-
-        #nav2,
         rviz2,
     ])

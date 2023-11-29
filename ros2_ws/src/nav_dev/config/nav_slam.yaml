@@ -10,7 +10,7 @@
   gz_type_name: "ignition.msgs.Odometry"
   direction: GZ_TO_ROS
 - ros_topic_name: "/odom/tf"
-  gz_topic_name: "/odom/tf"
+  gz_topic_name: "odom/tf"
   ros_type_name: "tf2_msgs/msg/TFMessage"
   gz_type_name: "ignition.msgs.Pose_V"
   direction: GZ_TO_ROS
@@ -34,20 +34,4 @@
   gz_topic_name: "/scan/points"
   ros_type_name: "sensor_msgs/msg/PointCloud2"
   gz_type_name: "ignition.msgs.PointCloudPacked"
-  direction: GZ_TO_ROS
-- ros_topic_name: "/imu"
-  gz_topic_name: "/imu"
-  ros_type_name: "sensor_msgs/msg/IMU"
-  gz_type_name: "ignition.msgs.IMU"
-  direction: GZ_TO_ROS
-  #camera
-- ros_topic_name: "/camera/rgb/image_raw"
-  gz_topic_name: "/camera/rgb/image_raw"
-  ros_type_name: "sensor_msgs/msg/Image"
-  gz_type_name: "ignition.msgs.Image"
-  direction: GZ_TO_ROS
-- ros_topic_name: "/camera/rgb/image_info"
-  gz_topic_name: "/camera/rgb/image_info"
-  ros_type_name: "sensor_msgs/msg/CameraInfo"
-  gz_type_name: "ignition.msgs.CameraInfo"
   direction: GZ_TO_ROS
