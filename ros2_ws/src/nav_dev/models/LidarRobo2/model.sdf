@@ -3,7 +3,7 @@
     <model name="LidarRobo">
       <link name="base_footprint"/>
       <link name="chassis">
-        <pose>0 0 0 0 0 -1.5708</pose>
+        <pose>-0.03 0.08 0.04 0 0 -1.5708</pose>
         <inertial>
           <!--恐らく、このposeの値が重心になる-->
           <pose>0.08 0.1 -0.1 0 0 0</pose>
