@@ -4,7 +4,7 @@
   <name>nav_dev</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="xinchen.cai@hotmail.com">caixc</maintainer>
+  <maintainer email="jwithelis@gmail.com">n622/jwith</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
