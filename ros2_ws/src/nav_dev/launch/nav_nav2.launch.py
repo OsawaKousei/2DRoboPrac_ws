@@ -10,7 +10,7 @@ import xacro
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-    world_name = LaunchConfiguration('world_name', default='turtlebot3_world')
+    world_name = LaunchConfiguration('world_name', default='nav_slam_world')
     pkg_share_dir = get_package_share_directory('nav_dev')
     model_path = os.path.join(pkg_share_dir, "models")
 
@@ -26,17 +26,17 @@ def generate_launch_description():
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-entity', 'waffle',
-                   '-name', 'waffle',
+        arguments=['-entity', 'LidarRobo',
+                   '-name', 'LidarRobo',
                    #ロボットのsdfファイルを指定
                    '-file', PathJoinSubstitution([
                         pkg_share_dir,
-                        "models", "turtlebot3", "model.sdf"]),
+                        "models", "LidarRobo", "model.sdf"]),
                     #ロボットの位置を指定
                    '-allow_renaming', 'true',
-                   '-x', '-2.0',
-                   '-y', '-0.5',
-                   '-z', '0.01'],
+                   '-x', '0.1',
+                   '-y', '0.1',
+                   '-z', '0.075'],
         )
     
     #フィールドをスポーンさせる設定
@@ -47,12 +47,12 @@ def generate_launch_description():
             #フィールドのsdfファイルを指定
         arguments=['-file', PathJoinSubstitution([
                         pkg_share_dir,
-                        "models", "worlds", "model.sdf"]),
+                        "models", "field", "model.sdf"]),
                    '-allow_renaming', 'false'],
         )
     
     #ワールドのsdfファイルを設定(worldタグのあるsdfファイル)
-    world_only = os.path.join(pkg_share_dir, "models", "worlds", "world_only.sdf")
+    world = os.path.join(pkg_share_dir, "models", "worlds", "nav_slam.sdf")
 
     #ignition gazeboの起動設定
     ign_gz = IncludeLaunchDescription(
@@ -60,7 +60,7 @@ def generate_launch_description():
                 [os.path.join(get_package_share_directory('ros_ign_gazebo'),
                               'launch', 'ign_gazebo.launch.py')]),
             launch_arguments=[('ign_args', [' -r -v 3 ' +
-                              world_only
+                              world
                              ])])
     
     #ros_ign_bridgeの起動設定
@@ -69,7 +69,7 @@ def generate_launch_description():
         executable='parameter_bridge',
         parameters=[{
             #brigdeの設定ファイルを指定
-            'config_file': os.path.join(pkg_share_dir, 'config', 'ros_gz_bridge.yaml'),
+            'config_file': os.path.join(pkg_share_dir, 'config', 'nav_slam.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
         },{'use_sim_time': use_sim_time}],
         remappings=[
@@ -88,7 +88,7 @@ def generate_launch_description():
     #ロボットのsdfファイルのパスを取得
     sdf = os.path.join(
         get_package_share_directory('nav_dev'),
-        'models', 'turtlebot3', 'model.sdf')
+        'models', 'LidarRobo', 'model.sdf')
 
     #xacroでsdfファイルをurdfに変換
     doc = xacro.parse(open(sdf))
@@ -108,11 +108,11 @@ def generate_launch_description():
         'map',
         default=os.path.join(
             get_package_share_directory('nav_dev'),
-            'maps',
-            'turtlebot3_world.yaml'))
+            'maps','test_map2',
+            'test_map2.yaml'))
 
     #nav2のパラメータのパスを取得
-    param_file_name = 'waffle.yaml'
+    param_file_name = 'nav_nav2.yaml'
     param_dir = LaunchConfiguration(
         'params_file',
         default=os.path.join(
@@ -127,7 +127,7 @@ def generate_launch_description():
     rviz_config_dir = os.path.join(
         pkg_share_dir,
         'config',
-        'turtle_nav2.rviz')
+        'nav_slam.rviz')
     
     #nav2の起動設定
     nav2 = IncludeLaunchDescription(
@@ -146,6 +146,8 @@ def generate_launch_description():
             arguments=['-d', rviz_config_dir],
             parameters=[{'use_sim_time': use_sim_time}],
             output='screen')
+    
+   
     
     return LaunchDescription([
         ign_resource_path,
