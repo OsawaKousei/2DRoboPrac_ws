@@ -143,16 +143,6 @@ def generate_launch_description():
         'config',
         'nav_slam.rviz')
     
-    
-    #nav2の起動設定
-    nav2 = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([nav2_launch_file_dir, '/bringup_launch.py']),
-            launch_arguments={
-                'map': map_dir,
-                'use_sim_time': use_sim_time,
-                'params_file': param_dir}.items(),
-        )
-    
     #rviz2の起動設定
     rviz2 = Node(
             package='rviz2',
@@ -161,6 +151,24 @@ def generate_launch_description():
             arguments=['-d', rviz_config_dir],
             parameters=[{'use_sim_time': use_sim_time}],
             output='screen')
+    
+    slam_params_file = LaunchConfiguration('slam_params_file')
+
+    declare_slam_params_file_cmd = DeclareLaunchArgument(
+        'slam_params_file',
+        default_value=os.path.join(get_package_share_directory("nav_dev"),
+                                   'params', 'mapper_params_online_async.yaml'),
+        description='Full path to the ROS2 parameters file to use for the slam_toolbox node')
+
+    start_async_slam_toolbox_node = Node(
+        parameters=[
+          slam_params_file,
+          {'use_sim_time': use_sim_time}
+        ],
+        package='slam_toolbox',
+        executable='async_slam_toolbox_node',
+        name='slam_toolbox',
+        output='screen')
     
     return LaunchDescription([
         ign_resource_path,
@@ -195,4 +203,7 @@ def generate_launch_description():
             default_value=param_dir,
             description='Full path to param file to load'),
         rviz2,
+
+        declare_slam_params_file_cmd,
+        start_async_slam_toolbox_node,
     ])
