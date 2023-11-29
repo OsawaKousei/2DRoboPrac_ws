@@ -107,7 +107,7 @@
     <!-- LIDAR -->
     <link name="base_scan">
       <inertial>
-        <pose>-0.052 0 0.111 0 0 0</pose>
+        <pose>0.15 0 0.111 0 0 0</pose>
         <inertia>
           <ixx>0.001</ixx>
           <ixy>0</ixy>
@@ -142,7 +142,7 @@
         </material>
       </visual>
       <sensor name="gpu_lidar" type="gpu_lidar">
-        <pose>-0.064 0 0.07 0 0 0</pose>
+        <pose>0.15 0 0.07 0 0 0</pose>
         <topic>scan</topic>
         <ignition_frame_id>base_scan</ignition_frame_id>
         <update_rate>5</update_rate>
@@ -171,7 +171,7 @@
       </sensor>
     </link>
     <joint name="lidar_joint" type="fixed">
-      <pose>-0.064 0 0.121 0 0 0</pose>
+      <pose>0.15 0 0.121 0 0 0</pose>
       <parent>base_link</parent>
       <child>base_scan</child>
     </joint>
