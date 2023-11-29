@@ -52,19 +52,19 @@
       <!--lidarの取り付け-->
       <link name='base_scan'>
         <inertial>
-              <pose>0.05 0.18 0.01 0 0 0</pose>
-              <inertia>
-                <ixx>0.001</ixx>
-                <ixy>0</ixy>
-                <ixz>0</ixz>
-                <iyy>0.001</iyy>
-                <iyz>0</iyz>
-                <izz>0.001</izz>
-              </inertia>
-              <mass>0.114</mass>
+          <pose>0.18 0 0.04 0 0 0</pose>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+          <mass>0.114</mass>
           </inertial>
           <collision name="lidar_sensor_collision">
-            <pose>0.05 0.18 0.01 0 0 0</pose>
+            <pose>0.18 0 0.04 0 0 0</pose>
             <geometry>
               <cylinder>
                   <radius>0.02</radius>
@@ -73,7 +73,7 @@
             </geometry>
           </collision>
           <visual name='lidar_sensor_visual'>
-            <pose>0.05 0.18 0.01 0 0 0</pose>
+            <pose>0.18 0 0.04 0 0 0</pose>
             <geometry>
                 <cylinder>
                     <radius>0.02</radius>
@@ -87,7 +87,7 @@
             </material>
           </visual>
         <sensor name='gpu_lidar' type='gpu_lidar'>
-          <pose>0.05 0.18 0.01 0 0 0</pose>
+          <pose>0.18 0 0.04 0 0 0</pose>
           <topic>scan</topic>
           <!--fixed_frameを/tfと合わせるための設定、sensorが付いてるlinkの名前に合わせる-->
           <ignition_frame_id>base_scan</ignition_frame_id>
@@ -119,7 +119,7 @@
       </link>
 
       <joint name="lidar_joint" type="fixed">
-          <pose>0.05 0.18 0.01 0 0 0</pose>
+          <pose>0.18 0 0.04 0 0 0</pose>
           <parent>base_link</parent>
           <child>base_scan</child>
       </joint>
