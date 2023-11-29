@@ -4,14 +4,14 @@
       <link name="base_footprint"/>
       <link name="chassis">
         <inertial> <!--inertial properties of the link mass, inertia matix-->
-          <mass>1.14395</mass>
+          <mass>1.3729096e+00</mass>
           <inertia>
-              <ixx>0.095329</ixx>
+              <ixx>4.2111447e-02</ixx>
               <ixy>0</ixy>
               <ixz>0</ixz>
-              <iyy>0.381317</iyy>
+              <iyy>4.2111447e-02</iyy>
               <iyz>0</iyz>
-              <izz>0.476646</izz>
+              <izz>7.5254874e-02</izz>
           </inertia>
         </inertial>
         <collision name="collision">
@@ -58,7 +58,7 @@
               <ray>
                   <scan>
                       <horizontal>
-                          <samples>30</samples>
+                          <samples>270</samples>
                           <resolution>1</resolution>
                           <min_angle>-2.36</min_angle>
                           <max_angle>2.36</max_angle>
@@ -80,15 +80,15 @@
               <visualize>true</visualize>
           </sensor>
           <inertial>
-              <mass>1</mass>
               <inertia>
-                  <ixx>0.016</ixx>
-                  <ixy>0</ixy>
-                  <ixz>0</ixz>
-                  <iyy>0.016</iyy>
-                  <iyz>0</iyz>
-                  <izz>0.016</izz>
+                <ixx>0.001</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>0.001</iyy>
+                <iyz>0</iyz>
+                <izz>0.001</izz>
               </inertia>
+              <mass>0.114</mass>
           </inertial>
           <visual name='visual'>
               <geometry>
@@ -112,15 +112,15 @@
       <link name='left_wheel'>
         <pose relative_to="chassis">-0.01 0.035 -0.042 -1.5707 0 -1.5707</pose>
         <inertial>
-            <mass>1</mass>
             <inertia>
-                <ixx>0.043333</ixx>
-                <ixy>0</ixy>
-                <ixz>0</ixz>
-                <iyy>0.043333</iyy>
-                <iyz>0</iyz>
-                <izz>0.08</izz>
+              <ixx>1.1175580e-05</ixx>
+              <ixy>-4.2369783e-11</ixy>
+              <ixz>-5.9381719e-09</ixz>
+              <iyy>1.1192413e-05</iyy>
+              <iyz>-1.4400107e-11</iyz>
+              <izz>2.0712558e-05</izz>
             </inertia>
+            <mass>0.1</mass>
         </inertial>
         <visual name='visual'>
             <geometry>
@@ -142,6 +142,28 @@
                     <length>0.01</length>
                 </cylinder>
             </geometry>
+            <surface>
+            <!--摩擦などの設定-->
+            <friction>
+              <ode>
+                <mu>100000.0</mu>
+                <mu2>100000.0</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0.0</slip1>
+                <slip2>0.0</slip2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+5</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+          </surface>
         </collision>
       </link>
 
@@ -161,15 +183,15 @@
       <link name='right_wheel'>
         <pose relative_to="chassis">0.17 0.035 -0.042 -1.5707 0 -1.5707</pose>
         <inertial>
-            <mass>1</mass>
             <inertia>
-                <ixx>0.043333</ixx>
-                <ixy>0</ixy>
-                <ixz>0</ixz>
-                <iyy>0.043333</iyy>
-                <iyz>0</iyz>
-                <izz>0.08</izz>
+              <ixx>1.1175580e-05</ixx>
+              <ixy>-4.2369783e-11</ixy>
+              <ixz>-5.9381719e-09</ixz>
+              <iyy>1.1192413e-05</iyy>
+              <iyz>-1.4400107e-11</iyz>
+              <izz>2.0712558e-05</izz>
             </inertia>
+            <mass>0.1</mass>
         </inertial>
         <visual name='visual'>
             <geometry>
@@ -191,6 +213,28 @@
                     <length>0.01</length>
                 </cylinder>
             </geometry>
+            <surface>
+              <!-- This friction pamareter don't contain reliable data!! -->
+              <friction>
+                <ode>
+                  <mu>100000.0</mu>
+                  <mu2>100000.0</mu2>
+                  <fdir1>0 0 0</fdir1>
+                  <slip1>0.0</slip1>
+                  <slip2>0.0</slip2>
+                </ode>
+              </friction>
+              <contact>
+                <ode>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+5</kp>
+                  <kd>1</kd>
+                  <max_vel>0.01</max_vel>
+                  <min_depth>0.001</min_depth>
+                </ode>
+              </contact>
+            </surface>
         </collision>
       </link>
       <joint name='right_wheel_joint' type='revolute'>
@@ -210,15 +254,15 @@
       <link name='caster'>
           <pose>0.08 0.2 -0.057 0 0 0</pose>
           <inertial>
-              <mass>1</mass>
-              <inertia>
-                  <ixx>0.016</ixx>
-                  <ixy>0</ixy>
-                  <ixz>0</ixz>
-                  <iyy>0.016</iyy>
-                  <iyz>0</iyz>
-                  <izz>0.016</izz>
-              </inertia>
+              <mass>0.001</mass>
+                <inertia>
+                  <ixx>0.00001</ixx>
+                  <ixy>0.000</ixy>
+                  <ixz>0.000</ixz>
+                  <iyy>0.00001</iyy>
+                  <iyz>0.000</iyz>
+                  <izz>0.00001</izz>
+                </inertia>
           </inertial>
           <visual name='visual'>
               <geometry>
@@ -238,6 +282,18 @@
                       <radius>0.02</radius>
                   </sphere>
               </geometry>
+              <surface>
+                <contact>
+                  <ode>
+                    <soft_cfm>0</soft_cfm>
+                    <soft_erp>0.2</soft_erp>
+                    <kp>1e+5</kp>
+                    <kd>1</kd>
+                    <max_vel>0.01</max_vel>
+                    <min_depth>0.001</min_depth>
+                  </ode>
+                </contact>
+              </surface>
           </collision>
       </link>
   
