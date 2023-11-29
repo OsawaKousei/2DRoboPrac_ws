@@ -114,7 +114,7 @@ def generate_launch_description():
             'test_map2.yaml'))
 
     #nav2のパラメータのパスを取得
-    param_file_name = 'waffle.yaml'
+    param_file_name = 'nav_nav2.yaml'
     param_dir = LaunchConfiguration(
         'params_file',
         default=os.path.join(

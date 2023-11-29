@@ -20,6 +20,7 @@ slam_toolbox:
     # if you'd like to immediately start continuing a map at a given pose
     # or at the dock, but they are mutually exclusive, if pose is given
     # will use pose
+    #このパスを適切に設定すること
     map_file_name: /home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev/maps/test_map4/test_map4
     # map_start_pose: [0.0, 0.0, 0.0]
     map_start_at_dock: true
