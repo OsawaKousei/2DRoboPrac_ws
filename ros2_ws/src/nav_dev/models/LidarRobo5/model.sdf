@@ -119,22 +119,22 @@
         <mass>0.114</mass>
       </inertial>
       <collision name="lidar_sensor_collision">
-        <pose>-0.052 0 0.111 0 0 0</pose>
+        <pose>0.15 0 0.05 0 0 0</pose>
         <geometry>
-          <cylinder>
-            <radius>0.0508</radius>
-            <length>0.055</length>
-          </cylinder>
-        </geometry>
+              <cylinder>
+                  <radius>0.02</radius>
+                  <length>0.05</length>
+              </cylinder>
+            </geometry>
       </collision>
       <visual name="lidar_sensor_visual">
-        <pose>-0.064 0 0.121 0 0 0</pose>
+        <pose>0.15 0 0.05 0 0 0</pose>
         <geometry>
-          <mesh>
-            <uri>model://turtlebot3/meshes/lds.dae</uri>
-            <scale>0.001 0.001 0.001</scale>
-          </mesh>
-        </geometry>
+              <cylinder>
+                  <radius>0.02</radius>
+                  <length>0.05</length>
+              </cylinder>
+            </geometry>
         <material>
           <diffuse> 0.145098039 0.156862745 0.164705882 1</diffuse>
           <ambient> 0.145098039 0.156862745 0.164705882 1</ambient>
@@ -327,6 +327,18 @@
           <izz>0.00001</izz>
         </inertia>
       </inertial>
+      <visual name='caster_back_right_visual'>
+          <geometry>
+              <sphere>
+                  <radius>0.02</radius>
+              </sphere>
+          </geometry>
+          <material>
+              <ambient>0.0 1 0.0 1</ambient>
+              <diffuse>0.0 1 0.0 1</diffuse>
+              <specular>0.0 1 0.0 1</specular>
+          </material>
+        </visual>
       <collision name='collision'>
         <geometry>
           <sphere>
@@ -365,6 +377,18 @@
           <izz>0.00001</izz>
         </inertia>
       </inertial>
+      <visual name='caster_back_left_visual'>
+          <geometry>
+              <sphere>
+                  <radius>0.02</radius>
+              </sphere>
+          </geometry>
+          <material>
+              <ambient>0.0 1 0.0 1</ambient>
+              <diffuse>0.0 1 0.0 1</diffuse>
+              <specular>0.0 1 0.0 1</specular>
+          </material>
+        </visual>
       <collision name='collision'>
         <geometry>
           <sphere>
