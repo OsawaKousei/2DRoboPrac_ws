@@ -26,16 +26,16 @@ def generate_launch_description():
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-entity', 'LidarRobo',
-                   '-name', 'LidarRobo',
+        arguments=['-entity', 'LidarRobo4',
+                   '-name', 'LidarRobo4',
                    #ロボットのsdfファイルを指定
                    '-file', PathJoinSubstitution([
                         pkg_share_dir,
-                        "models", "LidarRobo", "model.sdf"]),
+                        "models", "LidarRobo4", "model.sdf"]),
                     #ロボットの位置を指定
                    '-allow_renaming', 'true',
-                   '-x', '0.1',
-                   '-y', '0.1',
+                   '-x', '0.4',
+                   '-y', '0.4',
                    '-z', '0.075'],
         )
     
@@ -89,7 +89,7 @@ def generate_launch_description():
     #ロボットのsdfファイルのパスを取得
     sdf = os.path.join(
         get_package_share_directory('nav_dev'),
-        'models', 'LidarRobo', 'model.sdf')
+        'models', 'LidarRobo4', 'model.sdf')
 
     #xacroでsdfファイルをurdfに変換
     doc = xacro.parse(open(sdf))
@@ -103,12 +103,6 @@ def generate_launch_description():
             output='both',
             parameters=[{'use_sim_time': use_sim_time,
                          'robot_description': doc.toxml()}]) # type: ignore
-    
-    lidar_node = Node(
-                package='nav_dev',
-                executable='lidar_node',
-                output='screen'
-                )
 
     teleop_node = Node(
                 package='nav_dev',
@@ -118,26 +112,7 @@ def generate_launch_description():
                 prefix="xterm -e"
                 )  
     
-    #nav2の地図のパスを取得
-    map_dir = LaunchConfiguration(
-        'map',
-        default=os.path.join(
-            get_package_share_directory('nav_dev'),
-            'maps',
-            'turtlebot3_world.yaml'))
-
-    #nav2のパラメータのパスを取得
-    param_file_name = 'waffle.yaml'
-    param_dir = LaunchConfiguration(
-        'params_file',
-        default=os.path.join(
-            get_package_share_directory('nav_dev'),
-            'params',
-            param_file_name))
-
-    #nav2のランチファイルのパスを取得
-    nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
-
+  
     #rviz2の設定フィルのパスを取得
     rviz_config_dir = os.path.join(
         pkg_share_dir,
@@ -153,14 +128,15 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time}],
             output='screen')
     
+    #slam_toolboxの起動オプション設定
     slam_params_file = LaunchConfiguration('slam_params_file')
-
     declare_slam_params_file_cmd = DeclareLaunchArgument(
         'slam_params_file',
         default_value=os.path.join(get_package_share_directory("nav_dev"),
-                                   'params', 'mapper_params_online_async.yaml'),
+                                   'params', 'slam_param.yaml'),
         description='Full path to the ROS2 parameters file to use for the slam_toolbox node')
 
+    #slam_toolboxの起動設定
     start_async_slam_toolbox_node = Node(
         parameters=[
           slam_params_file,
@@ -194,15 +170,6 @@ def generate_launch_description():
 
         teleop_node,
 
-        DeclareLaunchArgument(
-            'map',
-            default_value=map_dir,
-            description='Full path to map file to load'),
-
-        DeclareLaunchArgument(
-            'params_file',
-            default_value=param_dir,
-            description='Full path to param file to load'),
         rviz2,
 
         declare_slam_params_file_cmd,
