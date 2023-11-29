@@ -26,11 +26,10 @@
         </geometry>
       </collision>
       <visual name="base_visual">
-        <pose>-0.064 0 0 0 0 0</pose>
+        <pose>-0.064 0.08 0.055 0 0 -1.57</pose>
         <geometry>
           <mesh>
-            <uri>model://turtlebot3/meshes/waffle_base.dae</uri>
-            <scale>0.001 0.001 0.001</scale>
+            <uri>model://LidarRobo5/meshes/2DRoboPrac.dae</uri>
           </mesh>
         </geometry>
         <material>
