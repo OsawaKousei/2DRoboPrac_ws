@@ -26,12 +26,12 @@ def generate_launch_description():
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-entity', 'LidarRobo5',
-                   '-name', 'LidarRobo5',
+        arguments=['-entity', 'LidarRobo4',
+                   '-name', 'LidarRobo4',
                    #ロボットのsdfファイルを指定
                    '-file', PathJoinSubstitution([
                         pkg_share_dir,
-                        "models", "LidarRobo5", "model.sdf"]),#LidarRobo4を使用すること！
+                        "models", "LidarRobo4", "model.sdf"]),#LidarRobo4を使用すること！
                     #ロボットの位置を指定
                    '-allow_renaming', 'true',
                    '-x', '0.4',
@@ -90,7 +90,7 @@ def generate_launch_description():
     #ロボットのsdfファイルのパスを取得
     sdf = os.path.join(
         get_package_share_directory('nav_dev'),
-        'models', 'LidarRobo5', 'model.sdf')
+        'models', 'LidarRobo4', 'model.sdf')
 
     #xacroでsdfファイルをurdfに変換
     doc = xacro.parse(open(sdf))
