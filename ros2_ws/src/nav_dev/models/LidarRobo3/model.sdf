@@ -1,5 +1,6 @@
 <sdf version="1.8">
     <model name="LidarRobo3">
+    <pose>0 0 0 0 0 0</pose>
 
       <link name="base_footprint"/>
 
@@ -124,7 +125,7 @@
             <geometry>
                 <cylinder>
                     <radius>0.035</radius>
-                    <length>0.01</length>
+                    <length>0.018</length>
                 </cylinder>
             </geometry>
             <material>
@@ -137,7 +138,7 @@
             <geometry>
                 <cylinder>
                     <radius>0.035</radius>
-                    <length>0.01</length>
+                    <length>0.018</length>
                 </cylinder>
             </geometry>
             <surface>
@@ -171,10 +172,6 @@
         <child>left_wheel</child>
         <axis>
           <xyz expressed_in='__model__'>0 1 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
-          <limit>
-            <lower>-1.79769e+308</lower>    <!--negative infinity-->
-            <upper>1.79769e+308</upper>     <!--positive infinity-->
-          </limit>
         </axis>
       </joint>
 
@@ -195,7 +192,7 @@
             <geometry>
                 <cylinder>
                     <radius>0.035</radius>
-                    <length>0.01</length>
+                    <length>0.018</length>
                 </cylinder>
             </geometry>
             <material>
@@ -208,7 +205,7 @@
             <geometry>
                 <cylinder>
                     <radius>0.035</radius>
-                    <length>0.01</length>
+                    <length>0.018</length>
                 </cylinder>
             </geometry>
             <surface>
@@ -241,10 +238,6 @@
         <child>right_wheel</child>
         <axis>
           <xyz expressed_in='__model__'>0 1 0</xyz>
-          <limit>
-            <lower>-1.79769e+308</lower>
-            <upper>1.79769e+308</upper>
-          </limit>
         </axis>
       </joint>
 
