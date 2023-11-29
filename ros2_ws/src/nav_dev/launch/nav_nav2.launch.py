@@ -72,6 +72,7 @@ def generate_launch_description():
             #brigdeの設定ファイルを指定
             'config_file': os.path.join(pkg_share_dir, 'config', 'nav_slam.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
+            'qos_overrides./odom.publisher.durability': 'transient_local',
         },{'use_sim_time': use_sim_time}],
         remappings=[
             ("/odom/tf", "tf"),
@@ -128,7 +129,7 @@ def generate_launch_description():
     rviz_config_dir = os.path.join(
         pkg_share_dir,
         'config',
-        'nav_slam.rviz')
+        'turtle_nav2.rviz')
     
     #nav2の起動設定
     nav2 = IncludeLaunchDescription(
@@ -166,10 +167,10 @@ def generate_launch_description():
             default_value=world_name,
             description='World name'),
 
-        #bridge,
-        #map_static_tf,
+        bridge,
+        map_static_tf,
 
-        #robot_state_publisher,
+        robot_state_publisher,
 
         DeclareLaunchArgument(
             'map',
@@ -181,6 +182,6 @@ def generate_launch_description():
             default_value=param_dir,
             description='Full path to param file to load'),
 
-        #nav2,
-        #rviz2,
+        nav2,
+        rviz2,
     ])
