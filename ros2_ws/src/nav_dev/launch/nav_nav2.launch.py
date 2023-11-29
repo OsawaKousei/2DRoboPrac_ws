@@ -129,7 +129,7 @@ def generate_launch_description():
     rviz_config_dir = os.path.join(
         pkg_share_dir,
         'config',
-        'turtle_nav2.rviz')
+        'nav_nav2.rviz')
     
     #nav2の起動設定
     nav2 = IncludeLaunchDescription(
