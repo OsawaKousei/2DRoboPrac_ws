@@ -1,5 +1,4 @@
 image: test_map2.pgm
-mode: trinary
 resolution: 0.05
 origin: [-0.0289, -0.0214, 0]
 negate: 0
