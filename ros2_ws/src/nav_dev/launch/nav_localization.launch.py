@@ -70,7 +70,6 @@ def generate_launch_description():
         parameters=[{
             #brigdeの設定ファイルを指定
             'config_file': os.path.join(pkg_share_dir, 'config', 'nav_slam.yaml'),
-            'qos_overrides./tf_static.publisher.durability': 'transient_local',
         },{'use_sim_time': use_sim_time}],
         remappings=[
             ("/odom/tf", "tf"),
@@ -103,12 +102,6 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time,
                          'robot_description': doc.toxml()}]) # type: ignore
     
-    lidar_node = Node(
-                package='nav_dev',
-                executable='lidar_node',
-                output='screen'
-                )
-
     teleop_node = Node(
                 package='nav_dev',
                 executable='teleop_node',
@@ -117,26 +110,6 @@ def generate_launch_description():
                 prefix="xterm -e"
                 )  
     
-    #nav2の地図のパスを取得
-    map_dir = LaunchConfiguration(
-        'map',
-        default=os.path.join(
-            get_package_share_directory('nav_dev'),
-            'maps',
-            'turtlebot3_world.yaml'))
-
-    #nav2のパラメータのパスを取得
-    param_file_name = 'waffle.yaml'
-    param_dir = LaunchConfiguration(
-        'params_file',
-        default=os.path.join(
-            get_package_share_directory('nav_dev'),
-            'params',
-            param_file_name))
-
-    #nav2のランチファイルのパスを取得
-    nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
-
     #rviz2の設定フィルのパスを取得
     rviz_config_dir = os.path.join(
         pkg_share_dir,
@@ -193,15 +166,6 @@ def generate_launch_description():
 
         teleop_node,
 
-        DeclareLaunchArgument(
-            'map',
-            default_value=map_dir,
-            description='Full path to map file to load'),
-
-        DeclareLaunchArgument(
-            'params_file',
-            default_value=param_dir,
-            description='Full path to param file to load'),
         rviz2,
 
         declare_slam_params_file_cmd,
