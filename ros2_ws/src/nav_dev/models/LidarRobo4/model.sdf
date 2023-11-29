@@ -7,7 +7,7 @@
       <link name="base_link">
         <inertial>
           <!--恐らく、このposeの値が重心になる-->
-          <pose>0.05 0.18 -0.3 0 0 0</pose>
+          <pose>0 0 0.04 0 0 0</pose>
           <mass>1.14395</mass>
           <inertia>
               <ixx>0.095329</ixx>
@@ -126,7 +126,7 @@
 
       <link name='wheel_left_link'>
         <inertial>
-          <pose>-0.09 0.043 -0.002 -1.5707 0 -1.57</pose>
+          <pose>-0.09 0.043 -0.002 -1.5707 0 0</pose>
           <inertia>
             <ixx>1.1175580e-05</ixx>
             <ixy>-4.2369783e-11</ixy>
@@ -138,7 +138,7 @@
           <mass>0.1</mass>
         </inertial>
         <collision name='wheel_left_collision'>
-          <pose>-0.09 0.043 -0.002 -1.5707 0 -1.57</pose>
+          <pose>-0.09 0.043 -0.002 -1.5707 0 0</pose>
           <geometry>
               <cylinder>
                   <radius>0.035</radius>
@@ -169,6 +169,7 @@
           </surface>
         </collision>
         <visual name='wheel_left_visual'>
+          <pose>-0.09 0.043 -0.002 -1.5707 0 0</pose>
           <geometry>
               <cylinder>
                   <radius>0.035</radius>
@@ -184,7 +185,7 @@
       </link>
 
       <joint name='wheel_left_joint' type='revolute'>
-        <pose>-0.09 0.043 -0.002 -1.5707 0 -1.57</pose>
+        <pose>-0.09 0.043 -0.002 -1.5707 0 0</pose>
         <parent>base_link</parent>
         <child>wheel_left_link</child>
         <axis>
@@ -194,7 +195,7 @@
 
       <link name='wheel_right_link'>
         <inertial>
-          <pose>0.09 0.062 -0.002 -1.5707 0 -1.57</pose>
+          <pose>0.09 0.062 -0.002 -1.5707 0 0</pose>
           <inertia>
             <ixx>1.1175580e-05</ixx>
             <ixy>-4.2369783e-11</ixy>
@@ -206,7 +207,7 @@
           <mass>0.1</mass>
         </inertial>
         <collision name='wheel_right_collision'>
-          <pose>0.09 0.062 -0.002 -1.5707 0 -1.57</pose>
+          <pose>0.09 0.062 -0.002 -1.5707 0 0</pose>
           <geometry>
               <cylinder>
                   <radius>0.035</radius>
@@ -237,6 +238,7 @@
           </surface>
         </collision>
         <visual name='wheel_right_visual'>
+          <pose>0.09 0.062 -0.002 -1.57 0 0</pose>
           <geometry>
               <cylinder>
                   <radius>0.035</radius>
@@ -252,7 +254,7 @@
       </link>
 
       <joint name='wheel_right_joint' type='revolute'>
-         <pose>0.09 0.062 -0.002 -1.5707 0 -1.57</pose>
+        <pose>0.09 0.062 -0.002 -1.57 0 0</pose>
         <parent>base_link</parent>
         <child>wheel_right_link</child>
         <axis>
