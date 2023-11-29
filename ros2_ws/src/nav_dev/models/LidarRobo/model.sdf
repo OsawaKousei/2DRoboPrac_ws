@@ -3,18 +3,21 @@
     <model name="LidarRobo">
       <link name="base_footprint"/>
       <link name="chassis">
-        <inertial> <!--inertial properties of the link mass, inertia matix-->
-          <mass>1.3729096e+00</mass>
+        <inertial>
+          <!--恐らく、このposeの値が重心になる-->
+          <pose>0.08 0.1 -0.1 0 0 0</pose>
+          <mass>1.14395</mass>
           <inertia>
-              <ixx>4.2111447e-02</ixx>
+              <ixx>0.095329</ixx>
               <ixy>0</ixy>
               <ixz>0</ixz>
-              <iyy>4.2111447e-02</iyy>
+              <iyy>0.381317</iyy>
               <iyz>0</iyz>
-              <izz>7.5254874e-02</izz>
+              <izz>0.476646</izz>
           </inertia>
         </inertial>
         <collision name="collision">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
@@ -31,6 +34,7 @@
           </surface>
         </collision>
         <visual name="visual">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
