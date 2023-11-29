@@ -14,13 +14,14 @@ using namespace std::chrono_literals;
 
 class TeleopNode : public rclcpp::Node {
 public:
+    //送信用のメッセージを宣言
+    geometry_msgs::msg::Twist message = geometry_msgs::msg::Twist();
+
     TeleopNode(
         const std::string& name_space="", 
         const rclcpp::NodeOptions& options = rclcpp::NodeOptions()
     ) : Node("teleop_node",name_space,options) {
         
-        auto message = geometry_msgs::msg::Twist();
-
         publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
 
         auto subscribe_callback = [this](const key_event_msgs::msg::KeyEvent::SharedPtr msg) -> void {
@@ -51,11 +52,11 @@ public:
             }
         }; 
 
-        auto publish_callback(){
+        auto publish_callback = [this]() -> void{
             this->publisher_->publish(message);
-        }
+        };
 
-        timer_ = this->create_wall_timer(500ms, publish_callback);
+        timer_ = this->create_wall_timer(100ms, publish_callback);
 
         //キーボードの値取得用のsubscriber
         sub_ = this->create_subscription<key_event_msgs::msg::KeyEvent>(
