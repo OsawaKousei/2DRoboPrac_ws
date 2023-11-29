@@ -179,7 +179,7 @@
     <!-- Wheel left -->
     <link name="wheel_left_link">
       <inertial>
-        <pose>0.0 0.144 0.023 -1.57 0 0</pose>
+        <pose>0.0 0.095 0.023 -1.57 0 0</pose>
         <inertia>
           <ixx>1.1175580e-05</ixx>
           <ixy>-4.2369783e-11</ixy>
@@ -191,7 +191,7 @@
         <mass>0.1</mass>
       </inertial>
       <collision name="wheel_left_collision">
-        <pose>0.0 0.144 0.023 -1.57 0 0</pose>
+        <pose>0.0 0.095 0.023 -1.57 0 0</pose>
         <geometry>
           <cylinder>
             <radius>0.033</radius>
@@ -222,7 +222,7 @@
         </surface>
       </collision>
       <visual name="wheel_left_visual">
-        <pose>0.0 0.144 0.023 0 0 0</pose>
+        <pose>0.0 0.095 0.023 0 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://turtlebot3/meshes/tire.dae</uri>
@@ -239,7 +239,7 @@
     <joint name="wheel_left_joint" type="revolute">
       <parent>base_link</parent>
       <child>wheel_left_link</child>
-      <pose>0.0 0.144 0.023 -1.57 0 0</pose>
+      <pose>0.0 0.095 0.023 -1.57 0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
       </axis>
@@ -248,7 +248,7 @@
     <!-- Wheel right -->
     <link name="wheel_right_link">
       <inertial>
-        <pose>0.0 -0.144 0.023 -1.57 0 0</pose>
+        <pose>0.0 -0.095 0.023 -1.57 0 0</pose>
         <inertia>
           <ixx>1.1175580e-05</ixx>
           <ixy>-4.2369783e-11</ixy>
@@ -260,7 +260,7 @@
         <mass>0.1</mass>
       </inertial>
       <collision name="wheel_right_collision">
-        <pose>0.0 -0.144 0.023 -1.57 0 0</pose>
+        <pose>0.0 -0.095 0.023 -1.57 0 0</pose>
         <geometry>
           <cylinder>
             <radius>0.033</radius>
@@ -291,7 +291,7 @@
         </surface>
       </collision>
       <visual name="wheel_right_visual">
-        <pose>0.0 -0.144 0.023 0 0 0</pose>
+        <pose>0.0 -0.095 0.023 0 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://turtlebot3/meshes/tire.dae</uri>
@@ -308,7 +308,7 @@
     <joint name="wheel_right_joint" type="revolute">
       <parent>base_link</parent>
       <child>wheel_right_link</child>
-      <pose>0.0 -0.144 0.023 -1.57 0 0</pose>
+      <pose>0.0 -0.095 0.023 -1.57 0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
       </axis>
@@ -492,7 +492,7 @@
       name="ignition::gazebo::systems::DiffDrive">
       <left_joint>wheel_left_joint</left_joint>
       <right_joint>wheel_right_joint</right_joint>
-      <wheel_separation>0.287</wheel_separation>
+      <wheel_separation>0.19</wheel_separation>
       <wheel_radius>0.033</wheel_radius>
       <topic>cmd_vel</topic>
     </plugin>
