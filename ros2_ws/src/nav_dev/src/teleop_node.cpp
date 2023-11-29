@@ -30,11 +30,11 @@ public:
             switch (msg->key)
             {
             case 's':
-                message.linear.x = 4;
+                message.linear.x = 3;
                 message.angular.z = 0;
                 break;
             case 'w':
-                message.linear.x = -4;
+                message.linear.x = -5;
                 message.angular.z = 0;
                 break;
             case 'a':
