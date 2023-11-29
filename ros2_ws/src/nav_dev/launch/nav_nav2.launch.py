@@ -26,17 +26,18 @@ def generate_launch_description():
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-entity', 'LidarRobo',
-                   '-name', 'LidarRobo',
+        arguments=['-entity', 'LidarRobo2',
+                   '-name', 'LidarRobo2',
                    #ロボットのsdfファイルを指定
                    '-file', PathJoinSubstitution([
                         pkg_share_dir,
-                        "models", "LidarRobo", "model.sdf"]),
+                        "models", "LidarRobo2", "model.sdf"]),
                     #ロボットの位置を指定
                    '-allow_renaming', 'true',
                    '-x', '0.1',
-                   '-y', '0.1',
-                   '-z', '0.075'],
+                   '-y', '0.2',
+                   '-z', '0.075',
+                   ],
         )
     
     #フィールドをスポーンさせる設定
@@ -88,7 +89,7 @@ def generate_launch_description():
     #ロボットのsdfファイルのパスを取得
     sdf = os.path.join(
         get_package_share_directory('nav_dev'),
-        'models', 'LidarRobo', 'model.sdf')
+        'models', 'LidarRobo2', 'model.sdf')
 
     #xacroでsdfファイルをurdfに変換
     doc = xacro.parse(open(sdf))
@@ -165,10 +166,10 @@ def generate_launch_description():
             default_value=world_name,
             description='World name'),
 
-        bridge,
-        map_static_tf,
+        #bridge,
+        #map_static_tf,
 
-        robot_state_publisher,
+        #robot_state_publisher,
 
         DeclareLaunchArgument(
             'map',
@@ -180,6 +181,6 @@ def generate_launch_description():
             default_value=param_dir,
             description='Full path to param file to load'),
 
-        nav2,
-        rviz2,
+        #nav2,
+        #rviz2,
     ])
