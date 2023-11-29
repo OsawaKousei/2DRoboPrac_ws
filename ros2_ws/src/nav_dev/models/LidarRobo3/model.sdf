@@ -308,7 +308,7 @@
           name="ignition::gazebo::systems::DiffDrive">
           <left_joint>left_wheel_joint</left_joint>
           <right_joint>right_wheel_joint</right_joint>
-          <wheel_separation>0.287</wheel_separation>
+          <wheel_separation>0.18</wheel_separation>
           <wheel_radius>0.035</wheel_radius>
           <!--速度司令を受け取るトピックを指定-->
           <topic>cmd_vel</topic>
