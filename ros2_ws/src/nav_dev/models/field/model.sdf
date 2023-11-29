@@ -1,13 +1,14 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <model name="my_field" canonical_link='field'>
+    <!--動かないエンティティであることを設定-->
     <static>true</static>
     <link name="field">
       <collision name="collision">
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://my_field/meshes/HaruRobo2024field.stl</uri>
+            <uri>model://field/meshes/HaruRobo2024field.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -23,7 +24,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://my_field/meshes/HaruRobo2024field.dae</uri>
+            <uri>model://field/meshes/HaruRobo2024field.dae</uri>
           </mesh>
         </geometry>
       </visual>
