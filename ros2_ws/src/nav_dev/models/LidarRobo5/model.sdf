@@ -18,15 +18,15 @@
         <mass>1.3729096e+00</mass>
       </inertial>
       <collision name="base_collision">
-        <pose>-0.064 0 0.048 0 0 0</pose>
+        <pose>-0.064 0.08 0.06 0 0 -1.57</pose>
         <geometry>
-          <box>
-            <size>0.265 0.265 0.089</size>
-          </box>
+          <mesh>
+            <uri>model://LidarRobo5/meshes/2DRoboPrac.stl</uri>
+          </mesh>
         </geometry>
       </collision>
       <visual name="base_visual">
-        <pose>-0.064 0.08 0.055 0 0 -1.57</pose>
+        <pose>-0.064 0.08 0.06 0 0 -1.57</pose>
         <geometry>
           <mesh>
             <uri>model://LidarRobo5/meshes/2DRoboPrac.dae</uri>
