@@ -36,7 +36,7 @@ def generate_launch_description():
                    '-allow_renaming', 'true',
                    '-x', '0.2',
                    '-y', '0.2',
-                   '-z', '0.1'],
+                   '-z', '0.075'],
         )
     
     #フィールドをスポーンさせる設定
