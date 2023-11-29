@@ -19,11 +19,11 @@ public:
         const rclcpp::NodeOptions& options = rclcpp::NodeOptions()
     ) : Node("teleop_node",name_space,options) {
         
-        publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("teleop", 10);
+        auto message = geometry_msgs::msg::Twist();
+
+        publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
 
         auto subscribe_callback = [this](const key_event_msgs::msg::KeyEvent::SharedPtr msg) -> void {
-
-            auto message = geometry_msgs::msg::Twist();
             
             //キーボードの入力から進路を決定
             switch (msg->key)
@@ -49,16 +49,14 @@ public:
                 message.angular.z = 0;
                 break;
             }
+        }; 
+
+        auto publish_callback(){
             this->publisher_->publish(message);
-        }; 
+        }
 
-        auto topic_callback = [this](const std_msgs::msg::String &msg) -> void {
-            RCLCPP_INFO(this->get_logger(), "catch:%s\r\n", msg.data.c_str());
-        }; 
+        timer_ = this->create_wall_timer(500ms, publish_callback);
 
-        subscription_ = this->create_subscription<std_msgs::msg::String>
-                ("feedBack_topic", 10, topic_callback);
-        
         //キーボードの値取得用のsubscriber
         sub_ = this->create_subscription<key_event_msgs::msg::KeyEvent>(
         "key_hit_event",
@@ -67,9 +65,9 @@ public:
         );
     }
 private:
-    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
     rclcpp::Subscription<key_event_msgs::msg::KeyEvent>::SharedPtr sub_;
+    rclcpp::TimerBase::SharedPtr timer_;  
 };
 
 int main(int argc, char *argv[]) {
