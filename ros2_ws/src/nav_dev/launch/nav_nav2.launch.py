@@ -26,12 +26,12 @@ def generate_launch_description():
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-entity', 'LidarRobo3',
-                   '-name', 'LidarRobo3',
+        arguments=['-entity', 'LidarRobo4',
+                   '-name', 'LidarRobo4',
                    #ロボットのsdfファイルを指定
                    '-file', PathJoinSubstitution([
                         pkg_share_dir,
-                        "models", "LidarRobo3", "model.sdf"]),#LidarRobo3を使用すること！
+                        "models", "LidarRobo4", "model.sdf"]),#LidarRobo4を使用すること！
                     #ロボットの位置を指定
                    '-allow_renaming', 'true',
                    '-x', '0.4',
@@ -90,7 +90,7 @@ def generate_launch_description():
     #ロボットのsdfファイルのパスを取得
     sdf = os.path.join(
         get_package_share_directory('nav_dev'),
-        'models', 'LidarRobo3', 'model.sdf')
+        'models', 'LidarRobo4', 'model.sdf')
 
     #xacroでsdfファイルをurdfに変換
     doc = xacro.parse(open(sdf))
@@ -114,7 +114,7 @@ def generate_launch_description():
             'test_map2.yaml'))
 
     #nav2のパラメータのパスを取得
-    param_file_name = 'nav_nav2a.yaml'
+    param_file_name = 'waffle.yaml'
     param_dir = LaunchConfiguration(
         'params_file',
         default=os.path.join(

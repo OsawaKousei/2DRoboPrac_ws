@@ -189,7 +189,7 @@
         <parent>base_link</parent>
         <child>wheel_left_link</child>
         <axis>
-          <xyz>0 1 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
+          <xyz>0 0 1</xyz> <!--can be defined as any frame or even arbitrary frames-->
         </axis>
       </joint>
 
@@ -258,7 +258,7 @@
         <parent>base_link</parent>
         <child>wheel_right_link</child>
         <axis>
-          <xyz>0 1 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
+          <xyz>0 0 1</xyz> <!--can be defined as any frame or even arbitrary frames-->
         </axis>
       </joint>
 
