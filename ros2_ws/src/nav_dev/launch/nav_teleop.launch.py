@@ -26,12 +26,12 @@ def generate_launch_description():
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-entity', 'LidarRobo',
-                   '-name', 'LidarRobo',
+        arguments=['-entity', 'LidarRobo4',
+                   '-name', 'LidarRobo4',
                    #ロボットのsdfファイルを指定
                    '-file', PathJoinSubstitution([
                         pkg_share_dir,
-                        "models", "LidarRobo2", "model.sdf"]),
+                        "models", "LidarRobo4", "model.sdf"]),
                     #ロボットの位置を指定
                    '-allow_renaming', 'true',
                    '-x', '0.1',
