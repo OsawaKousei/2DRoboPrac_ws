@@ -18,46 +18,6 @@
             name="ignition::gazebo::systems::SceneBroadcaster">
         </plugin> <!--ワールドシーンの描画-->
 
-        <!-- Moving Forward-->
-        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress"> <!--受信するトピックを指定-->
-                <match field="data">16777235</match> <!--↑キーに一致するという条件を指定-->
-            </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel"> <!--送信するトピックを指定-->
-                linear: {x: 0.5}, angular: {z: 0.0} <!--トピックの内容を指定-->
-            </output>
-        </plugin>
-        <!-- Moving Backward-->
-        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
-                <match field="data">16777237</match>
-            </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
-                linear: {x: -0.5}, angular: {z: 0.0}
-            </output>
-        </plugin>
-        <!--右-->
-        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
-                <match field="data">16777236</match>
-            </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 0.0}, angular: {z: -0.5}
-            </output>
-        </plugin>
-        <!--左-->
-        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
-                <match field="data">16777234 </match>
-            </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 0.0}, angular: {z: 0.5}
-            </output>
-        </plugin>
         <plugin
             filename="libignition-gazebo-physics-system.so"
             name="ignition::gazebo::systems::Physics">
@@ -87,6 +47,7 @@
         </light>
         
         <model name="demoRobot">
+          <!--モデルが地面にめり込まないように少し浮かせています-->
           <pose>0 0 0.2 0 0 0</pose>
   
             <link name="base_link">
@@ -103,6 +64,7 @@
                 <mass>1.3729096e+00</mass>
               </inertial>
               <collision name="base_collision">
+                <!--重心の位置を調整しています-->
                 <pose>-0.064 0.08 0.06 0 0 -1.57</pose>
                 <geometry>
                   <mesh>
@@ -111,6 +73,7 @@
                 </geometry>
               </collision>
               <visual name="base_visual">
+                <!--重心の位置を調整しています-->
                 <pose>-0.064 0.08 0.06 0 0 -1.57</pose>
                 <geometry>
                   <mesh>
