@@ -92,7 +92,7 @@ def generate_launch_description():
     return LaunchDescription([
         ign_resource_path,
         ignition_spawn_entity,
-        #ignition_spawn_world,
+        ignition_spawn_world,
         ign_gz,
                              
         DeclareLaunchArgument(
