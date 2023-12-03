@@ -31,7 +31,7 @@ def generate_launch_description():
                    #ロボットのsdfファイルを指定
                    '-file', PathJoinSubstitution([
                         pkg_share_dir,
-                        "models", "LidarRobo", "model.sdf"]),#LidarRobo4を使用すること！
+                        "models", "LidarRobo", "model.sdf"]),
                     #ロボットの位置を指定
                    '-allow_renaming', 'true',
                    '-x', '0.4',

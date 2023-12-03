@@ -79,13 +79,6 @@ def generate_launch_description():
         ],
         output='screen'
     )
-
-    #mapトピックの設定
-    map_static_tf = Node(package='tf2_ros',
-                        executable='static_transform_publisher',
-                        name='static_transform_publisher',
-                        output='log',
-                        arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
     
     #ロボットのsdfファイルのパスを取得
     sdf = os.path.join(
@@ -104,6 +97,13 @@ def generate_launch_description():
             output='both',
             parameters=[{'use_sim_time': use_sim_time,
                          'robot_description': doc.toxml()}]) # type: ignore
+    
+    #mapトピックの設定
+    map_static_tf = Node(package='tf2_ros',
+                        executable='static_transform_publisher',
+                        name='static_transform_publisher',
+                        output='log',
+                        arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
     
     #nav2の地図のパスを取得
     map_dir = LaunchConfiguration(
