@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<sdf version="1.8"> <!--xmlとsdfのバージョン定義-->
+    <world name="WorldDemo"> <!--ワールドの内容は全てこのタグの中に-->
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.001</max_step_size> <!--最大何秒ごとにシミュレートするか（小さいほど正確なシミュレーションになる）-->
+            <real_time_factor>1.0</real_time_factor> <!--現実時間との比率-->
+        </physics>
+        <plugin
+            filename="libignition-gazebo-physics-system.so"
+            name="ignition::gazebo::systems::Physics">
+        </plugin> <!--動力学のシミュレーションに必要-->
+        <plugin
+            filename="libignition-gazebo-user-commands-system.so"
+            name="ignition::gazebo::systems::UserCommands">
+        </plugin> <!--ユーザーコマンドを利用可能に-->
+        <plugin
+            filename="libignition-gazebo-scene-broadcaster-system.so"
+            name="ignition::gazebo::systems::SceneBroadcaster">
+        </plugin> <!--ワールドシーンの描画-->
+        
+        <!--光に関する設定-->
+        <light type="directional" name="sun"> <!--pointかdirectional、spot.-->
+            <cast_shadows>true</cast_shadows> <!--trueなら影ができる-->
+            <pose>0 0 10 0 0 0</pose> <!--位置 relative_to attributeを追加できる、しなければworldに関連付けられる-->
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+            <attenuation>
+                <range>1000</range><!--光の範囲-->
+                <constant>0.9</constant><!--減衰係数0-1、1は減衰しない-->
+                <linear>0.01</linear><!--線形減衰係数0-1、1は距離について均等に減衰-->
+                <quadratic>0.001</quadratic><!--光の方向性、pointには適用されない-->
+            </attenuation>
+            <direction>-0.5 0.1 -0.9</direction>
+        </light>
+        
+        <model name="demoRobot">
+            <pose>0 0 0 0 0 0</pose>
+            <link name="link">
+                <pose>0 0 0 0 0 0</pose>
+                <inertial>
+                    <inertia>
+                      <ixx>4.2111447e-02</ixx>
+                      <ixy>0</ixy>
+                      <ixz>0</ixz>
+                      <iyy>4.2111447e-02</iyy>
+                      <iyz>0</iyz>
+                      <izz>7.5254874e-02</izz>
+                    </inertia>
+                    <mass>1.3729096e+00</mass>
+                  </inertial>
+                <collision name="ollision">
+                    <geometry>
+                      <mesh>
+                        <uri>model://my_robo/meshes/2DRoboPrac.stl</uri>
+                      </mesh>
+                    </geometry>
+                  </collision>
+                  <visual name="visual">
+                    <geometry>
+                      <mesh>
+                        <uri>model://my_robo/meshes/2DRoboPrac.dae</uri>
+                      </mesh>
+                    </geometry>
+                  </visual>
+            </link>
+        </model>
+    </world>
+</sdf>
