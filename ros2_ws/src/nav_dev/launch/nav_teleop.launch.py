@@ -67,11 +67,18 @@ def generate_launch_description():
     bridge = Node(
         package='ros_ign_bridge',
         executable='parameter_bridge',
-        parameters=[{'use_sim_time': use_sim_time}],
-        arguments=[
-                # Velocity command (ROS2 -> IGN)
-                '/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist'
-        ],
+        parameters=[{
+            #brigdeの設定ファイルを指定
+            'config_file': os.path.join(pkg_share_dir, 'config', 'nav_slam.yaml'),
+            'qos_overrides./tf_static.publisher.durability': 'transient_local',
+            'qos_overrides./odom.publisher.durability': 'transient_local',
+        },{'use_sim_time': use_sim_time}],
+
+        #こういう記法もある
+        #arguments=[
+        #        # Velocity command (ROS2 -> IGN)
+        #        '/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist'
+        #],
         output='screen'
     )
     
