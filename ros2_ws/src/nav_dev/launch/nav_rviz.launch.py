@@ -6,6 +6,7 @@ from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
+import xacro
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -25,17 +26,18 @@ def generate_launch_description():
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-entity', 'LidarRobo4',
-                   '-name', 'LidarRobo4',
+        arguments=['-entity', 'LidarRobo',
+                   '-name', 'LidarRobo',
                    #ロボットのsdfファイルを指定
                    '-file', PathJoinSubstitution([
                         pkg_share_dir,
-                        "models", "LidarRobo4", "model.sdf"]),
+                        "models", "LidarRobo", "model.sdf"]),#LidarRobo4を使用すること！
                     #ロボットの位置を指定
                    '-allow_renaming', 'true',
-                   '-x', '0.1',
-                   '-y', '0.2',
-                   '-z', '0.075'],
+                   '-x', '0.4',
+                   '-y', '0.4',
+                   '-z', '0.075',
+                   ],
         )
     
     #フィールドをスポーンさせる設定
@@ -68,26 +70,50 @@ def generate_launch_description():
         executable='parameter_bridge',
         parameters=[{
             #brigdeの設定ファイルを指定
-            'config_file': os.path.join(pkg_share_dir, 'config', 'nav_teleop.yaml'),
+            'config_file': os.path.join(pkg_share_dir, 'config', 'nav_slam.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
             'qos_overrides./odom.publisher.durability': 'transient_local',
         },{'use_sim_time': use_sim_time}],
-
-        #こういう記法もある
-        #arguments=[
-        #        # Velocity command (ROS2 -> IGN)
-        #        '/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist'
-        #],
+        remappings=[
+            ("/odom/tf", "tf"),
+        ],
         output='screen'
     )
+   
+    #ロボットのsdfファイルのパスを取得
+    sdf = os.path.join(
+        get_package_share_directory('nav_dev'),
+        'models', 'LidarRobo', 'model.sdf')
+
+    #xacroでsdfファイルをurdfに変換
+    doc = xacro.parse(open(sdf))
+    xacro.process_doc(doc)
+
+    #robot_state_publsherの起動設定
+    robot_state_publisher = Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            name='robot_state_publisher',
+            output='both',
+            parameters=[{'use_sim_time': use_sim_time,
+                         'robot_description': doc.toxml()}]) # type: ignore
     
-    teleop_node = Node(
-                package='nav_dev',
-                executable='teleop_node',
-                output='screen',
-                #別ターミナルで起動する設定
-                prefix="xterm -e"
-                )
+    #rviz2の設定フィルのパスを取得
+    rviz_config_dir = os.path.join(
+        pkg_share_dir,
+        'config',
+        'nav_rviz.rviz')
+    
+    #rviz2の起動設定
+    rviz2 = Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d', rviz_config_dir],
+            parameters=[{'use_sim_time': use_sim_time}],
+            output='screen')
+    
+   
     
     return LaunchDescription([
         ign_resource_path,
@@ -106,5 +132,7 @@ def generate_launch_description():
             description='World name'),
 
         bridge,
-        teleop_node,
+
+        robot_state_publisher,
+        rviz2,
     ])
