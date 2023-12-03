@@ -26,12 +26,12 @@ def generate_launch_description():
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
-        arguments=['-entity', 'LidarRobo4',
-                   '-name', 'LidarRobo4',
+        arguments=['-entity', 'LidarRobo',
+                   '-name', 'LidarRobo',
                    #ロボットのsdfファイルを指定
                    '-file', PathJoinSubstitution([
                         pkg_share_dir,
-                        "models", "LidarRobo4", "model.sdf"]),
+                        "models", "LidarRobo", "model.sdf"]),
                     #ロボットの位置を指定
                    '-allow_renaming', 'true',
                    '-x', '0.4',
@@ -78,18 +78,11 @@ def generate_launch_description():
         ],
         output='screen'
     )
-
-    #mapトピックの設定
-    map_static_tf = Node(package='tf2_ros',
-                        executable='static_transform_publisher',
-                        name='static_transform_publisher',
-                        output='log',
-                        arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
     
     #ロボットのsdfファイルのパスを取得
     sdf = os.path.join(
         get_package_share_directory('nav_dev'),
-        'models', 'LidarRobo4', 'model.sdf')
+        'models', 'LidarRobo', 'model.sdf')
 
     #xacroでsdfファイルをurdfに変換
     doc = xacro.parse(open(sdf))
@@ -164,7 +157,6 @@ def generate_launch_description():
             description='World name'),
 
         bridge,
-        map_static_tf,
 
         robot_state_publisher,
 

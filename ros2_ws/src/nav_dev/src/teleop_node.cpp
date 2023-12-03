@@ -5,7 +5,7 @@
 #include "geometry_msgs/msg/twist.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 //使いたいパッケージのincludeディレクトリ以下から、欲しいヘッダファイルまでのパスを書く
-//もしincludeディレクトリがなければ、相手パッケージのCMakeファイルにincludeを作るよう
+//もしincludeディレクトリがなければ、相手パッケージのCMakeファイルにincludeを作るよう記述する
 #include "key_event_nodes/key_hit_event_node.hpp"
 #include "key_event_msgs/msg/key_event.hpp"
 
@@ -50,13 +50,9 @@ public:
                 message.angular.z = 0;
                 break;
             }
-        }; 
 
-        auto publish_callback = [this]() -> void{
             this->publisher_->publish(message);
-        };
-
-        timer_ = this->create_wall_timer(00ms, publish_callback);
+        }; 
 
         //キーボードの値取得用のsubscriber
         sub_ = this->create_subscription<key_event_msgs::msg::KeyEvent>(
@@ -75,7 +71,7 @@ int main(int argc, char *argv[]) {
     rclcpp::init(argc, argv);
 
     rclcpp::executors::SingleThreadedExecutor exec;
-    //ライブラリから呼び出し
+    //共有ライブラリから呼び出し
     auto node1 = std::make_shared<key_event::KeyHitEventNode>();
     exec.add_node(node1);
     auto node2 = std::make_shared<TeleopNode>();

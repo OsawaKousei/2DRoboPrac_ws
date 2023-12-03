@@ -6,7 +6,6 @@ from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
-import xacro
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -67,11 +66,18 @@ def generate_launch_description():
     bridge = Node(
         package='ros_ign_bridge',
         executable='parameter_bridge',
-        parameters=[{'use_sim_time': use_sim_time}],
-        arguments=[
-                # Velocity command (ROS2 -> IGN)
-                '/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist'
-        ],
+        parameters=[{
+            #brigdeの設定ファイルを指定
+            'config_file': os.path.join(pkg_share_dir, 'config', 'nav_teleop.yaml'),
+            'qos_overrides./tf_static.publisher.durability': 'transient_local',
+            'qos_overrides./odom.publisher.durability': 'transient_local',
+        },{'use_sim_time': use_sim_time}],
+
+        #こういう記法もある
+        #arguments=[
+        #        # Velocity command (ROS2 -> IGN)
+        #        '/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist'
+        #],
         output='screen'
     )
     
