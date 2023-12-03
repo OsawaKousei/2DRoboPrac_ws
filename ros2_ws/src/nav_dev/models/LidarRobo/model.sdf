@@ -1,5 +1,5 @@
 <sdf version='1.8'>
-  <model name="LidarRobo4">
+  <model name="LidarRobo">
   <pose>0 0 0 0 0 0</pose>
 
     <link name="base_footprint"/>
