@@ -25,4 +25,12 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+ament_auto_add_executable(
+counter_node src/counter_node.cpp
+)
+
+ament_auto_add_executable(
+test_pub_node src/test_pub_node.cpp
+)
+
 ament_auto_package()
