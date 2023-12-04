@@ -38,7 +38,7 @@ public:
         }; 
 
         auto sensor_callback = [this](const sensor_msgs::msg::LaserScan &msg) -> void {
-                count ++;
+                //count ++;
             };
 
         auto amcl_callback = [this](const geometry_msgs::msg::PoseWithCovarianceStamped &msg) -> void {
