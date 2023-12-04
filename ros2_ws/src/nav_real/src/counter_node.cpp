@@ -5,6 +5,8 @@
 #include "string"
 #include "iostream"
 #include "sensor_msgs/msg/laser_scan.hpp"
+#include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
+
 
 using namespace std::chrono_literals;
 
@@ -39,11 +41,19 @@ public:
                 count ++;
             };
 
+        auto amcl_callback = [this](const geometry_msgs::msg::PoseWithCovarianceStamped &msg) -> void {
+                count ++;
+            };
+
         subscription_ = this->create_subscription<std_msgs::msg::String>
                 ("practice_topic", 10, topic_callback);
 
         sensorsub_ = this->create_subscription<sensor_msgs::msg::LaserScan>
                 ("/scan", 10, sensor_callback);
+        
+        amclsub_ = this->create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>
+                ("/amcl_pose", 10, amcl_callback);
+            
     }
 private:
     // 上記の動作に必要なprivateメンバ
@@ -51,6 +61,7 @@ private:
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
     rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr sensorsub_;
+    rclcpp::Subscription<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr amclsub_;
 };
 
 int main(int argc, char *argv[]) {
