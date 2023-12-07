@@ -33,4 +33,8 @@ ament_auto_add_executable(
 test_pub_node src/test_pub_node.cpp
 )
 
+ament_auto_add_executable(
+raspi_node src/raspi_node.cpp
+)
+
 ament_auto_package()
