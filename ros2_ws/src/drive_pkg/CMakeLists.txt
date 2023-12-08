@@ -25,4 +25,18 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+file(GLOB ${PROJECT_NAME}_msg_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} msg/*)
+#file(GLOB ${PROJECT_NAME}_srv_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} srv/*)
+
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/DiffDrive.msg"
+)
+
+
+ament_auto_add_executable(
+diff_drive_node src/diff_drive_node.cpp
+)
+
+
 ament_auto_package()
