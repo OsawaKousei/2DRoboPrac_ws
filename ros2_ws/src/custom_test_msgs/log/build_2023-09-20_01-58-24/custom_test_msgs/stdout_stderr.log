@@ -1,0 +1,10 @@
+-- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found ament_cmake_auto: 1.3.5 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+-- Found ament_lint_auto: 0.12.7 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[31mCMake Error at CMakeLists.txt:26 (rosidl_generate_interfaces):
+  Unknown CMake command "rosidl_generate_interfaces".
+
+[0m
+-- Configuring incomplete, errors occurred!
+See also "/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/CMakeFiles/CMakeOutput.log".
+gmake: *** [Makefile:747: cmake_check_build_system] エラー 1

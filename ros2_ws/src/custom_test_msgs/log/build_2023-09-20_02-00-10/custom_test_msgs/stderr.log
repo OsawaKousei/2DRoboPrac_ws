@@ -1,0 +1,20 @@
+[31mCMake Error at CMakeLists.txt:12 (find_package):
+  By not providing "Findrosidl_default_generatorss.cmake" in
+  CMAKE_MODULE_PATH this project has asked CMake to find a package
+  configuration file provided by "rosidl_default_generatorss", but CMake did
+  not find one.
+
+  Could not find a package configuration file provided by
+  "rosidl_default_generatorss" with any of the following names:
+
+    rosidl_default_generatorssConfig.cmake
+    rosidl_default_generatorss-config.cmake
+
+  Add the installation prefix of "rosidl_default_generatorss" to
+  CMAKE_PREFIX_PATH or set "rosidl_default_generatorss_DIR" to a directory
+  containing one of the above files.  If "rosidl_default_generatorss"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+[0m
+gmake: *** [Makefile:747: cmake_check_build_system] エラー 1
