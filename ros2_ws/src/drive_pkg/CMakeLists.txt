@@ -44,5 +44,6 @@ target_link_libraries(diff_drive_node "${cpp_typesupport_target}")
 ament_auto_package(
   INSTALL_TO_SHARE
     config
+    launch
 )
 

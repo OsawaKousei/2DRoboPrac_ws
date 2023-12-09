@@ -9,10 +9,19 @@ using namespace std::chrono_literals;
 
 class DiffDriveNode : public rclcpp::Node {
     std::string type_;
-    size_t rad_;
-    size_t dis_;
+    std::double_t rad_;
+    std::double_t dis_;
 public:
     DiffDriveNode() : Node("diff_drive_node") {
+        //使用するパラメータの宣言
+        declare_parameter("robot_type", "default");
+        declare_parameter("wheel_radious", -1.0);
+        declare_parameter("wheel_distance", -1.0);
+
+        //パラメータの取得
+        type_ = get_parameter("robot_type").as_string();
+        rad_ = get_parameter("wheel_radious").as_double();
+        rad_ = get_parameter("wheel_distance").as_double();
         
         publisher_ = this->create_publisher<drive_pkg::msg::DiffDrive>("cmd_motor", 10);
 
@@ -26,9 +35,9 @@ public:
                 ("cmd_vel", 10, topic_callback);
 
         auto publish_callback = [this]() -> void {
-            RCLCPP_INFO(this->get_logger(), "type:%s\r\n",type_.c_str());
-            RCLCPP_INFO(this->get_logger(), "type:%ld\r\n",rad_);
-            RCLCPP_INFO(this->get_logger(), "type:%ld\r\n",dis_);
+            RCLCPP_INFO(this->get_logger(), "robot type:%s\r\n",type_.c_str());
+            RCLCPP_INFO(this->get_logger(), "wheel radious:%f\r\n",rad_);
+            RCLCPP_INFO(this->get_logger(), "wheel distance:%f\r\n",dis_);
         }; 
 
         timer_ = this->create_wall_timer(1000ms, publish_callback);
