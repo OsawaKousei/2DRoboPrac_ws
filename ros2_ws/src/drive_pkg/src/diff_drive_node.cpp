@@ -26,9 +26,9 @@ public:
                 ("cmd_vel", 10, topic_callback);
 
         auto publish_callback = [this]() -> void {
-            RCLCPP_INFO(this->get_logger(), "type:%s\r\n",type_);
-            RCLCPP_INFO(this->get_logger(), "type:%d\r\n",rad_);
-            RCLCPP_INFO(this->get_logger(), "type:%d\r\n",dis_);
+            RCLCPP_INFO(this->get_logger(), "type:%s\r\n",type_.c_str());
+            RCLCPP_INFO(this->get_logger(), "type:%ld\r\n",rad_);
+            RCLCPP_INFO(this->get_logger(), "type:%ld\r\n",dis_);
         }; 
 
         timer_ = this->create_wall_timer(1000ms, publish_callback);
