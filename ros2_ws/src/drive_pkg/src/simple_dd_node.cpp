@@ -4,7 +4,6 @@
 #include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "drive_pkg/msg/diff_drive.hpp"
-# include <bits/stdc++.h>
 
 using namespace std::chrono_literals;
 
