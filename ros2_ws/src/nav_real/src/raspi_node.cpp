@@ -4,6 +4,7 @@
 #include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "sensor_msgs/msg/laser_scan.hpp"
+#include "drive_pkg/msg/diff_drive.hpp"
 
 using namespace std::chrono_literals;
 
@@ -11,28 +12,29 @@ class RaspiNode : public rclcpp::Node {
 public:
     RaspiNode() : Node("raspi_node") {
         
-        publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_ras", 10);
+        publisher_ = this->create_publisher<drive_pkg::msg::DiffDrive>("/cmd_ras", 10);
 
-        auto topic_callback = [this](const geometry_msgs::msg::Twist &msg) -> void {
+        auto topic_callback = [this](const drive_pkg::msg::DiffDrive &msg) -> void {
 
-            auto message = geometry_msgs::msg::Twist();
+            auto message = drive_pkg::msg::DiffDrive();
 
-            message.angular = msg.angular;
-            message.linear = msg.linear;
+            message.name = msg.name;
+            message.m1 = msg.m1;
+            message.m2 = msg.m2;
 
             this->publisher_->publish(message);
 
             RCLCPP_INFO(this->get_logger(), "I'm hearing\r\n");
         }; 
 
-        subscription_ = this->create_subscription<geometry_msgs::msg::Twist>("/cmd_vel", 10,topic_callback);
+        subscription_ = this->create_subscription<drive_pkg::msg::DiffDrive>("/cmd_motor", 10,topic_callback);
 
     }
 private:
     // 上記の動作に必要なprivateメンバ
-    rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscription_;
+    rclcpp::Subscription<drive_pkg::msg::DiffDrive>::SharedPtr subscription_;
     rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
+    rclcpp::Publisher<drive_pkg::msg::DiffDrive>::SharedPtr publisher_;
 };
 
 int main(int argc, char *argv[]) {
