@@ -37,9 +37,14 @@ ament_auto_add_executable(
 diff_drive_node src/diff_drive_node.cpp
 )
 
+ament_auto_add_executable(
+simple_dd_node src/simple_dd_node.cpp
+)
+
 ## Component Settings
 rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} rosidl_typesupport_cpp)
 target_link_libraries(diff_drive_node "${cpp_typesupport_target}")
+target_link_libraries(simple_dd_node "${cpp_typesupport_target}")
 
 ament_auto_package(
   INSTALL_TO_SHARE
