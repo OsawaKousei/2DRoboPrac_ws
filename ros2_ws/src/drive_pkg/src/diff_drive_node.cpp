@@ -8,6 +8,9 @@
 using namespace std::chrono_literals;
 
 class DiffDriveNode : public rclcpp::Node {
+    std::string type_;
+    size_t rad_;
+    size_t dis_;
 public:
     DiffDriveNode() : Node("diff_drive_node") {
         
@@ -21,10 +24,19 @@ public:
 
         subscription_ = this->create_subscription<geometry_msgs::msg::Twist>
                 ("cmd_vel", 10, topic_callback);
+
+        auto publish_callback = [this]() -> void {
+            RCLCPP_INFO(this->get_logger(), "type:%s\r\n",type_);
+            RCLCPP_INFO(this->get_logger(), "type:%d\r\n",rad_);
+            RCLCPP_INFO(this->get_logger(), "type:%d\r\n",dis_);
+        }; 
+
+        timer_ = this->create_wall_timer(1000ms, publish_callback);
     }
 private:
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscription_;
     rclcpp::Publisher<drive_pkg::msg::DiffDrive>::SharedPtr publisher_;
+    rclcpp::TimerBase::SharedPtr timer_;
 };
 
 int main(int argc, char *argv[]) {
