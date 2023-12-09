@@ -25,11 +25,11 @@ endif()
 
 ## msg/srv generation
 file(GLOB ${PROJECT_NAME}_msg_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} msg/*)
-file(GLOB ${PROJECT_NAME}_srv_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} srv/*)
+#file(GLOB ${PROJECT_NAME}_srv_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} srv/*)
 rosidl_generate_interfaces(
         ${PROJECT_NAME}
         ${${PROJECT_NAME}_msg_files}  # msg使わないならコメントアウト
-        ${${PROJECT_NAME}_srv_files}  # srv使わないならコメントアウト
+        #${${PROJECT_NAME}_srv_files}  # srv使わないならコメントアウト
         DEPENDENCIES ${${PROJECT_NAME}_FOUND_BUILD_DEPENDS}
 )
 
