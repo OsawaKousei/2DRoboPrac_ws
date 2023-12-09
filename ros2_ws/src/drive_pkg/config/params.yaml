@@ -1,0 +1,5 @@
+diff_drive_node:
+  ros__parameters:
+    robot_type: "differencial drive"  # string
+    wheel_radious: 3.0  # double
+    wheel_distance: 3.3 # double
