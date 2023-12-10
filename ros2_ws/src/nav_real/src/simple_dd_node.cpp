@@ -17,7 +17,7 @@ public:
 
         auto topic_callback = [this](const geometry_msgs::msg::Twist &msg) -> void {
 
-            auto message = type_drive_msgs::msg::DiffDrive();
+            auto message = drive_msgs::msg::DiffDrive();
 
             message.m1 = 0;
             message.m2 = 0;
