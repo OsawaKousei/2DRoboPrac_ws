@@ -1,0 +1,32 @@
+In file included from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__functions.h:19[m[K,
+                 from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__functions.c:4[m[K:
+[01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__struct.h:24:10:[m[K [01;31m[Kfatal error: [m[Kcustom_test_msgs/msg/detail/int64__struct.h: そのようなファイルやディレクトリはありません
+   24 | #include [01;31m[K"custom_test_msgs/msg/detail/int64__struct.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/build.make:105: CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__functions.c.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:213: CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/all] エラー 2
+gmake[1]: *** 未完了のジョブを待っています....
+In file included from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_cpp/custom_test_msgs/srv/add_three_ints__type_support.cpp:7[m[K:
+[01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_cpp/custom_test_msgs/srv/detail/add_three_ints__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kcustom_test_msgs/msg/detail/int64__struct.hpp: そのようなファイルやディレクトリはありません
+   22 | #include [01;31m[K"custom_test_msgs/msg/detail/int64__struct.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/srv/detail/add_three_ints__rosidl_typesupport_fastrtps_cpp.hpp:11[m[K,
+                 from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/srv/detail/dds_fastrtps/add_three_ints__type_support.cpp:4[m[K:
+[01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_cpp/custom_test_msgs/srv/detail/add_three_ints__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kcustom_test_msgs/msg/detail/int64__struct.hpp: そのようなファイルやディレクトリはありません
+   22 | #include [01;31m[K"custom_test_msgs/msg/detail/int64__struct.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+compilation terminated.
+gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make:91: CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/srv/detail/dds_fastrtps/add_three_ints__type_support.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:343: CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/all] エラー 2
+gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/build.make:86: CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_test_msgs/srv/add_three_ints__type_support.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:395: CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/all] エラー 2
+In file included from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_introspection_cpp/custom_test_msgs/srv/detail/add_three_ints__type_support.cpp:12[m[K:
+[01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_cpp/custom_test_msgs/srv/detail/add_three_ints__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kcustom_test_msgs/msg/detail/int64__struct.hpp: そのようなファイルやディレクトリはありません
+   22 | #include [01;31m[K"custom_test_msgs/msg/detail/int64__struct.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/build.make:91: CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_test_msgs/srv/detail/add_three_ints__type_support.cpp.o] エラー 1
+gmake[1]: *** [CMakeFiles/Makefile2:369: CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/all] エラー 2
+gmake: *** [Makefile:146: all] エラー 2

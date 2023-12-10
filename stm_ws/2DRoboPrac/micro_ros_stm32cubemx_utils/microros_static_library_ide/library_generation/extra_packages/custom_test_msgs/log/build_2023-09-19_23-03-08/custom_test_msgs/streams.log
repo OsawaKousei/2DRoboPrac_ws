@@ -1,0 +1,92 @@
+[0.054s] Invoking command in '/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/osawakousei/ros2_ws/src/custom_test_msgs -DCMAKE_INSTALL_PREFIX=/home/osawakousei/ros2_ws/src/custom_test_msgs/install/custom_test_msgs
+[0.229s] -- The C compiler identification is GNU 11.4.0
+[0.388s] -- The CXX compiler identification is GNU 11.4.0
+[0.408s] -- Detecting C compiler ABI info
+[0.615s] -- Detecting C compiler ABI info - done
+[0.631s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.632s] -- Detecting C compile features
+[0.632s] -- Detecting C compile features - done
+[0.642s] -- Detecting CXX compiler ABI info
+[0.880s] -- Detecting CXX compiler ABI info - done
+[0.896s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.896s] -- Detecting CXX compile features
+[0.898s] -- Detecting CXX compile features - done
+[0.908s] -- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.415s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[1.699s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[1.724s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.748s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.890s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.008s] -- Found std_msgs: 4.2.3 (/opt/ros/humble/share/std_msgs/cmake)
+[2.173s] -- Found ament_cmake_auto: 1.3.5 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[2.182s] -- Found ament_lint_auto: 0.12.7 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.905s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[3.466s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.198s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.271s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[4.282s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[4.364s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[4.365s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[4.365s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[4.366s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[4.437s] -- Found PythonExtra: .so  
+[4.670s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[4.672s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c>;$<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_fastrtps_c>;$<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_introspection_c>;$<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_cpp>;$<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_fastrtps_cpp>;$<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_introspection_cpp>;/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c;/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_py
+[4.672s] -- Configured cppcheck exclude dirs and/or files: 
+[4.689s] -- Added test 'flake8' to check Python code syntax and style conventions
+[4.719s] -- Added test 'lint_cmake' to check CMake code style
+[4.735s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[4.849s] -- Added test 'uncrustify' to check C / C++ code style
+[4.849s] -- Configured uncrustify additional arguments: 
+[4.865s] -- Added test 'xmllint' to check XML markup files
+[4.879s] -- Configuring done
+[4.991s] -- Generating done
+[5.009s] -- Build files have been written to: /home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs
+[5.025s] Invoked command in '/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/osawakousei/ros2_ws/src/custom_test_msgs -DCMAKE_INSTALL_PREFIX=/home/osawakousei/ros2_ws/src/custom_test_msgs/install/custom_test_msgs
+[5.031s] Invoking command in '/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs -- -j8 -l8
+[5.244s] [  3%] [32mBuilding C object CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__functions.c.o[0m
+[5.246s] [  6%] Built target custom_test_msgs__cpp
+[5.278s] [  6%] Built target ament_cmake_python_copy_custom_test_msgs
+[5.298s] In file included from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__functions.h:19[m[K,
+[5.299s]                  from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__functions.c:4[m[K:
+[5.299s] [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__struct.h:24:10:[m[K [01;31m[Kfatal error: [m[Kcustom_test_msgs/msg/detail/int64__struct.h: そのようなファイルやディレクトリはありません
+[5.299s]    24 | #include [01;31m[K"custom_test_msgs/msg/detail/int64__struct.h"[m[K
+[5.299s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.300s] compilation terminated.
+[5.301s] gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/build.make:105: CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__functions.c.o] エラー 1
+[5.302s] gmake[1]: *** [CMakeFiles/Makefile2:213: CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/all] エラー 2
+[5.302s] gmake[1]: *** 未完了のジョブを待っています....
+[5.340s] [  9%] [32mBuilding CXX object CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/srv/detail/dds_fastrtps/add_three_ints__type_support.cpp.o[0m
+[5.341s] [ 16%] [32mBuilding CXX object CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_test_msgs/srv/add_three_ints__type_support.cpp.o[0m
+[5.341s] [ 16%] [32mBuilding CXX object CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_test_msgs/srv/detail/add_three_ints__type_support.cpp.o[0m
+[5.523s] In file included from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_cpp/custom_test_msgs/srv/add_three_ints__type_support.cpp:7[m[K:
+[5.523s] [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_cpp/custom_test_msgs/srv/detail/add_three_ints__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kcustom_test_msgs/msg/detail/int64__struct.hpp: そのようなファイルやディレクトリはありません
+[5.524s]    22 | #include [01;31m[K"custom_test_msgs/msg/detail/int64__struct.hpp"[m[K
+[5.524s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.524s] compilation terminated.
+[5.528s] gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/build.make:86: CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_test_msgs/srv/add_three_ints__type_support.cpp.o] エラー 1
+[5.528s] gmake[1]: *** [CMakeFiles/Makefile2:395: CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/all] エラー 2
+[5.536s] In file included from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/srv/detail/add_three_ints__rosidl_typesupport_fastrtps_cpp.hpp:11[m[K,
+[5.536s]                  from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/srv/detail/dds_fastrtps/add_three_ints__type_support.cpp:4[m[K:
+[5.537s] [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_cpp/custom_test_msgs/srv/detail/add_three_ints__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kcustom_test_msgs/msg/detail/int64__struct.hpp: そのようなファイルやディレクトリはありません
+[5.537s]    22 | #include [01;31m[K"custom_test_msgs/msg/detail/int64__struct.hpp"[m[K
+[5.537s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.537s] compilation terminated.
+[5.540s] gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make:91: CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/srv/detail/dds_fastrtps/add_three_ints__type_support.cpp.o] エラー 1
+[5.540s] gmake[1]: *** [CMakeFiles/Makefile2:343: CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/all] エラー 2
+[5.549s] In file included from [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_introspection_cpp/custom_test_msgs/srv/detail/add_three_ints__type_support.cpp:12[m[K:
+[5.549s] [01m[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_cpp/custom_test_msgs/srv/detail/add_three_ints__struct.hpp:22:10:[m[K [01;31m[Kfatal error: [m[Kcustom_test_msgs/msg/detail/int64__struct.hpp: そのようなファイルやディレクトリはありません
+[5.550s]    22 | #include [01;31m[K"custom_test_msgs/msg/detail/int64__struct.hpp"[m[K
+[5.550s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.550s] compilation terminated.
+[5.553s] gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/build.make:91: CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_test_msgs/srv/detail/add_three_ints__type_support.cpp.o] エラー 1
+[5.554s] gmake[1]: *** [CMakeFiles/Makefile2:369: CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/all] エラー 2
+[6.041s] running egg_info
+[6.043s] writing custom_test_msgs.egg-info/PKG-INFO
+[6.044s] writing dependency_links to custom_test_msgs.egg-info/dependency_links.txt
+[6.046s] writing top-level names to custom_test_msgs.egg-info/top_level.txt
+[6.051s] reading manifest file 'custom_test_msgs.egg-info/SOURCES.txt'
+[6.053s] writing manifest file 'custom_test_msgs.egg-info/SOURCES.txt'
+[6.129s] [ 16%] Built target ament_cmake_python_build_custom_test_msgs_egg
+[6.132s] gmake: *** [Makefile:146: all] エラー 2
+[6.137s] Invoked command in '/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs -- -j8 -l8

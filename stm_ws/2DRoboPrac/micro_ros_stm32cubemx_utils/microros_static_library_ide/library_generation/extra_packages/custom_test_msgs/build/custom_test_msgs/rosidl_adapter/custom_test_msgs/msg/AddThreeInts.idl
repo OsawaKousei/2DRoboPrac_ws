@@ -1,0 +1,12 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from custom_test_msgs/msg/AddThreeInts.msg
+// generated code does not contain a copyright notice
+
+
+module custom_test_msgs {
+  module msg {
+    struct AddThreeInts {
+      int64 num;
+    };
+  };
+};

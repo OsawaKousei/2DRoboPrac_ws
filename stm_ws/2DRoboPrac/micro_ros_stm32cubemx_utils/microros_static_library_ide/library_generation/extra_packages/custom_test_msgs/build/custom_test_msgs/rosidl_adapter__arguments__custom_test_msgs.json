@@ -1,0 +1,6 @@
+{
+  "package_name": "custom_test_msgs",
+  "non_idl_tuples": [
+    "/home/osawakousei/ros2_ws/src/custom_test_msgs:srv/AddThreeInts.srv"
+  ]
+}

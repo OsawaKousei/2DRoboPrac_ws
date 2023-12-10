@@ -1,0 +1,44 @@
+[0.049s] Invoking command in '/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/osawakousei/ros2_ws/src/custom_test_msgs -DCMAKE_INSTALL_PREFIX=/home/osawakousei/ros2_ws/src/custom_test_msgs/install/custom_test_msgs
+[0.221s] -- The C compiler identification is GNU 11.4.0
+[0.375s] -- The CXX compiler identification is GNU 11.4.0
+[0.393s] -- Detecting C compiler ABI info
+[0.603s] -- Detecting C compiler ABI info - done
+[0.614s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.614s] -- Detecting C compile features
+[0.615s] -- Detecting C compile features - done
+[0.622s] -- Detecting CXX compiler ABI info
+[0.865s] -- Detecting CXX compiler ABI info - done
+[0.880s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.880s] -- Detecting CXX compile features
+[0.882s] -- Detecting CXX compile features - done
+[0.892s] -- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.395s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[1.662s] -- Found rclcpp: 16.0.5 (/opt/ros/humble/share/rclcpp/cmake)
+[1.797s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.816s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.842s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.885s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.953s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.172s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[2.183s] -- Found rmw_fastrtps_cpp: 6.2.3 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.500s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.570s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.716s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.761s] -- Looking for pthread.h
+[3.043s] -- Looking for pthread.h - found
+[3.045s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.323s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[3.327s] -- Found Threads: TRUE  
+[3.826s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[3.870s] -- Found ament_lint_auto: 0.12.7 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[4.131s] [31mCMake Error at /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:93 (message):
+[4.131s]   rosidl_generate_interfaces() the passed file 'srv/AddTreeInts.srv' doesn't
+[4.132s]   exist relative to the CMAKE_CURRENT_SOURCE_DIR
+[4.132s]   '/home/osawakousei/ros2_ws/src/custom_test_msgs'
+[4.132s] Call Stack (most recent call first):
+[4.132s]   CMakeLists.txt:31 (rosidl_generate_interfaces)
+[4.133s] 
+[4.133s] [0m
+[4.133s] -- Configuring incomplete, errors occurred!
+[4.133s] See also "/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/CMakeFiles/CMakeOutput.log".
+[4.158s] Invoked command in '/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/osawakousei/ros2_ws/src/custom_test_msgs -DCMAKE_INSTALL_PREFIX=/home/osawakousei/ros2_ws/src/custom_test_msgs/install/custom_test_msgs

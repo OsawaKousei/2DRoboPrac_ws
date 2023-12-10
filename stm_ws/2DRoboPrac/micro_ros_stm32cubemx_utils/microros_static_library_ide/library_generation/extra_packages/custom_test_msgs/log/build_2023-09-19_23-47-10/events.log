@@ -1,0 +1,232 @@
+[0.000000] (-) TimerEvent: {}
+[0.000377] (custom_test_msgs) JobQueued: {'identifier': 'custom_test_msgs', 'dependencies': OrderedDict()}
+[0.000461] (custom_test_msgs) JobStarted: {'identifier': 'custom_test_msgs'}
+[0.047783] (custom_test_msgs) JobProgress: {'identifier': 'custom_test_msgs', 'progress': 'cmake'}
+[0.050016] (custom_test_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/osawakousei/ros2_ws/src/custom_test_msgs', '-DCMAKE_INSTALL_PREFIX=/home/osawakousei/ros2_ws/src/custom_test_msgs/install/custom_test_msgs'], 'cwd': '/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'ja:en'), ('USER', 'osawakousei'), ('LC_TIME', 'ja_JP.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/osawakousei/ros2_ws/install/micro_ros_agent/lib:/home/osawakousei/ros2_ws/install/micro_ros_msgs/lib:/home/osawakousei/ros2_ws/install/cpp_topic_pubsub/lib:/home/osawakousei/ros2_ws/install/cpp_server_client/lib:/home/osawakousei/ros2_ws/src/cpp_server_client/install/cpp_server_client/lib:/home/osawakousei/ros2_ws/src/cpp_topic_pubsub/install/cpp_topic_pubsub/lib:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_agent/lib:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/osawakousei'), ('OLDPWD', '/home/osawakousei/ros2_ws/src/custom_test_msgs/msg'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ja_JP.UTF-8'), ('SYSTEMD_EXEC_PID', '1387'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/osawakousei/ros2_ws/install:/home/osawakousei/ros2_ws/src/cpp_server_client/install:/home/osawakousei/ros2_ws/src/cpp_topic_pubsub/install:/home/osawakousei/ros2_ws/src/test_package/install:/home/osawakousei/ros2_ws/uros_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'osawakousei'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'osawakousei'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/kousei-ubuntu:@/tmp/.ICE-unix/1353,unix/kousei-ubuntu:/tmp/.ICE-unix/1353'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ja_JP.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/cf928bde_e7ac_4cf9_bc75_23725602397a'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ja_JP.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.QOECB2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.235'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/osawakousei/ros2_ws/install/test_package:/home/osawakousei/ros2_ws/install/micro_ros_setup:/home/osawakousei/ros2_ws/install/micro_ros_agent:/home/osawakousei/ros2_ws/install/micro_ros_msgs:/home/osawakousei/ros2_ws/install/cpp_topic_pubsub:/home/osawakousei/ros2_ws/install/cpp_server_client:/home/osawakousei/ros2_ws/src/cpp_server_client/install/cpp_server_client:/home/osawakousei/ros2_ws/src/cpp_topic_pubsub/install/cpp_topic_pubsub:/home/osawakousei/ros2_ws/src/test_package/install/test_package:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_setup:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_agent:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_msgs:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ja_JP.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ja_JP.UTF-8'), ('LC_IDENTIFICATION', 'ja_JP.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs'), ('LC_ALL', 'ja_JP.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/osawakousei/ros2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:/home/osawakousei/ros2_ws/install/cpp_topic_pubsub/local/lib/python3.10/dist-packages:/home/osawakousei/ros2_ws/install/cpp_server_client/local/lib/python3.10/dist-packages:/home/osawakousei/ros2_ws/src/cpp_server_client/install/cpp_server_client/local/lib/python3.10/dist-packages:/home/osawakousei/ros2_ws/src/cpp_topic_pubsub/install/cpp_topic_pubsub/local/lib/python3.10/dist-packages:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ja_JP.UTF-8'), ('LC_PAPER', 'ja_JP.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/osawakousei/ros2_ws/install/test_package:/home/osawakousei/ros2_ws/install/micro_ros_setup:/home/osawakousei/ros2_ws/install/micro_ros_agent:/home/osawakousei/ros2_ws/install/micro_ros_msgs:/home/osawakousei/ros2_ws/install/cpp_topic_pubsub:/home/osawakousei/ros2_ws/install/cpp_server_client:/home/osawakousei/ros2_ws/src/cpp_server_client/install/cpp_server_client:/home/osawakousei/ros2_ws/src/cpp_topic_pubsub/install/cpp_topic_pubsub:/home/osawakousei/ros2_ws/src/test_package/install/test_package:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_setup:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_agent:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_msgs:/opt/ros/humble')]), 'shell': False}
+[0.096571] (-) TimerEvent: {}
+[0.197526] (-) TimerEvent: {}
+[0.226195] (custom_test_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.297748] (-) TimerEvent: {}
+[0.398925] (-) TimerEvent: {}
+[0.412140] (custom_test_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.437883] (custom_test_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.499089] (-) TimerEvent: {}
+[0.599868] (-) TimerEvent: {}
+[0.676639] (custom_test_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.692061] (custom_test_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.692856] (custom_test_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.693655] (custom_test_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.700055] (-) TimerEvent: {}
+[0.700790] (custom_test_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.800288] (-) TimerEvent: {}
+[0.900984] (-) TimerEvent: {}
+[0.940706] (custom_test_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.956619] (custom_test_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.957358] (custom_test_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.958730] (custom_test_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.968727] (custom_test_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[1.001282] (-) TimerEvent: {}
+[1.101999] (-) TimerEvent: {}
+[1.203063] (-) TimerEvent: {}
+[1.303853] (-) TimerEvent: {}
+[1.404763] (-) TimerEvent: {}
+[1.470396] (custom_test_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter \n'}
+[1.505109] (-) TimerEvent: {}
+[1.605839] (-) TimerEvent: {}
+[1.706783] (-) TimerEvent: {}
+[1.760762] (custom_test_msgs) StdoutLine: {'line': b'-- Found rclcpp: 16.0.5 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[1.807173] (-) TimerEvent: {}
+[1.908063] (-) TimerEvent: {}
+[1.918628] (custom_test_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.942209] (custom_test_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.973694] (custom_test_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[2.008329] (-) TimerEvent: {}
+[2.014904] (custom_test_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.080656] (custom_test_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.108526] (-) TimerEvent: {}
+[2.209363] (-) TimerEvent: {}
+[2.300394] (custom_test_msgs) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[2.309692] (-) TimerEvent: {}
+[2.310506] (custom_test_msgs) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.3 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[2.409940] (-) TimerEvent: {}
+[2.510701] (-) TimerEvent: {}
+[2.611811] (-) TimerEvent: {}
+[2.621176] (custom_test_msgs) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[2.692435] (custom_test_msgs) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[2.712255] (-) TimerEvent: {}
+[2.813126] (-) TimerEvent: {}
+[2.837534] (custom_test_msgs) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.883752] (custom_test_msgs) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[2.913483] (-) TimerEvent: {}
+[3.014422] (-) TimerEvent: {}
+[3.115441] (-) TimerEvent: {}
+[3.164323] (custom_test_msgs) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[3.166722] (custom_test_msgs) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[3.215829] (-) TimerEvent: {}
+[3.316772] (-) TimerEvent: {}
+[3.417635] (-) TimerEvent: {}
+[3.448404] (custom_test_msgs) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[3.451931] (custom_test_msgs) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[3.518053] (-) TimerEvent: {}
+[3.618986] (-) TimerEvent: {}
+[3.719865] (-) TimerEvent: {}
+[3.820902] (-) TimerEvent: {}
+[3.921755] (-) TimerEvent: {}
+[3.950562] (custom_test_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[3.994510] (custom_test_msgs) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.7 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[4.022005] (-) TimerEvent: {}
+[4.122936] (-) TimerEvent: {}
+[4.223749] (-) TimerEvent: {}
+[4.324698] (-) TimerEvent: {}
+[4.425677] (-) TimerEvent: {}
+[4.526650] (-) TimerEvent: {}
+[4.627467] (-) TimerEvent: {}
+[4.728340] (-) TimerEvent: {}
+[4.829146] (-) TimerEvent: {}
+[4.843273] (custom_test_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[4.929584] (-) TimerEvent: {}
+[5.030486] (-) TimerEvent: {}
+[5.131310] (-) TimerEvent: {}
+[5.232292] (-) TimerEvent: {}
+[5.333396] (-) TimerEvent: {}
+[5.434160] (-) TimerEvent: {}
+[5.535098] (-) TimerEvent: {}
+[5.635905] (-) TimerEvent: {}
+[5.736714] (-) TimerEvent: {}
+[5.837454] (-) TimerEvent: {}
+[5.850378] (custom_test_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.937937] (-) TimerEvent: {}
+[6.038939] (-) TimerEvent: {}
+[6.140031] (-) TimerEvent: {}
+[6.237415] (custom_test_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[6.240300] (-) TimerEvent: {}
+[6.311649] (custom_test_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[6.322169] (custom_test_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[6.340547] (-) TimerEvent: {}
+[6.405584] (custom_test_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[6.406111] (custom_test_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[6.406413] (custom_test_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[6.406639] (custom_test_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[6.440942] (-) TimerEvent: {}
+[6.483785] (custom_test_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[6.541335] (-) TimerEvent: {}
+[6.642239] (-) TimerEvent: {}
+[6.693554] (custom_test_msgs) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[6.695549] (custom_test_msgs) StdoutLine: {'line': b'-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c>;$<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_fastrtps_c>;$<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_cpp>;$<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_fastrtps_cpp>;$<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_introspection_c>;$<BUILD_INTERFACE:/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_introspection_cpp>;/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c;/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_py\n'}
+[6.695936] (custom_test_msgs) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[6.707947] (custom_test_msgs) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[6.728914] (custom_test_msgs) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[6.741222] (custom_test_msgs) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[6.742418] (-) TimerEvent: {}
+[6.821716] (custom_test_msgs) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[6.822269] (custom_test_msgs) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[6.833925] (custom_test_msgs) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[6.842736] (-) TimerEvent: {}
+[6.852634] (custom_test_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[6.943264] (-) TimerEvent: {}
+[6.963320] (custom_test_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[6.973330] (custom_test_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs\n'}
+[7.003445] (custom_test_msgs) CommandEnded: {'returncode': 0}
+[7.004592] (custom_test_msgs) JobProgress: {'identifier': 'custom_test_msgs', 'progress': 'build'}
+[7.009258] (custom_test_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs', '--', '-j8', '-l8'], 'cwd': '/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'ja:en'), ('USER', 'osawakousei'), ('LC_TIME', 'ja_JP.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/osawakousei/ros2_ws/install/micro_ros_agent/lib:/home/osawakousei/ros2_ws/install/micro_ros_msgs/lib:/home/osawakousei/ros2_ws/install/cpp_topic_pubsub/lib:/home/osawakousei/ros2_ws/install/cpp_server_client/lib:/home/osawakousei/ros2_ws/src/cpp_server_client/install/cpp_server_client/lib:/home/osawakousei/ros2_ws/src/cpp_topic_pubsub/install/cpp_topic_pubsub/lib:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_agent/lib:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/osawakousei'), ('OLDPWD', '/home/osawakousei/ros2_ws/src/custom_test_msgs/msg'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ja_JP.UTF-8'), ('SYSTEMD_EXEC_PID', '1387'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/osawakousei/ros2_ws/install:/home/osawakousei/ros2_ws/src/cpp_server_client/install:/home/osawakousei/ros2_ws/src/cpp_topic_pubsub/install:/home/osawakousei/ros2_ws/src/test_package/install:/home/osawakousei/ros2_ws/uros_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'osawakousei'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'osawakousei'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/kousei-ubuntu:@/tmp/.ICE-unix/1353,unix/kousei-ubuntu:/tmp/.ICE-unix/1353'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ja_JP.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/cf928bde_e7ac_4cf9_bc75_23725602397a'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ja_JP.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.QOECB2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.235'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/osawakousei/ros2_ws/install/test_package:/home/osawakousei/ros2_ws/install/micro_ros_setup:/home/osawakousei/ros2_ws/install/micro_ros_agent:/home/osawakousei/ros2_ws/install/micro_ros_msgs:/home/osawakousei/ros2_ws/install/cpp_topic_pubsub:/home/osawakousei/ros2_ws/install/cpp_server_client:/home/osawakousei/ros2_ws/src/cpp_server_client/install/cpp_server_client:/home/osawakousei/ros2_ws/src/cpp_topic_pubsub/install/cpp_topic_pubsub:/home/osawakousei/ros2_ws/src/test_package/install/test_package:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_setup:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_agent:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_msgs:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ja_JP.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ja_JP.UTF-8'), ('LC_IDENTIFICATION', 'ja_JP.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs'), ('LC_ALL', 'ja_JP.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/osawakousei/ros2_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:/home/osawakousei/ros2_ws/install/cpp_topic_pubsub/local/lib/python3.10/dist-packages:/home/osawakousei/ros2_ws/install/cpp_server_client/local/lib/python3.10/dist-packages:/home/osawakousei/ros2_ws/src/cpp_server_client/install/cpp_server_client/local/lib/python3.10/dist-packages:/home/osawakousei/ros2_ws/src/cpp_topic_pubsub/install/cpp_topic_pubsub/local/lib/python3.10/dist-packages:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ja_JP.UTF-8'), ('LC_PAPER', 'ja_JP.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/osawakousei/ros2_ws/install/test_package:/home/osawakousei/ros2_ws/install/micro_ros_setup:/home/osawakousei/ros2_ws/install/micro_ros_agent:/home/osawakousei/ros2_ws/install/micro_ros_msgs:/home/osawakousei/ros2_ws/install/cpp_topic_pubsub:/home/osawakousei/ros2_ws/install/cpp_server_client:/home/osawakousei/ros2_ws/src/cpp_server_client/install/cpp_server_client:/home/osawakousei/ros2_ws/src/cpp_topic_pubsub/install/cpp_topic_pubsub:/home/osawakousei/ros2_ws/src/test_package/install/test_package:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_setup:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_agent:/home/osawakousei/ros2_ws/uros_ws/install/micro_ros_msgs:/opt/ros/humble')]), 'shell': False}
+[7.043663] (-) TimerEvent: {}
+[7.144423] (-) TimerEvent: {}
+[7.175272] (custom_test_msgs) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[7.221743] (custom_test_msgs) StdoutLine: {'line': b'[  5%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[7.244730] (-) TimerEvent: {}
+[7.255241] (custom_test_msgs) StdoutLine: {'line': b'[  5%] Built target ament_cmake_python_copy_custom_test_msgs\n'}
+[7.345028] (-) TimerEvent: {}
+[7.445990] (-) TimerEvent: {}
+[7.546745] (-) TimerEvent: {}
+[7.647503] (-) TimerEvent: {}
+[7.748306] (-) TimerEvent: {}
+[7.849144] (-) TimerEvent: {}
+[7.950095] (-) TimerEvent: {}
+[8.048711] (custom_test_msgs) StdoutLine: {'line': b'[  5%] Built target custom_test_msgs__cpp\n'}
+[8.050206] (-) TimerEvent: {}
+[8.067294] (custom_test_msgs) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/rosidl_generator_c/custom_test_msgs/msg/detail/add_three_ints__functions.c.o\x1b[0m\n'}
+[8.072460] (custom_test_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__functions.c.o\x1b[0m\n'}
+[8.096104] (custom_test_msgs) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[8.097359] (custom_test_msgs) StdoutLine: {'line': b'[ 15%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[8.103131] (custom_test_msgs) StdoutLine: {'line': b'[ 17%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[8.131780] (custom_test_msgs) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__functions.h:19\x1b[m\x1b[K,\n'}
+[8.132292] (custom_test_msgs) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__functions.c:4\x1b[m\x1b[K:\n'}
+[8.132600] (custom_test_msgs) StderrLine: {'line': b'\x1b[01m\x1b[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__struct.h:24:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kcustom_test_msgs/msg/detail/int64__struct.h: \xe3\x81\x9d\xe3\x81\xae\xe3\x82\x88\xe3\x81\x86\xe3\x81\xaa\xe3\x83\x95\xe3\x82\xa1\xe3\x82\xa4\xe3\x83\xab\xe3\x82\x84\xe3\x83\x87\xe3\x82\xa3\xe3\x83\xac\xe3\x82\xaf\xe3\x83\x88\xe3\x83\xaa\xe3\x81\xaf\xe3\x81\x82\xe3\x82\x8a\xe3\x81\xbe\xe3\x81\x9b\xe3\x82\x93\n'}
+[8.132921] (custom_test_msgs) StderrLine: {'line': b'   24 | #include \x1b[01;31m\x1b[K"custom_test_msgs/msg/detail/int64__struct.h"\x1b[m\x1b[K\n'}
+[8.133216] (custom_test_msgs) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.133496] (custom_test_msgs) StderrLine: {'line': b'compilation terminated.\n'}
+[8.135106] (custom_test_msgs) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/build.make:135: CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/rosidl_generator_c/custom_test_msgs/srv/detail/add_three_ints__functions.c.o] \xe3\x82\xa8\xe3\x83\xa9\xe3\x83\xbc 1\n'}
+[8.135455] (custom_test_msgs) StderrLine: {'line': b'gmake[2]: *** \xe6\x9c\xaa\xe5\xae\x8c\xe4\xba\x86\xe3\x81\xae\xe3\x82\xb8\xe3\x83\xa7\xe3\x83\x96\xe3\x82\x92\xe5\xbe\x85\xe3\x81\xa3\xe3\x81\xa6\xe3\x81\x84\xe3\x81\xbe\xe3\x81\x99....\n'}
+[8.142472] (custom_test_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[8.144653] (custom_test_msgs) StdoutLine: {'line': b'creating custom_test_msgs.egg-info\n'}
+[8.145643] (custom_test_msgs) StdoutLine: {'line': b'writing custom_test_msgs.egg-info/PKG-INFO\n'}
+[8.146716] (custom_test_msgs) StdoutLine: {'line': b'writing dependency_links to custom_test_msgs.egg-info/dependency_links.txt\n'}
+[8.147879] (custom_test_msgs) StdoutLine: {'line': b'writing top-level names to custom_test_msgs.egg-info/top_level.txt\n'}
+[8.148788] (custom_test_msgs) StdoutLine: {'line': b"writing manifest file 'custom_test_msgs.egg-info/SOURCES.txt'\n"}
+[8.150418] (-) TimerEvent: {}
+[8.155528] (custom_test_msgs) StdoutLine: {'line': b"reading manifest file 'custom_test_msgs.egg-info/SOURCES.txt'\n"}
+[8.157638] (custom_test_msgs) StdoutLine: {'line': b"writing manifest file 'custom_test_msgs.egg-info/SOURCES.txt'\n"}
+[8.207165] (custom_test_msgs) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:213: CMakeFiles/custom_test_msgs__rosidl_generator_c.dir/all] \xe3\x82\xa8\xe3\x83\xa9\xe3\x83\xbc 2\n'}
+[8.207625] (custom_test_msgs) StderrLine: {'line': b'gmake[1]: *** \xe6\x9c\xaa\xe5\xae\x8c\xe4\xba\x86\xe3\x81\xae\xe3\x82\xb8\xe3\x83\xa7\xe3\x83\x96\xe3\x82\x92\xe5\xbe\x85\xe3\x81\xa3\xe3\x81\xa6\xe3\x81\x84\xe3\x81\xbe\xe3\x81\x99....\n'}
+[8.244196] (custom_test_msgs) StdoutLine: {'line': b'[ 17%] Built target ament_cmake_python_build_custom_test_msgs_egg\n'}
+[8.250625] (-) TimerEvent: {}
+[8.351344] (-) TimerEvent: {}
+[8.452207] (-) TimerEvent: {}
+[8.553147] (-) TimerEvent: {}
+[8.654088] (-) TimerEvent: {}
+[8.754977] (-) TimerEvent: {}
+[8.806499] (custom_test_msgs) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_test_msgs/msg/add_three_ints__type_support.cpp.o\x1b[0m\n'}
+[8.807386] (custom_test_msgs) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_test_msgs/srv/add_three_ints__type_support.cpp.o\x1b[0m\n'}
+[8.854989] (-) TimerEvent: {}
+[8.860447] (custom_test_msgs) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_test_msgs/srv/detail/add_three_ints__type_support.cpp.o\x1b[0m\n'}
+[8.862726] (custom_test_msgs) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_test_msgs/msg/detail/add_three_ints__type_support.cpp.o\x1b[0m\n'}
+[8.908882] (custom_test_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/msg/detail/dds_fastrtps/add_three_ints__type_support.cpp.o\x1b[0m\n'}
+[8.910623] (custom_test_msgs) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/srv/detail/dds_fastrtps/add_three_ints__type_support.cpp.o\x1b[0m\n'}
+[8.955176] (-) TimerEvent: {}
+[8.992820] (custom_test_msgs) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_cpp/custom_test_msgs/srv/add_three_ints__type_support.cpp:7\x1b[m\x1b[K:\n'}
+[8.993626] (custom_test_msgs) StderrLine: {'line': b'\x1b[01m\x1b[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_cpp/custom_test_msgs/srv/detail/add_three_ints__struct.hpp:22:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kcustom_test_msgs/msg/detail/int64__struct.hpp: \xe3\x81\x9d\xe3\x81\xae\xe3\x82\x88\xe3\x81\x86\xe3\x81\xaa\xe3\x83\x95\xe3\x82\xa1\xe3\x82\xa4\xe3\x83\xab\xe3\x82\x84\xe3\x83\x87\xe3\x82\xa3\xe3\x83\xac\xe3\x82\xaf\xe3\x83\x88\xe3\x83\xaa\xe3\x81\xaf\xe3\x81\x82\xe3\x82\x8a\xe3\x81\xbe\xe3\x81\x9b\xe3\x82\x93\n'}
+[8.993926] (custom_test_msgs) StderrLine: {'line': b'   22 | #include \x1b[01;31m\x1b[K"custom_test_msgs/msg/detail/int64__struct.hpp"\x1b[m\x1b[K\n'}
+[8.994197] (custom_test_msgs) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.994441] (custom_test_msgs) StderrLine: {'line': b'compilation terminated.\n'}
+[8.996947] (custom_test_msgs) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/build.make:104: CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_test_msgs/srv/add_three_ints__type_support.cpp.o] \xe3\x82\xa8\xe3\x83\xa9\xe3\x83\xbc 1\n'}
+[8.997372] (custom_test_msgs) StderrLine: {'line': b'gmake[2]: *** \xe6\x9c\xaa\xe5\xae\x8c\xe4\xba\x86\xe3\x81\xae\xe3\x82\xb8\xe3\x83\xa7\xe3\x83\x96\xe3\x82\x92\xe5\xbe\x85\xe3\x81\xa3\xe3\x81\xa6\xe3\x81\x84\xe3\x81\xbe\xe3\x81\x99....\n'}
+[9.055353] (-) TimerEvent: {}
+[9.074452] (custom_test_msgs) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_introspection_cpp/custom_test_msgs/srv/detail/add_three_ints__type_support.cpp:12\x1b[m\x1b[K:\n'}
+[9.075019] (custom_test_msgs) StderrLine: {'line': b'\x1b[01m\x1b[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_cpp/custom_test_msgs/srv/detail/add_three_ints__struct.hpp:22:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kcustom_test_msgs/msg/detail/int64__struct.hpp: \xe3\x81\x9d\xe3\x81\xae\xe3\x82\x88\xe3\x81\x86\xe3\x81\xaa\xe3\x83\x95\xe3\x82\xa1\xe3\x82\xa4\xe3\x83\xab\xe3\x82\x84\xe3\x83\x87\xe3\x82\xa3\xe3\x83\xac\xe3\x82\xaf\xe3\x83\x88\xe3\x83\xaa\xe3\x81\xaf\xe3\x81\x82\xe3\x82\x8a\xe3\x81\xbe\xe3\x81\x9b\xe3\x82\x93\n'}
+[9.075321] (custom_test_msgs) StderrLine: {'line': b'   22 | #include \x1b[01;31m\x1b[K"custom_test_msgs/msg/detail/int64__struct.hpp"\x1b[m\x1b[K\n'}
+[9.075553] (custom_test_msgs) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[9.075858] (custom_test_msgs) StderrLine: {'line': b'compilation terminated.\n'}
+[9.078659] (custom_test_msgs) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/build.make:112: CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_test_msgs/srv/detail/add_three_ints__type_support.cpp.o] \xe3\x82\xa8\xe3\x83\xa9\xe3\x83\xbc 1\n'}
+[9.079116] (custom_test_msgs) StderrLine: {'line': b'gmake[2]: *** \xe6\x9c\xaa\xe5\xae\x8c\xe4\xba\x86\xe3\x81\xae\xe3\x82\xb8\xe3\x83\xa7\xe3\x83\x96\xe3\x82\x92\xe5\xbe\x85\xe3\x81\xa3\xe3\x81\xa6\xe3\x81\x84\xe3\x81\xbe\xe3\x81\x99....\n'}
+[9.105703] (custom_test_msgs) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/srv/detail/add_three_ints__rosidl_typesupport_fastrtps_cpp.hpp:11\x1b[m\x1b[K,\n'}
+[9.106419] (custom_test_msgs) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/srv/detail/dds_fastrtps/add_three_ints__type_support.cpp:4\x1b[m\x1b[K:\n'}
+[9.106692] (custom_test_msgs) StderrLine: {'line': b'\x1b[01m\x1b[K/home/osawakousei/ros2_ws/src/custom_test_msgs/build/custom_test_msgs/rosidl_generator_cpp/custom_test_msgs/srv/detail/add_three_ints__struct.hpp:22:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kcustom_test_msgs/msg/detail/int64__struct.hpp: \xe3\x81\x9d\xe3\x81\xae\xe3\x82\x88\xe3\x81\x86\xe3\x81\xaa\xe3\x83\x95\xe3\x82\xa1\xe3\x82\xa4\xe3\x83\xab\xe3\x82\x84\xe3\x83\x87\xe3\x82\xa3\xe3\x83\xac\xe3\x82\xaf\xe3\x83\x88\xe3\x83\xaa\xe3\x81\xaf\xe3\x81\x82\xe3\x82\x8a\xe3\x81\xbe\xe3\x81\x9b\xe3\x82\x93\n'}
+[9.107008] (custom_test_msgs) StderrLine: {'line': b'   22 | #include \x1b[01;31m\x1b[K"custom_test_msgs/msg/detail/int64__struct.hpp"\x1b[m\x1b[K\n'}
+[9.107279] (custom_test_msgs) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[9.107509] (custom_test_msgs) StderrLine: {'line': b'compilation terminated.\n'}
+[9.109737] (custom_test_msgs) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make:112: CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_test_msgs/srv/detail/dds_fastrtps/add_three_ints__type_support.cpp.o] \xe3\x82\xa8\xe3\x83\xa9\xe3\x83\xbc 1\n'}
+[9.110106] (custom_test_msgs) StderrLine: {'line': b'gmake[2]: *** \xe6\x9c\xaa\xe5\xae\x8c\xe4\xba\x86\xe3\x81\xae\xe3\x82\xb8\xe3\x83\xa7\xe3\x83\x96\xe3\x82\x92\xe5\xbe\x85\xe3\x81\xa3\xe3\x81\xa6\xe3\x81\x84\xe3\x81\xbe\xe3\x81\x99....\n'}
+[9.155558] (-) TimerEvent: {}
+[9.256360] (-) TimerEvent: {}
+[9.357195] (-) TimerEvent: {}
+[9.458103] (-) TimerEvent: {}
+[9.559031] (-) TimerEvent: {}
+[9.595887] (custom_test_msgs) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:395: CMakeFiles/custom_test_msgs__rosidl_typesupport_cpp.dir/all] \xe3\x82\xa8\xe3\x83\xa9\xe3\x83\xbc 2\n'}
+[9.659320] (-) TimerEvent: {}
+[9.760114] (-) TimerEvent: {}
+[9.861055] (-) TimerEvent: {}
+[9.906300] (custom_test_msgs) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:369: CMakeFiles/custom_test_msgs__rosidl_typesupport_introspection_cpp.dir/all] \xe3\x82\xa8\xe3\x83\xa9\xe3\x83\xbc 2\n'}
+[9.961432] (-) TimerEvent: {}
+[10.062374] (-) TimerEvent: {}
+[10.162829] (custom_test_msgs) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:291: CMakeFiles/custom_test_msgs__rosidl_typesupport_fastrtps_cpp.dir/all] \xe3\x82\xa8\xe3\x83\xa9\xe3\x83\xbc 2\n'}
+[10.163716] (-) TimerEvent: {}
+[10.164106] (custom_test_msgs) StderrLine: {'line': b'gmake: *** [Makefile:146: all] \xe3\x82\xa8\xe3\x83\xa9\xe3\x83\xbc 2\n'}
+[10.169411] (custom_test_msgs) CommandEnded: {'returncode': 2}
+[10.264012] (-) TimerEvent: {}
+[10.364775] (-) TimerEvent: {}
+[10.465533] (-) TimerEvent: {}
+[10.566411] (-) TimerEvent: {}
+[10.667590] (-) TimerEvent: {}
+[10.769096] (-) TimerEvent: {}
+[10.824060] (custom_test_msgs) JobEnded: {'identifier': 'custom_test_msgs', 'rc': 2}
+[10.836308] (-) EventReactorShutdown: {}
