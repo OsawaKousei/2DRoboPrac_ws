@@ -51,5 +51,6 @@ simple_dd_node src/simple_dd_node.cpp
 
 ament_auto_package(
   INSTALL_TO_SHARE
+    config
     launch
 )

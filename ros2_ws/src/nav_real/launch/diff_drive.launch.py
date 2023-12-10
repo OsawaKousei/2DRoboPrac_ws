@@ -11,7 +11,6 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     pkg_share_dir = get_package_share_directory('nav_real')
-    drive_pkg_dir = get_package_share_directory('drive_pkg')
 
     joy_node = Node(
                 package='joy',
@@ -25,10 +24,10 @@ def generate_launch_description():
                 )
 
     diff_drive_node = Node(
-                package='drive_pkg',
-                executable='simple_dd_node',
+                package='nav_real',
+                executable='diff_drive_node',
                 output='screen',
-                parameters=[os.path.join(drive_pkg_dir,'config','params.yaml')]
+                parameters=[os.path.join(pkg_share_dir,'config','params.yaml')]
                 )
 
     return LaunchDescription([
