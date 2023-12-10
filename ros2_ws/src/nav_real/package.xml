@@ -19,7 +19,7 @@
   <depend>rclcpp_components</depend>
   <depend>key_event_nodes</depend>
   <depend>key_event_msgs</depend>
-  <depend>drive_pkg</depend>
+  <depend>drive_msgs</depend>
 
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>ros_ign_bridge</exec_depend>

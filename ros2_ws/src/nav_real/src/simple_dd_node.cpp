@@ -3,7 +3,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/twist.hpp"
-#include "drive_pkg/msg/diff_drive.hpp"
+#include "drive_msgs/msg/diff_drive.hpp"
 
 using namespace std::chrono_literals;
 
@@ -13,11 +13,11 @@ public:
     SimpleDdNode() : Node("simple_dd_node") {
         
         //通信周りの記述
-        publisher_ = this->create_publisher<drive_pkg::msg::DiffDrive>("cmd_motor", 10);
+        publisher_ = this->create_publisher<drive_msgs::msg::DiffDrive>("cmd_motor", 10);
 
         auto topic_callback = [this](const geometry_msgs::msg::Twist &msg) -> void {
 
-            auto message = drive_pkg::msg::DiffDrive();
+            auto message = type_drive_msgs::msg::DiffDrive();
 
             message.m1 = 0;
             message.m2 = 0;
@@ -49,7 +49,7 @@ public:
     }
 private:
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscription_;
-    rclcpp::Publisher<drive_pkg::msg::DiffDrive>::SharedPtr publisher_;
+    rclcpp::Publisher<drive_msgs::msg::DiffDrive>::SharedPtr publisher_;
     rclcpp::TimerBase::SharedPtr timer_;
 };
 

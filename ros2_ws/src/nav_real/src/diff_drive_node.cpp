@@ -3,7 +3,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/twist.hpp"
-#include "drive_pkg/msg/diff_drive.hpp"
+#include "drive_msgs/msg/diff_drive.hpp"
 # include <bits/stdc++.h>
 
 using namespace std::chrono_literals;
@@ -39,11 +39,11 @@ public:
         RCLCPP_INFO(this->get_logger(), "wheel distance:%f\r\n",dis_);
         
         //通信周りの記述
-        publisher_ = this->create_publisher<drive_pkg::msg::DiffDrive>("cmd_motor", 10);
+        publisher_ = this->create_publisher<drive_msgs::msg::DiffDrive>("cmd_motor", 10);
 
         auto topic_callback = [this](const geometry_msgs::msg::Twist &msg) -> void {
 
-            auto message = drive_pkg::msg::DiffDrive();
+            auto message = drive_msgs::msg::DiffDrive();
             float ans[] = {0,0}; //ans[0]:右輪rps,ans[1]:左輪rps
             diffDrive(ans, msg.linear.x, msg.angular.z); //(配列のポインタ渡し,x軸方向の速度m/s,z軸回りの角速度rad/s)
 
@@ -59,7 +59,7 @@ public:
     }
 private:
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscription_;
-    rclcpp::Publisher<drive_pkg::msg::DiffDrive>::SharedPtr publisher_;
+    rclcpp::Publisher<drive_msgs::msg::DiffDrive>::SharedPtr publisher_;
     rclcpp::TimerBase::SharedPtr timer_;
 };
 
