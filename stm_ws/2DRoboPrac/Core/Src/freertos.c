@@ -37,6 +37,9 @@
 #include <std_msgs/msg/string.h>
 #include <geometry_msgs/msg/twist.h>
 #include "usart.h"
+#include "dma.h"
+#include "tim.h"
+#include "gpio.h"
 // カスタムメッセージのインクルード
 #include <custom_test_msgs/srv/add_three_ints.h>
 #include <drive_msgs/msg/diff_drive.h>
@@ -147,6 +150,39 @@ void MX_FREERTOS_Init(void) {
   * @param  argument: Not used
   * @retval None
   */
+//駆動用関数
+void run_motor(double m1,double m2){
+
+	//初期化
+	HAL_GPIO_WritePin(GPIOB, M11_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_RESET);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);
+
+	//入力値の大きさでdutyを変えるコードにすべき
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 100);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 100);
+
+	//前進・後進を設定
+	if(m1 > 0){
+		HAL_GPIO_WritePin(GPIOB, M11_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_SET);
+	}else if(m1 < 0){
+		HAL_GPIO_WritePin(GPIOB, M11_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_RESET);
+	}
+
+	if(m2 > 0){
+		HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_SET);
+	}else if(m2 < 0){
+		HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_RESET);
+	}
+
+}
 // サービスのコールバック関数を定義
 void service_callback(const void *request, void *response)
 {
@@ -170,13 +206,15 @@ void subscription_callback(const void * msgin)
 	  //データのpublish
 	  RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));
 
+	  run_motor(sub->m1,sub->m2);
+
 	  HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET);
 }
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void *argument)
 {
   /* init code for USB_DEVICE */
-  MX_USB_DEVICE_Init();
+  //MX_USB_DEVICE_Init();
   /* USER CODE BEGIN StartDefaultTask */
   // micro-ROSの初期化
   	printf("start default task");
@@ -242,7 +280,7 @@ void StartDefaultTask(void *argument)
 
     //配列データを扱うときの処理
     rosidl_runtime_c__String__init(&pub);
-    char hello[] = "Hello world from f7";
+    char hello[] = "initialized from f7";
     rosidl_runtime_c__String__assignn(&pub.data, hello, sizeof(hello));
 
     RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));

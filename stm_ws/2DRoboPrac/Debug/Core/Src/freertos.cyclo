@@ -1,4 +1,5 @@
-../Core/Src/freertos.c:109:6:MX_FREERTOS_Init	1
-../Core/Src/freertos.c:151:6:service_callback	1
-../Core/Src/freertos.c:162:6:subscription_callback	2
-../Core/Src/freertos.c:176:6:StartDefaultTask	12
+../Core/Src/freertos.c:112:6:MX_FREERTOS_Init	1
+../Core/Src/freertos.c:154:6:run_motor	5
+../Core/Src/freertos.c:187:6:service_callback	1
+../Core/Src/freertos.c:198:6:subscription_callback	2
+../Core/Src/freertos.c:214:6:StartDefaultTask	12

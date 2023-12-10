@@ -203,7 +203,8 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/geometry_msgs/msg/detail/twist__functions.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/geometry_msgs/msg/rosidl_generator_c__visibility_control.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/geometry_msgs/msg/detail/twist__type_support.h \
- ../Core/Inc/usart.h ../Core/Inc/main.h \
+ ../Core/Inc/usart.h ../Core/Inc/main.h ../Core/Inc/dma.h \
+ ../Core/Inc/tim.h ../Core/Inc/gpio.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/custom_test_msgs/srv/add_three_ints.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/custom_test_msgs/srv/detail/add_three_ints__struct.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/custom_test_msgs/srv/detail/add_three_ints__functions.h \
@@ -421,6 +422,9 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/geometry_msgs/msg/detail/twist__type_support.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/main.h:
+../Core/Inc/dma.h:
+../Core/Inc/tim.h:
+../Core/Inc/gpio.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/custom_test_msgs/srv/add_three_ints.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/custom_test_msgs/srv/detail/add_three_ints__struct.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/custom_test_msgs/srv/detail/add_three_ints__functions.h:
