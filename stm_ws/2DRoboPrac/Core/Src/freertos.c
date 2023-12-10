@@ -150,6 +150,14 @@ void MX_FREERTOS_Init(void) {
   * @param  argument: Not used
   * @retval None
   */
+//duty制限
+double limit = 150.0;
+double duty_limmiter(double input){
+	if(input > limit){
+		input = 150.0;
+	}
+	return input;
+}
 //駆動用関数
 void run_motor(double m1,double m2){
 
@@ -158,28 +166,26 @@ void run_motor(double m1,double m2){
 	HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_RESET);
-	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
-	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);
 
-	//入力値の大きさでdutyを変えるコードにすべき
-	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 100);
-	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 100);
-
-	//前進・後進を設定
+	//制御値を設定
 	if(m1 > 0){
 		HAL_GPIO_WritePin(GPIOB, M11_Pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_SET);
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty_limmiter(m1*160.0));
 	}else if(m1 < 0){
 		HAL_GPIO_WritePin(GPIOB, M11_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_RESET);
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty_limmiter(m1*160.0*-1.0));
 	}
 
 	if(m2 > 0){
 		HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_SET);
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty_limmiter(m2*160.0));
 	}else if(m2 < 0){
 		HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_RESET);
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty_limmiter(m2*160.0*-1.0));
 	}
 
 }

@@ -8,4 +8,4 @@ joy_transrate_node:
   ros__parameters:
     robot_type: "differencial drive"  # string
     max_lx: 0.5  # double
-    max_az: 1.0 # double
+    max_az: 3.0 # double
