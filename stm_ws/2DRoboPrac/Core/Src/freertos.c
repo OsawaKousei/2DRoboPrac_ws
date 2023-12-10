@@ -210,7 +210,7 @@ void StartDefaultTask(void *argument)
 
   	RCCHECK(rcl_init_options_init(&init_options, allocator));
       // ROS_DOMAIN_IDの設定。今回は123としてる。
-  	RCCHECK(rcl_init_options_set_domain_id(&init_options, 123));
+  	RCCHECK(rcl_init_options_set_domain_id(&init_options, 0));
   	rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator);
       // ノードの作成
   	RCCHECK(rclc_node_init_with_options(&node, "f7_node", "", &support, &node_ops));

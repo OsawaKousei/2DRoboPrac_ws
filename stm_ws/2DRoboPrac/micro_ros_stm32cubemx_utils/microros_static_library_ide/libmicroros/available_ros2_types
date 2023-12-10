@@ -225,12 +225,7 @@ rcl_interfaces/FloatingPointRange.msg
 rcl_interfaces/ParameterValue.msg
 rcl_interfaces/IntegerRange.msg
 custom_test_msgs/AddThreeInts.srv
-rosidl_cmake/AddThreeInts_Request.msg
-rosidl_cmake/AddThreeInts_Response.msg
 extra_packages/PracticeMsg.msg
-custom_test_msgs/AddThreeInts_Request.msg
-custom_test_msgs/AddThreeInts.srv
-custom_test_msgs/AddThreeInts_Response.msg
 control_msgs/QueryCalibrationState.srv
 control_msgs/QueryTrajectoryState.srv
 control_msgs/GripperCommand.msg
@@ -246,3 +241,4 @@ control_msgs/JointTrajectory.action
 control_msgs/PointHead.action
 control_msgs/SingleJointPosition.action
 control_msgs/FollowJointTrajectory.action
+drive_pkg/DiffDrive.msg
