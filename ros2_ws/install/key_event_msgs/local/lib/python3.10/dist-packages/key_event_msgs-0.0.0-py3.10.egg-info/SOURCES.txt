@@ -1,8 +1,0 @@
-setup.py
-key_event_msgs/__init__.py
-key_event_msgs.egg-info/PKG-INFO
-key_event_msgs.egg-info/SOURCES.txt
-key_event_msgs.egg-info/dependency_links.txt
-key_event_msgs.egg-info/top_level.txt
-key_event_msgs/msg/__init__.py
-key_event_msgs/msg/_key_event.py

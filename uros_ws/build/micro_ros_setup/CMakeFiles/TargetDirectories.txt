@@ -1,9 +1,0 @@
-/home/kousei/2DRoboPrac_ws/uros_ws/build/micro_ros_setup/CMakeFiles/uninstall.dir
-/home/kousei/2DRoboPrac_ws/uros_ws/build/micro_ros_setup/CMakeFiles/micro_ros_setup_uninstall.dir
-/home/kousei/2DRoboPrac_ws/uros_ws/build/micro_ros_setup/CMakeFiles/test.dir
-/home/kousei/2DRoboPrac_ws/uros_ws/build/micro_ros_setup/CMakeFiles/edit_cache.dir
-/home/kousei/2DRoboPrac_ws/uros_ws/build/micro_ros_setup/CMakeFiles/rebuild_cache.dir
-/home/kousei/2DRoboPrac_ws/uros_ws/build/micro_ros_setup/CMakeFiles/list_install_components.dir
-/home/kousei/2DRoboPrac_ws/uros_ws/build/micro_ros_setup/CMakeFiles/install.dir
-/home/kousei/2DRoboPrac_ws/uros_ws/build/micro_ros_setup/CMakeFiles/install/local.dir
-/home/kousei/2DRoboPrac_ws/uros_ws/build/micro_ros_setup/CMakeFiles/install/strip.dir
