@@ -29,6 +29,12 @@ def generate_launch_description():
                 output='screen',
                 parameters=[os.path.join(pkg_share_dir,'config','params.yaml')]
                 )
+    
+    simple_dd_node = Node(
+                package='nav_real',
+                executable='simple_dd_node',
+                output='screen'
+                )
 
     return LaunchDescription([
         joy_node,

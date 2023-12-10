@@ -31,7 +31,7 @@ public:
         //パラメータの取得
         type_ = get_parameter("robot_type").as_string();
         rad_ = get_parameter("wheel_radious").as_double();
-        rad_ = get_parameter("wheel_distance").as_double();
+        dis_ = get_parameter("wheel_distance").as_double();
 
         //パラメータの確認
         RCLCPP_INFO(this->get_logger(), "robot type:%s\r\n",type_.c_str());
