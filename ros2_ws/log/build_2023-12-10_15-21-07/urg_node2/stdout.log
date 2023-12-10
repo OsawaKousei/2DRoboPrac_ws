@@ -1,0 +1,96 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Found rclcpp: 16.0.7 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found rclcpp_components: 16.0.7 (/opt/ros/humble/share/rclcpp_components/cmake)
+-- Found rclcpp_lifecycle: 16.0.7 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+-- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)
+-- Found diagnostic_updater: 3.1.2 (/opt/ros/humble/share/diagnostic_updater/cmake)
+-- Found laser_proc: 1.0.2 (/opt/ros/humble/share/laser_proc/cmake)
+-- Found ament_cmake_gtest: 1.3.6 (/opt/ros/humble/share/ament_cmake_gtest/cmake)
+-- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/kousei/2DRoboPrac_ws/ros2_ws/build/urg_node2
+[  5%] [32mBuilding CXX object CMakeFiles/urg_node2_node.dir/rclcpp_components/node_main_urg_node2_node.cpp.o[0m
+[ 10%] [32mBuilding C object CMakeFiles/urg_c.dir/urg_library/current/src/urg_sensor.c.o[0m
+[ 15%] [32mBuilding C object CMakeFiles/urg_c.dir/urg_library/current/src/urg_utils.c.o[0m
+[ 30%] [32mBuilding C object CMakeFiles/urg_c.dir/urg_library/current/src/urg_connection.c.o[0m
+[ 30%] [32mBuilding C object CMakeFiles/urg_c.dir/urg_library/current/src/urg_debug.c.o[0m
+[ 40%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[ 40%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[ 35%] [32mBuilding C object CMakeFiles/urg_c.dir/urg_library/current/src/urg_serial.c.o[0m
+[ 45%] [32mBuilding C object CMakeFiles/urg_c.dir/urg_library/current/src/urg_ring_buffer.c.o[0m
+[ 50%] [32mBuilding C object CMakeFiles/urg_c.dir/urg_library/current/src/urg_tcpclient.c.o[0m
+[ 55%] [32mBuilding C object CMakeFiles/urg_c.dir/urg_library/current/src/urg_serial_utils.c.o[0m
+[ 60%] [32m[1mLinking C shared library liburg_c.so[0m
+[ 60%] Built target urg_c
+[ 65%] [32mBuilding CXX object CMakeFiles/urg_node2.dir/src/urg_node2.cpp.o[0m
+[ 70%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[ 70%] Built target gtest_main
+[ 75%] [32m[1mLinking CXX executable urg_node2_node[0m
+[ 75%] Built target urg_node2_node
+[ 80%] [32m[1mLinking CXX static library libgtest.a[0m
+[ 80%] Built target gtest
+[ 90%] [32mBuilding CXX object CMakeFiles/urg_node2_test.dir/src/urg_node2.cpp.o[0m
+[ 90%] [32mBuilding CXX object CMakeFiles/urg_node2_test.dir/test/urg_node2_test.cpp.o[0m
+[ 95%] [32m[1mLinking CXX shared library liburg_node2.so[0m
+[ 95%] Built target urg_node2
+[100%] [32m[1mLinking CXX executable urg_node2_test[0m
+[100%] Built target urg_node2_test
+-- Install configuration: ""
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/urg_node2/urg_node2_node
+-- Set runtime path of "/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/urg_node2/urg_node2_node" to ""
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/liburg_node2.so
+-- Set runtime path of "/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/liburg_node2.so" to ""
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/liburg_c.so
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/launch
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/launch/urg_node2.launch.py
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/launch/urg_node2_component.launch.py
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/launch/urg_node2_2lidar.launch.py
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/config
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/config/params_ether.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/config/params_ether_2nd.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/config/params_serial.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/ament_index/resource_index/package_run_dependencies/urg_node2
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/ament_index/resource_index/parent_prefix_path/urg_node2
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/environment/ament_prefix_path.sh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/environment/ament_prefix_path.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/environment/path.sh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/environment/path.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/local_setup.bash
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/local_setup.sh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/local_setup.zsh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/local_setup.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/ament_index/resource_index/packages/urg_node2
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/ament_index/resource_index/rclcpp_components/urg_node2
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/cmake/urg_node2Config.cmake
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/cmake/urg_node2Config-version.cmake
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.xml

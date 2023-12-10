@@ -1,0 +1,48 @@
+[0.044s] Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real -- -j16 -l16
+[0.075s] [35m[1mConsolidate compiler generated dependencies of target diff_drive_node[0m
+[0.080s] [ 33%] Built target test_pub_node
+[0.080s] [ 33%] Built target counter_node
+[0.082s] [ 50%] Built target raspi_node
+[0.086s] [ 66%] Built target simple_dd_node
+[0.086s] [ 83%] Built target joy_transrate_node
+[0.089s] [ 91%] [32mBuilding CXX object CMakeFiles/diff_drive_node.dir/src/diff_drive_node.cpp.o[0m
+[1.546s] [01m[K/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_real/src/diff_drive_node.cpp:[m[K In member function ‘[01m[Kvoid DiffDriveNode::diffDrive(float*, float, float)[m[K’:
+[1.546s] [01m[K/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_real/src/diff_drive_node.cpp:22:15:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around assignment used as truth value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses-Wparentheses]8;;[m[K]
+[1.546s]    22 |         if([01;35m[Kaz = 0[m[K){
+[1.546s]       |            [01;35m[K~~~^~~[m[K
+[5.103s] [100%] [32m[1mLinking CXX executable diff_drive_node[0m
+[5.353s] [100%] Built target diff_drive_node
+[5.361s] Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real' returned '0': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real -- -j16 -l16
+[5.387s] Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real
+[5.391s] -- Install configuration: ""
+[5.391s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/include
+[5.391s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/include/nav_real
+[5.392s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib/nav_real/counter_node
+[5.392s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib/nav_real/test_pub_node
+[5.392s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib/nav_real/raspi_node
+[5.392s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib/nav_real/joy_transrate_node
+[5.392s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib/nav_real/diff_drive_node
+[5.394s] -- Set runtime path of "/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib/nav_real/diff_drive_node" to ""
+[5.394s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib/nav_real/simple_dd_node
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/config
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/config/params.yaml
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/launch
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/launch/diff_drive.launch.py
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/ament_index/resource_index/package_run_dependencies/nav_real
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/ament_index/resource_index/parent_prefix_path/nav_real
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/environment/ament_prefix_path.sh
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/environment/ament_prefix_path.dsv
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/environment/path.sh
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/environment/path.dsv
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/local_setup.bash
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/local_setup.sh
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/local_setup.zsh
+[5.395s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/local_setup.dsv
+[5.395s] -- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.dsv
+[5.396s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/ament_index/resource_index/packages/nav_real
+[5.396s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/cmake/ament_cmake_export_dependencies-extras.cmake
+[5.396s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/cmake/ament_cmake_export_include_directories-extras.cmake
+[5.396s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/cmake/nav_realConfig.cmake
+[5.396s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/cmake/nav_realConfig-version.cmake
+[5.396s] -- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.xml
+[5.397s] Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real' returned '0': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real

@@ -1,0 +1,6 @@
+{
+  "package_name": "drive_msgs",
+  "non_idl_tuples": [
+    "/home/kousei/2DRoboPrac_ws/ros2_ws/src/drive_msgs:msg/DiffDrive.msg"
+  ]
+}

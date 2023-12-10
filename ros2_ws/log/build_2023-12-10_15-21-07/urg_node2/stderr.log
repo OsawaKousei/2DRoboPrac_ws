@@ -1,0 +1,8 @@
+[01m[K/home/kousei/2DRoboPrac_ws/ros2_ws/src/urg_node2/urg_library/current/src/urg_sensor.c:1349:8:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wignored-qualifiers-Wignored-qualifiers]8;;[m[K]
+ 1349 | static [01;35m[Kconst[m[K int receive_II_command_response(urg_t *urg,
+      |        [01;35m[K^~~~~[m[K
+[01m[K/home/kousei/2DRoboPrac_ws/ros2_ws/src/urg_node2/urg_library/current/src/urg_utils.c:[m[K In function ‘[01m[Kurg_delay[m[K’:
+[01m[K/home/kousei/2DRoboPrac_ws/ros2_ws/src/urg_node2/urg_library/current/src/urg_utils.c:224:5:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kusleep[m[K’; did you mean ‘[01m[Kurg_sleep[m[K’? [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+  224 |     [01;35m[Kusleep[m[K(1000 * delay_msec);
+      |     [01;35m[K^~~~~~[m[K
+      |     [32m[Kurg_sleep[m[K

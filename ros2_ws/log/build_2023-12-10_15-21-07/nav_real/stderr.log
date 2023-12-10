@@ -1,0 +1,12 @@
+[01m[K/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_real/src/counter_node.cpp:[m[K In lambda function:
+[01m[K/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_real/src/counter_node.cpp:36:67:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   36 |         auto topic_callback = [this]([01;35m[Kconst std_msgs::msg::String &msg[m[K) -> void {
+      |                                      [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_real/src/counter_node.cpp:[m[K In lambda function:
+[01m[K/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_real/src/counter_node.cpp:40:74:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   40 |         auto sensor_callback = [this]([01;35m[Kconst sensor_msgs::msg::LaserScan &msg[m[K) -> void {
+      |                                       [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_real/src/counter_node.cpp:[m[K In lambda function:
+[01m[K/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_real/src/counter_node.cpp:44:90:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   44 |         auto amcl_callback = [this]([01;35m[Kconst geometry_msgs::msg::PoseWithCovarianceStamped &msg[m[K) -> void {
+      |                                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K

@@ -1,0 +1,4 @@
+source;share/key_event_nodes/local_setup.bash
+source;share/key_event_nodes/local_setup.dsv
+source;share/key_event_nodes/local_setup.sh
+source;share/key_event_nodes/local_setup.zsh
