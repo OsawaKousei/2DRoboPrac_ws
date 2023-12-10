@@ -1,0 +1,11 @@
+source;share/key_event_nodes/hook/cmake_prefix_path.ps1
+source;share/key_event_nodes/hook/cmake_prefix_path.dsv
+source;share/key_event_nodes/hook/cmake_prefix_path.sh
+source;share/key_event_nodes/hook/ld_library_path_lib.ps1
+source;share/key_event_nodes/hook/ld_library_path_lib.dsv
+source;share/key_event_nodes/hook/ld_library_path_lib.sh
+source;share/key_event_nodes/local_setup.bash
+source;share/key_event_nodes/local_setup.dsv
+source;share/key_event_nodes/local_setup.ps1
+source;share/key_event_nodes/local_setup.sh
+source;share/key_event_nodes/local_setup.zsh

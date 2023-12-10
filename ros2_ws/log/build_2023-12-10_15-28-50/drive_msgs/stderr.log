@@ -1,0 +1,6 @@
+[31mCMake Error at cmake_install.cmake:367 (file):
+  file INSTALL cannot find
+  "/home/kousei/2DRoboPrac_ws/ros2_ws/src/drive_msgs/lib": No such file or
+  directory.
+
+[0m

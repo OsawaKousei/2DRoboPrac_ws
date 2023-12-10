@@ -1,0 +1,12 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from key_event_msgs/msg/KeyEvent.msg
+// generated code does not contain a copyright notice
+
+
+module key_event_msgs {
+  module msg {
+    struct KeyEvent {
+      uint8 key;
+    };
+  };
+};

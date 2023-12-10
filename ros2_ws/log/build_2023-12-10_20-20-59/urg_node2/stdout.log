@@ -1,0 +1,34 @@
+[ 45%] Built target urg_c
+[ 55%] Built target gtest_main
+[ 65%] Built target gtest
+[ 75%] Built target urg_node2_node
+[ 90%] Built target urg_node2
+[100%] Built target urg_node2_test
+-- Install configuration: ""
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/urg_node2/urg_node2_node
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/liburg_node2.so
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/liburg_c.so
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/launch
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/launch/urg_node2.launch.py
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/launch/urg_node2_component.launch.py
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/launch/urg_node2_2lidar.launch.py
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/config
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/config/params_ether.yaml
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/config/params_ether_2nd.yaml
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/config/params_serial.yaml
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/ament_index/resource_index/package_run_dependencies/urg_node2
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/ament_index/resource_index/parent_prefix_path/urg_node2
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/environment/ament_prefix_path.sh
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/environment/path.sh
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/environment/path.dsv
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/local_setup.bash
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/local_setup.sh
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/local_setup.zsh
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/local_setup.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.dsv
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/ament_index/resource_index/packages/urg_node2
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/ament_index/resource_index/rclcpp_components/urg_node2
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/cmake/urg_node2Config.cmake
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/cmake/urg_node2Config-version.cmake
+-- Up-to-date: /home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.xml

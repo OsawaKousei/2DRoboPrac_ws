@@ -1,0 +1,157 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake_auto: 1.3.6 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: /home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev/include
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_dev
+[ 50%] [32mBuilding CXX object CMakeFiles/teleop_node.dir/src/teleop_node.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/lidar_node.dir/src/lidar_node.cpp.o[0m
+[ 75%] [32m[1mLinking CXX executable teleop_node[0m
+[ 75%] Built target teleop_node
+[100%] [32m[1mLinking CXX executable lidar_node[0m
+[100%] Built target lidar_node
+-- Install configuration: ""
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch/nav_localization.launch.py
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch/turtle_nav2.launch.py
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch/nav_teleop.launch.py
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch/nav_rviz.launch.py
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch/nav_nav2.launch.py
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch/nav_slam.launch.py
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/launch/nav_spawn.launch.py
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo4
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo4/model.config
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo4/meshes
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo4/meshes/2DRoboPrac.stl
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo4/meshes/2DRoboPrac.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo4/model.sdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo/model.config
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo/meshes
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo/meshes/2DRoboPrac.stl
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo/meshes/2DRoboPrac.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo/model.sdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/field
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/field/model.config
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/field/meshes
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/field/meshes/HaruRobo2024field.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/field/meshes/HaruRobo2024field.stl
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/field/meshes/Harurobo2024field.blend
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/field/model.sdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/world.sdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5/model.config
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5/meshes
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5/meshes/r200.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5/meshes/2DRoboPrac.stl
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5/meshes/tire.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5/meshes/burger_base.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5/meshes/2DRoboPrac.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5/meshes/lds.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5/meshes/waffle_pi_base.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5/meshes/waffle_base.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/LidarRobo5/model.sdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/turtlebot3-fixed
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/turtlebot3-fixed/model.config
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/turtlebot3-fixed/meshes
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/turtlebot3-fixed/meshes/r200.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/turtlebot3-fixed/meshes/tire.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/turtlebot3-fixed/meshes/burger_base.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/turtlebot3-fixed/meshes/lds.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/turtlebot3-fixed/meshes/waffle_pi_base.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/turtlebot3-fixed/meshes/waffle_base.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/turtlebot3-fixed/model.sdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/meshes
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/meshes/2DRoboPrac.stl
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/meshes/2DRoboPrac.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/meshes/2DRoboPrac.blend
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/worlds
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/worlds/world_only.sdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/worlds/meshes
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/worlds/meshes/hexagon.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/worlds/meshes/wall.dae
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/worlds/nav_slam.sdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/models/worlds/model.sdf
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/test_map2
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/test_map2/test_map2.pgm
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/test_map2/test_map2.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/test_map2/test_map2.data
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/test_map2/test_map2.posegraph
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/test_map4
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/test_map4/test_map4.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/test_map4/test_map4.posegraph
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/test_map4/test_map4.pgm
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/test_map4/test_map4.data
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/turtlebot3_world.pgm
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/maps/turtlebot3_world.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/params
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/params/waffle.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/params/localization_param.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/params/slam_param.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/params/nav_nav2.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/config
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/config/nav_slam.rviz
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/config/turtle_nav2.rviz
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/config/nav_slam.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/config/nav_rviz.rviz
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/config/nav_nav2.rviz
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/config/nav_teleop.yaml
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/include
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/include/nav_dev
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/lib/nav_dev/teleop_node
+-- Set runtime path of "/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/lib/nav_dev/teleop_node" to ""
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/lib/nav_dev/lidar_node
+-- Set runtime path of "/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/lib/nav_dev/lidar_node" to ""
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/ament_index/resource_index/package_run_dependencies/nav_dev
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/ament_index/resource_index/parent_prefix_path/nav_dev
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/environment/ament_prefix_path.sh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/environment/ament_prefix_path.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/environment/path.sh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/environment/path.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/local_setup.bash
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/local_setup.sh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/local_setup.zsh
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/local_setup.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.dsv
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/ament_index/resource_index/packages/nav_dev
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/cmake/nav_devConfig.cmake
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/cmake/nav_devConfig-version.cmake
+-- Installing: /home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.xml

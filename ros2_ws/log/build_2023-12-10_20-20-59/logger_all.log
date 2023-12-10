@@ -1,0 +1,493 @@
+[0.472s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.472s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f7e7c6b73a0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f7e7cac7eb0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f7e7cac7eb0>>)
+[0.496s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.496s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.496s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.496s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.496s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.496s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.496s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/kousei/2DRoboPrac_ws/ros2_ws'
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extension 'ignore'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extension 'ignore_ament_install'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extensions ['colcon_pkg']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extension 'colcon_pkg'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extensions ['colcon_meta']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extension 'colcon_meta'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extensions ['ros']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_msgs) by extension 'ros'
+[0.506s] DEBUG:colcon.colcon_core.package_identification:Package 'src/drive_msgs' with type 'ros.ament_cmake' and name 'drive_msgs'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extension 'ignore'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extension 'ignore_ament_install'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extensions ['colcon_pkg']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extension 'colcon_pkg'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extensions ['colcon_meta']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extension 'colcon_meta'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extensions ['ros']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_msgs) by extension 'ros'
+[0.506s] DEBUG:colcon.colcon_core.package_identification:Package 'src/key_event_msgs' with type 'ros.ament_cmake' and name 'key_event_msgs'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extensions ['ignore', 'ignore_ament_install']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extension 'ignore'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extension 'ignore_ament_install'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extensions ['colcon_pkg']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extension 'colcon_pkg'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extensions ['colcon_meta']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extension 'colcon_meta'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extensions ['ros']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/key_event_nodes) by extension 'ros'
+[0.507s] DEBUG:colcon.colcon_core.package_identification:Package 'src/key_event_nodes' with type 'ros.ament_cmake' and name 'key_event_nodes'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_dev) by extensions ['ignore', 'ignore_ament_install']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_dev) by extension 'ignore'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_dev) by extension 'ignore_ament_install'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_dev) by extensions ['colcon_pkg']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_dev) by extension 'colcon_pkg'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_dev) by extensions ['colcon_meta']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_dev) by extension 'colcon_meta'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_dev) by extensions ['ros']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_dev) by extension 'ros'
+[0.508s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nav_dev' with type 'ros.ament_cmake' and name 'nav_dev'
+[0.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_real) by extensions ['ignore', 'ignore_ament_install']
+[0.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_real) by extension 'ignore'
+[0.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_real) by extension 'ignore_ament_install'
+[0.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_real) by extensions ['colcon_pkg']
+[0.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_real) by extension 'colcon_pkg'
+[0.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_real) by extensions ['colcon_meta']
+[0.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_real) by extension 'colcon_meta'
+[0.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_real) by extensions ['ros']
+[0.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav_real) by extension 'ros'
+[0.509s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nav_real' with type 'ros.ament_cmake' and name 'nav_real'
+[0.509s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extensions ['ignore', 'ignore_ament_install']
+[0.509s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extension 'ignore'
+[0.509s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extension 'ignore_ament_install'
+[0.509s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extensions ['colcon_pkg']
+[0.509s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extension 'colcon_pkg'
+[0.509s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extensions ['colcon_meta']
+[0.509s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extension 'colcon_meta'
+[0.509s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extensions ['ros']
+[0.509s] Level 1:colcon.colcon_core.package_identification:_identify(src/urg_node2) by extension 'ros'
+[0.509s] DEBUG:colcon.colcon_core.package_identification:Package 'src/urg_node2' with type 'ros.ament_cmake' and name 'urg_node2'
+[0.509s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.509s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.510s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.510s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.510s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.555s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.555s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.570s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 6 installed packages in /home/kousei/2DRoboPrac_ws/ros2_ws/install
+[0.577s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 412 installed packages in /opt/ros/humble
+[0.578s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_args' from command line to 'None'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_target' from command line to 'None'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.641s] Level 5:colcon.colcon_core.verb:set package 'drive_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.641s] DEBUG:colcon.colcon_core.verb:Building package 'drive_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/build/drive_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs', 'merge_install': False, 'path': '/home/kousei/2DRoboPrac_ws/ros2_ws/src/drive_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.649s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_args' from command line to 'None'
+[0.649s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_target' from command line to 'None'
+[0.649s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.649s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.649s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.649s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.649s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.649s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.649s] Level 5:colcon.colcon_core.verb:set package 'key_event_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.649s] DEBUG:colcon.colcon_core.verb:Building package 'key_event_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs', 'merge_install': False, 'path': '/home/kousei/2DRoboPrac_ws/ros2_ws/src/key_event_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.656s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_args' from command line to 'None'
+[0.656s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_target' from command line to 'None'
+[0.656s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.656s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.656s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_clean_first' from command line to 'False'
+[0.656s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'cmake_force_configure' from command line to 'False'
+[0.656s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'ament_cmake_args' from command line to 'None'
+[0.656s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.656s] Level 5:colcon.colcon_core.verb:set package 'urg_node2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.656s] DEBUG:colcon.colcon_core.verb:Building package 'urg_node2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/build/urg_node2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2', 'merge_install': False, 'path': '/home/kousei/2DRoboPrac_ws/ros2_ws/src/urg_node2', 'symlink_install': False, 'test_result_base': None}
+[0.663s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_args' from command line to 'None'
+[0.663s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_target' from command line to 'None'
+[0.663s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.663s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_clean_cache' from command line to 'False'
+[0.663s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_clean_first' from command line to 'False'
+[0.663s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'cmake_force_configure' from command line to 'False'
+[0.663s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'ament_cmake_args' from command line to 'None'
+[0.663s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'catkin_cmake_args' from command line to 'None'
+[0.663s] Level 5:colcon.colcon_core.verb:set package 'key_event_nodes' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.663s] DEBUG:colcon.colcon_core.verb:Building package 'key_event_nodes' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_nodes', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes', 'merge_install': False, 'path': '/home/kousei/2DRoboPrac_ws/ros2_ws/src/key_event_nodes', 'symlink_install': False, 'test_result_base': None}
+[0.670s] Level 5:colcon.colcon_core.verb:set package 'nav_dev' build argument 'cmake_args' from command line to 'None'
+[0.670s] Level 5:colcon.colcon_core.verb:set package 'nav_dev' build argument 'cmake_target' from command line to 'None'
+[0.670s] Level 5:colcon.colcon_core.verb:set package 'nav_dev' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.670s] Level 5:colcon.colcon_core.verb:set package 'nav_dev' build argument 'cmake_clean_cache' from command line to 'False'
+[0.670s] Level 5:colcon.colcon_core.verb:set package 'nav_dev' build argument 'cmake_clean_first' from command line to 'False'
+[0.670s] Level 5:colcon.colcon_core.verb:set package 'nav_dev' build argument 'cmake_force_configure' from command line to 'False'
+[0.670s] Level 5:colcon.colcon_core.verb:set package 'nav_dev' build argument 'ament_cmake_args' from command line to 'None'
+[0.670s] Level 5:colcon.colcon_core.verb:set package 'nav_dev' build argument 'catkin_cmake_args' from command line to 'None'
+[0.670s] Level 5:colcon.colcon_core.verb:set package 'nav_dev' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.670s] DEBUG:colcon.colcon_core.verb:Building package 'nav_dev' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_dev', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev', 'merge_install': False, 'path': '/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev', 'symlink_install': False, 'test_result_base': None}
+[0.677s] Level 5:colcon.colcon_core.verb:set package 'nav_real' build argument 'cmake_args' from command line to 'None'
+[0.677s] Level 5:colcon.colcon_core.verb:set package 'nav_real' build argument 'cmake_target' from command line to 'None'
+[0.677s] Level 5:colcon.colcon_core.verb:set package 'nav_real' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.677s] Level 5:colcon.colcon_core.verb:set package 'nav_real' build argument 'cmake_clean_cache' from command line to 'False'
+[0.677s] Level 5:colcon.colcon_core.verb:set package 'nav_real' build argument 'cmake_clean_first' from command line to 'False'
+[0.677s] Level 5:colcon.colcon_core.verb:set package 'nav_real' build argument 'cmake_force_configure' from command line to 'False'
+[0.677s] Level 5:colcon.colcon_core.verb:set package 'nav_real' build argument 'ament_cmake_args' from command line to 'None'
+[0.677s] Level 5:colcon.colcon_core.verb:set package 'nav_real' build argument 'catkin_cmake_args' from command line to 'None'
+[0.677s] Level 5:colcon.colcon_core.verb:set package 'nav_real' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.677s] DEBUG:colcon.colcon_core.verb:Building package 'nav_real' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real', 'merge_install': False, 'path': '/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_real', 'symlink_install': False, 'test_result_base': None}
+[0.684s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.691s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.691s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/key_event_msgs' with build type 'ament_cmake'
+[0.691s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/key_event_msgs'
+[0.699s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.700s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.700s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.722s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/drive_msgs' with build type 'ament_cmake'
+[0.722s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/drive_msgs'
+[0.730s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.730s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.753s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/urg_node2' with build type 'ament_cmake'
+[0.753s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/urg_node2'
+[0.760s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.760s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.786s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_msgs -- -j16 -l16
+[0.789s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/drive_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/drive_msgs -- -j16 -l16
+[0.791s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/urg_node2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/urg_node2 -- -j16 -l16
+[0.864s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/urg_node2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/urg_node2 -- -j16 -l16
+[0.907s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/urg_node2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/urg_node2
+[0.918s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(urg_node2)
+[0.918s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/urg_node2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/urg_node2
+[0.930s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2' for CMake module files
+[0.930s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2' for CMake config files
+[0.930s] Level 1:colcon.colcon_core.shell:create_environment_hook('urg_node2', 'cmake_prefix_path')
+[0.937s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.ps1'
+[0.938s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.dsv'
+[0.938s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.sh'
+[0.939s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib'
+[0.939s] Level 1:colcon.colcon_core.shell:create_environment_hook('urg_node2', 'ld_library_path_lib')
+[0.946s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.ps1'
+[0.946s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.dsv'
+[0.946s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.sh'
+[0.947s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/bin'
+[0.947s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/pkgconfig/urg_node2.pc'
+[0.947s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/python3.10/site-packages'
+[0.947s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/bin'
+[0.955s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.ps1'
+[0.955s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.dsv'
+[0.956s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.sh'
+[0.956s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.bash'
+[0.956s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.zsh'
+[0.957s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/colcon-core/packages/urg_node2)
+[1.003s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(urg_node2)
+[1.012s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2' for CMake module files
+[1.013s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2' for CMake config files
+[1.013s] Level 1:colcon.colcon_core.shell:create_environment_hook('urg_node2', 'cmake_prefix_path')
+[1.022s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.ps1'
+[1.022s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.dsv'
+[1.022s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/cmake_prefix_path.sh'
+[1.023s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib'
+[1.023s] Level 1:colcon.colcon_core.shell:create_environment_hook('urg_node2', 'ld_library_path_lib')
+[1.031s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.ps1'
+[1.032s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.dsv'
+[1.032s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/hook/ld_library_path_lib.sh'
+[1.032s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/bin'
+[1.032s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/pkgconfig/urg_node2.pc'
+[1.032s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib/python3.10/site-packages'
+[1.032s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/bin'
+[1.040s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.ps1'
+[1.040s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.dsv'
+[1.041s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.sh'
+[1.041s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.bash'
+[1.041s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/urg_node2/package.zsh'
+[1.041s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/share/colcon-core/packages/urg_node2)
+[1.043s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_msgs -- -j16 -l16
+[1.044s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/drive_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/drive_msgs -- -j16 -l16
+[1.077s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_msgs
+[1.079s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/drive_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/drive_msgs
+[1.114s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(drive_msgs)
+[1.121s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/drive_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/drive_msgs
+[1.128s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs' for CMake module files
+[1.129s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs' for CMake config files
+[1.129s] Level 1:colcon.colcon_core.shell:create_environment_hook('drive_msgs', 'cmake_prefix_path')
+[1.137s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.ps1'
+[1.137s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.dsv'
+[1.137s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.sh'
+[1.137s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib'
+[1.137s] Level 1:colcon.colcon_core.shell:create_environment_hook('drive_msgs', 'ld_library_path_lib')
+[1.145s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.ps1'
+[1.145s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.dsv'
+[1.145s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.sh'
+[1.145s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/bin'
+[1.145s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib/pkgconfig/drive_msgs.pc'
+[1.146s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib/python3.10/site-packages'
+[1.146s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/bin'
+[1.152s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.ps1'
+[1.152s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.dsv'
+[1.153s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.sh'
+[1.153s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.bash'
+[1.153s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.zsh'
+[1.153s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/colcon-core/packages/drive_msgs)
+[1.154s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(key_event_msgs)
+[1.155s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_msgs
+[1.162s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs' for CMake module files
+[1.162s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs' for CMake config files
+[1.163s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_msgs', 'cmake_prefix_path')
+[1.170s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.ps1'
+[1.170s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.dsv'
+[1.170s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.sh'
+[1.171s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib'
+[1.171s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_msgs', 'ld_library_path_lib')
+[1.178s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.ps1'
+[1.178s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.dsv'
+[1.178s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.sh'
+[1.179s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/bin'
+[1.179s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib/pkgconfig/key_event_msgs.pc'
+[1.179s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib/python3.10/site-packages'
+[1.179s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/bin'
+[1.186s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.ps1'
+[1.187s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.dsv'
+[1.187s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.sh'
+[1.187s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.bash'
+[1.187s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.zsh'
+[1.187s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/colcon-core/packages/key_event_msgs)
+[1.197s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(drive_msgs)
+[1.204s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs' for CMake module files
+[1.205s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs' for CMake config files
+[1.205s] Level 1:colcon.colcon_core.shell:create_environment_hook('drive_msgs', 'cmake_prefix_path')
+[1.212s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.ps1'
+[1.213s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.dsv'
+[1.213s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/cmake_prefix_path.sh'
+[1.213s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib'
+[1.213s] Level 1:colcon.colcon_core.shell:create_environment_hook('drive_msgs', 'ld_library_path_lib')
+[1.221s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.ps1'
+[1.221s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.dsv'
+[1.222s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/hook/ld_library_path_lib.sh'
+[1.222s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/bin'
+[1.222s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib/pkgconfig/drive_msgs.pc'
+[1.222s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib/python3.10/site-packages'
+[1.222s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/bin'
+[1.231s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.ps1'
+[1.232s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.dsv'
+[1.232s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.sh'
+[1.233s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.bash'
+[1.233s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/drive_msgs/package.zsh'
+[1.234s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/share/colcon-core/packages/drive_msgs)
+[1.242s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(key_event_msgs)
+[1.249s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs' for CMake module files
+[1.249s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs' for CMake config files
+[1.249s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_msgs', 'cmake_prefix_path')
+[1.257s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.ps1'
+[1.257s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.dsv'
+[1.257s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/cmake_prefix_path.sh'
+[1.258s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib'
+[1.258s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_msgs', 'ld_library_path_lib')
+[1.265s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.ps1'
+[1.265s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.dsv'
+[1.266s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/hook/ld_library_path_lib.sh'
+[1.266s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/bin'
+[1.266s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib/pkgconfig/key_event_msgs.pc'
+[1.266s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib/python3.10/site-packages'
+[1.266s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/bin'
+[1.274s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.ps1'
+[1.274s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.dsv'
+[1.274s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.sh'
+[1.275s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.bash'
+[1.275s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/key_event_msgs/package.zsh'
+[1.275s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/share/colcon-core/packages/key_event_msgs)
+[1.275s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/key_event_nodes' with build type 'ament_cmake'
+[1.275s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/key_event_nodes'
+[1.284s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.284s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.321s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_nodes': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_nodes -- -j16 -l16
+[1.363s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_nodes' returned '0': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_nodes -- -j16 -l16
+[1.380s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_nodes': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_nodes
+[1.386s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(key_event_nodes)
+[1.388s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_nodes' returned '0': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/key_event_nodes
+[1.396s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes' for CMake module files
+[1.396s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes' for CMake config files
+[1.396s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_nodes', 'cmake_prefix_path')
+[1.403s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.ps1'
+[1.403s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.dsv'
+[1.403s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.sh'
+[1.403s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib'
+[1.404s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_nodes', 'ld_library_path_lib')
+[1.410s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.ps1'
+[1.411s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.dsv'
+[1.411s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.sh'
+[1.411s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/bin'
+[1.411s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib/pkgconfig/key_event_nodes.pc'
+[1.411s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib/python3.10/site-packages'
+[1.411s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/bin'
+[1.419s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.ps1'
+[1.419s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.dsv'
+[1.419s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.sh'
+[1.419s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.bash'
+[1.420s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.zsh'
+[1.420s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/colcon-core/packages/key_event_nodes)
+[1.443s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(key_event_nodes)
+[1.450s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes' for CMake module files
+[1.450s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes' for CMake config files
+[1.450s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_nodes', 'cmake_prefix_path')
+[1.457s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.ps1'
+[1.457s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.dsv'
+[1.457s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/cmake_prefix_path.sh'
+[1.458s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib'
+[1.458s] Level 1:colcon.colcon_core.shell:create_environment_hook('key_event_nodes', 'ld_library_path_lib')
+[1.465s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.ps1'
+[1.466s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.dsv'
+[1.466s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/hook/ld_library_path_lib.sh'
+[1.466s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/bin'
+[1.466s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib/pkgconfig/key_event_nodes.pc'
+[1.466s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib/python3.10/site-packages'
+[1.466s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/bin'
+[1.473s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.ps1'
+[1.473s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.dsv'
+[1.474s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.sh'
+[1.474s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.bash'
+[1.474s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/key_event_nodes/package.zsh'
+[1.474s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/share/colcon-core/packages/key_event_nodes)
+[1.475s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev' with build type 'ament_cmake'
+[1.475s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_dev'
+[1.483s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.483s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.510s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_real' with build type 'ament_cmake'
+[1.510s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kousei/2DRoboPrac_ws/ros2_ws/src/nav_real'
+[1.519s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.519s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.546s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_dev': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_dev -- -j16 -l16
+[1.554s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real -- -j16 -l16
+[1.602s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_dev' returned '0': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_dev -- -j16 -l16
+[1.621s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_dev': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_dev
+[1.629s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nav_dev)
+[1.639s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_dev' returned '0': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_dev
+[1.652s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev' for CMake module files
+[1.652s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev' for CMake config files
+[1.653s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav_dev', 'cmake_prefix_path')
+[1.663s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/hook/cmake_prefix_path.ps1'
+[1.664s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/hook/cmake_prefix_path.dsv'
+[1.664s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/hook/cmake_prefix_path.sh'
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/lib'
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/bin'
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/lib/pkgconfig/nav_dev.pc'
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/lib/python3.10/site-packages'
+[1.665s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/bin'
+[1.672s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.ps1'
+[1.673s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.dsv'
+[1.673s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.sh'
+[1.674s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.bash'
+[1.674s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.zsh'
+[1.674s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/colcon-core/packages/nav_dev)
+[1.701s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nav_dev)
+[1.709s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev' for CMake module files
+[1.710s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev' for CMake config files
+[1.710s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav_dev', 'cmake_prefix_path')
+[1.719s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/hook/cmake_prefix_path.ps1'
+[1.719s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/hook/cmake_prefix_path.dsv'
+[1.719s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/hook/cmake_prefix_path.sh'
+[1.719s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/lib'
+[1.720s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/bin'
+[1.720s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/lib/pkgconfig/nav_dev.pc'
+[1.720s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/lib/python3.10/site-packages'
+[1.720s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/bin'
+[1.729s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.ps1'
+[1.729s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.dsv'
+[1.730s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.sh'
+[1.730s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.bash'
+[1.730s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/nav_dev/package.zsh'
+[1.730s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev/share/colcon-core/packages/nav_dev)
+[7.106s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real' returned '0': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real -- -j16 -l16
+[7.130s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real
+[7.140s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nav_real)
+[7.140s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real' returned '0': CMAKE_PREFIX_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real:/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_dev:/opt/ros/humble LD_LIBRARY_PATH=/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_nodes/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/key_event_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/drive_msgs/lib:/home/kousei/2DRoboPrac_ws/ros2_ws/install/urg_node2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kousei/2DRoboPrac_ws/ros2_ws/build/nav_real
+[7.148s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real' for CMake module files
+[7.148s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real' for CMake config files
+[7.148s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav_real', 'cmake_prefix_path')
+[7.156s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/hook/cmake_prefix_path.ps1'
+[7.156s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/hook/cmake_prefix_path.dsv'
+[7.156s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/hook/cmake_prefix_path.sh'
+[7.156s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib'
+[7.156s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/bin'
+[7.156s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib/pkgconfig/nav_real.pc'
+[7.157s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib/python3.10/site-packages'
+[7.157s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/bin'
+[7.164s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.ps1'
+[7.164s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.dsv'
+[7.164s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.sh'
+[7.165s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.bash'
+[7.165s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.zsh'
+[7.165s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/colcon-core/packages/nav_real)
+[7.196s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nav_real)
+[7.204s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real' for CMake module files
+[7.204s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real' for CMake config files
+[7.204s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav_real', 'cmake_prefix_path')
+[7.211s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/hook/cmake_prefix_path.ps1'
+[7.212s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/hook/cmake_prefix_path.dsv'
+[7.212s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/hook/cmake_prefix_path.sh'
+[7.212s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib'
+[7.212s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/bin'
+[7.212s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib/pkgconfig/nav_real.pc'
+[7.212s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/lib/python3.10/site-packages'
+[7.213s] Level 1:colcon.colcon_core.environment:checking '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/bin'
+[7.220s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.ps1'
+[7.220s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.dsv'
+[7.220s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.sh'
+[7.221s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.bash'
+[7.221s] INFO:colcon.colcon_core.shell:Creating package script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/nav_real/package.zsh'
+[7.221s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kousei/2DRoboPrac_ws/ros2_ws/install/nav_real/share/colcon-core/packages/nav_real)
+[7.221s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[7.221s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[7.221s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[7.221s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[7.234s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[7.234s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[7.234s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[7.245s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[7.259s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/local_setup.ps1'
+[7.259s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/kousei/2DRoboPrac_ws/ros2_ws/install/_local_setup_util_ps1.py'
+[7.260s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/setup.ps1'
+[7.268s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/local_setup.sh'
+[7.268s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/kousei/2DRoboPrac_ws/ros2_ws/install/_local_setup_util_sh.py'
+[7.269s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/setup.sh'
+[7.276s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/local_setup.bash'
+[7.277s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/setup.bash'
+[7.285s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/local_setup.zsh'
+[7.285s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kousei/2DRoboPrac_ws/ros2_ws/install/setup.zsh'
