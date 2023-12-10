@@ -151,10 +151,10 @@ void MX_FREERTOS_Init(void) {
   * @retval None
   */
 //duty制限
-double limit = 150.0;
+double limit = 250.0;
 double duty_limmiter(double input){
 	if(input > limit){
-		input = 150.0;
+		input = limit;
 	}
 	return input;
 }
@@ -171,21 +171,21 @@ void run_motor(double m1,double m2){
 	if(m1 > 0){
 		HAL_GPIO_WritePin(GPIOB, M11_Pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_SET);
-		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty_limmiter(m1*160.0));
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty_limmiter(m1*100.0));
 	}else if(m1 < 0){
 		HAL_GPIO_WritePin(GPIOB, M11_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_RESET);
-		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty_limmiter(m1*160.0*-1.0));
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty_limmiter(m1*100.0*-1.0));
 	}
 
 	if(m2 > 0){
 		HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_SET);
-		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty_limmiter(m2*160.0));
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty_limmiter(m2*100.0));
 	}else if(m2 < 0){
 		HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_RESET);
-		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty_limmiter(m2*160.0*-1.0));
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty_limmiter(m2*100.0*-1.0));
 	}
 
 }
