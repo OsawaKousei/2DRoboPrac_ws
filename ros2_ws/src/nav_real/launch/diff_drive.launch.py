@@ -20,7 +20,8 @@ def generate_launch_description():
     joy_transrate_node = Node(
                 package='nav_real',
                 executable='joy_transrate_node',
-                output='screen'
+                output='screen',
+                parameters=[os.path.join(pkg_share_dir,'config','params.yaml')]
                 )
 
     diff_drive_node = Node(

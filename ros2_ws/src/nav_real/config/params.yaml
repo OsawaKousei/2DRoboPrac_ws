@@ -3,3 +3,9 @@ diff_drive_node:
     robot_type: "differencial drive"  # string
     wheel_radious: 0.03  # double
     wheel_distance: 0.1 # double
+
+joy_transrate_node:
+  ros__parameters:
+    robot_type: "differencial drive"  # string
+    max_lx: 0.5  # double
+    max_az: 1.0 # double

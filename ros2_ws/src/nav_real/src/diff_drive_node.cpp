@@ -19,6 +19,7 @@ public:
     //cmd_velからモータの制御値を計算
     void diffDrive(float cmd[2],float lx,float az){ //cmd[0]:右輪rps,cmd[1]:左輪rps,lx:m/s,az:rad/s
 
+        //線形速度と回転速度の加算
         cmd[0] = (lx + dis_*az*(0.5))/(2.0*M_PI*rad_);
         cmd[1] = (lx - dis_*az*(0.5))/(2.0*M_PI*rad_);
         
