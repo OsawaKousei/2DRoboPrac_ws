@@ -1,0 +1,5 @@
+key_hit_event_node:
+  ros__parameters:
+    interval_ms: 2000 # millisecond
+
+

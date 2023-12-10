@@ -1,0 +1,323 @@
+<?xml version="1.0" ?>
+<sdf version="1.8"> <!--xmlとsdfのバージョン定義-->
+    <world name="WorldDemo"> <!--ワールドの内容は全てこのタグの中に-->
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.001</max_step_size> <!--最大何秒ごとにシミュレートするか（小さいほど正確なシミュレーションになる）-->
+            <real_time_factor>1.0</real_time_factor> <!--現実時間との比率-->
+        </physics>
+        <plugin
+            filename="libignition-gazebo-physics-system.so"
+            name="ignition::gazebo::systems::Physics">
+        </plugin> <!--動力学のシミュレーションに必要-->
+        <plugin
+            filename="libignition-gazebo-user-commands-system.so"
+            name="ignition::gazebo::systems::UserCommands">
+        </plugin> <!--ユーザーコマンドを利用可能に-->
+        <plugin
+            filename="libignition-gazebo-scene-broadcaster-system.so"
+            name="ignition::gazebo::systems::SceneBroadcaster">
+        </plugin> <!--ワールドシーンの描画-->
+        
+        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+                name="ignition::gazebo::systems::TriggeredPublisher">
+            <input type="ignition.msgs.Int32" topic="/keyboard/keypress"> <!--受信するトピックを指定-->
+                <match field="data">16777235</match> <!--↑キーに一致するという条件を指定-->
+            </input>
+            <output type="ignition.msgs.Twist" topic="/cmd_vel"> <!--送信するトピックを指定-->
+                linear: {x: 0.5}, angular: {z: 0.0} <!--トピックの内容を指定-->
+            </output>
+        </plugin>
+        <!-- Moving Backward-->
+        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+                name="ignition::gazebo::systems::TriggeredPublisher">
+            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777237</match>
+            </input>
+            <output type="ignition.msgs.Twist" topic="/cmd_vel">
+                linear: {x: -0.5}, angular: {z: 0.0}
+            </output>
+        </plugin>
+        <!--右-->
+        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+                name="ignition::gazebo::systems::TriggeredPublisher">
+            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777236</match>
+            </input>
+            <output type="ignition.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: -0.5}
+            </output>
+        </plugin>
+        <!--左-->
+        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+                name="ignition::gazebo::systems::TriggeredPublisher">
+            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777234 </match>
+            </input>
+            <output type="ignition.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: 0.5}
+            </output>
+        </plugin>
+
+        <!--光に関する設定-->
+        <light type="directional" name="sun"> <!--pointかdirectional、spot.-->
+            <cast_shadows>true</cast_shadows> <!--trueなら影ができる-->
+            <pose>0 0 10 0 0 0</pose> <!--位置 relative_to attributeを追加できる、しなければworldに関連付けられる-->
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+            <attenuation>
+                <range>1000</range><!--光の範囲-->
+                <constant>0.9</constant><!--減衰係数0-1、1は減衰しない-->
+                <linear>0.01</linear><!--線形減衰係数0-1、1は距離について均等に減衰-->
+                <quadratic>0.001</quadratic><!--光の方向性、pointには適用されない-->
+            </attenuation>
+            <direction>-0.5 0.1 -0.9</direction>
+        </light>
+
+        <model name="ground_plane">
+          <static>true</static>
+          <link name="link">
+              <collision name="collision">
+              <geometry>
+                  <plane>
+                  <normal>0 0 1</normal>
+                  </plane>
+              </geometry>
+              </collision>
+              <visual name="visual">
+              <geometry>
+                  <plane>
+                  <normal>0 0 1</normal>
+                  <size>100 100</size>
+                  </plane>
+              </geometry>
+              <material>
+                  <ambient>0.8 0.8 0.8 1</ambient>
+                  <diffuse>0.8 0.8 0.8 1</diffuse>
+                  <specular>0.8 0.8 0.8 1</specular>
+              </material>
+              </visual>
+          </link>
+      </model>
+        
+      <model name="demoRobot">
+        <!--モデルが地面にめり込まないように少し浮かせています-->
+        <pose>0 0 0.2 0 0 0</pose>
+          <link name="base_link">
+            <inertial>
+              <pose>0.1 0 0 0 0 0</pose>
+              <inertia>
+                <ixx>4.2111447e-02</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>4.2111447e-02</iyy>
+                <iyz>0</iyz>
+                <izz>7.5254874e-02</izz>
+              </inertia>
+              <mass>1.3729096e+00</mass>
+            </inertial>
+            <collision name="base_collision">
+              <!--重心の位置を調整しています-->
+              <pose>-0.064 0.08 0.06 0 0 -1.57</pose>
+              <geometry>
+                <mesh>
+                  <uri>model://meshes/2DRoboPrac.stl</uri>
+                </mesh>
+              </geometry>
+            </collision>
+            <visual name="base_visual">
+              <!--重心の位置を調整しています-->
+              <pose>-0.064 0.08 0.06 0 0 -1.57</pose>
+              <geometry>
+                <mesh>
+                  <uri>model://meshes/2DRoboPrac.dae</uri>
+                </mesh>
+              </geometry>
+              <material>
+                <diffuse> 0.921568627 0.925490196 0.941176471 1</diffuse>
+                <ambient> 0.921568627 0.925490196 0.941176471 1</ambient>
+                <specular>0.921568627 0.925490196 0.941176471 1</specular>
+              </material>
+            </visual>
+          </link>
+      
+          <!-- Wheel left -->
+          <link name="wheel_left_link">
+            <pose>0.0 0.095 0.023 -1.57 0 0</pose>
+            <inertial>
+              <inertia>
+                <ixx>1.1175580e-05</ixx>
+                <ixy>-4.2369783e-11</ixy>
+                <ixz>-5.9381719e-09</ixz>
+                <iyy>1.1192413e-05</iyy>
+                <iyz>-1.4400107e-11</iyz>
+                <izz>2.0712558e-05</izz>
+              </inertia>
+              <mass>0.1</mass>
+            </inertial>
+            <collision name="wheel_left_collision">
+              <geometry>
+                <cylinder>
+                  <radius>0.033</radius>
+                  <length>0.018</length>
+                </cylinder>
+              </geometry>
+            </collision>
+            <visual name="wheel_left_visual">
+              <geometry>
+                <cylinder>
+                  <radius>0.033</radius>
+                  <length>0.018</length>
+                </cylinder>
+                </geometry>
+                <material>
+                  <ambient>1.0 0.0 0.0 1</ambient>
+                  <diffuse>1.0 0.0 0.0 1</diffuse>
+                  <specular>1.0 0.0 0.0 1</specular>
+                </material>
+            </visual>
+          </link>
+          <joint name="wheel_left_joint" type="revolute">
+            <parent>base_link</parent>
+            <child>wheel_left_link</child>
+            <axis>
+              <xyz>0 0 1</xyz>
+            </axis>
+          </joint>
+      
+          <!-- Wheel right -->
+          <link name="wheel_right_link">
+            <pose>0.0 -0.095 0.023 -1.57 0 0</pose>
+            <inertial>
+              <inertia>
+                <ixx>1.1175580e-05</ixx>
+                <ixy>-4.2369783e-11</ixy>
+                <ixz>-5.9381719e-09</ixz>
+                <iyy>1.1192413e-05</iyy>
+                <iyz>-1.4400107e-11</iyz>
+                <izz>2.0712558e-05</izz>
+              </inertia>
+              <mass>0.1</mass>
+            </inertial>
+            <collision name="wheel_right_collision">
+              <geometry>
+                <cylinder>
+                  <radius>0.033</radius>
+                  <length>0.018</length>
+                </cylinder>
+              </geometry>
+            </collision>
+            <visual name="wheel_right_visual">
+              <geometry>
+                <cylinder>
+                  <radius>0.033</radius>
+                  <length>0.018</length>
+                </cylinder>
+                </geometry>
+                <material>
+                  <ambient>1.0 0.0 0.0 1</ambient>
+                  <diffuse>1.0 0.0 0.0 1</diffuse>
+                  <specular>1.0 0.0 0.0 1</specular>
+                </material>
+              <material>
+                <diffuse> 0.145098039 0.156862745 0.164705882 1</diffuse>
+                <ambient> 0.145098039 0.156862745 0.164705882 1</ambient>
+                <specular>0.145098039 0.156862745 0.164705882 1</specular>
+              </material>
+            </visual>
+          </link>
+          <joint name="wheel_right_joint" type="revolute">
+            <parent>base_link</parent>
+            <child>wheel_right_link</child>
+            <axis>
+              <xyz>0 0 1</xyz>
+            </axis>
+          </joint>
+      
+          <link name='caster_back_right_link'>
+            <pose>0.15 -0.05 -0.004 -1.57 0 0</pose>
+            <inertial>
+              <mass>0.001</mass>
+              <inertia>
+                <ixx>0.00001</ixx>
+                <ixy>0.000</ixy>
+                <ixz>0.000</ixz>
+                <iyy>0.00001</iyy>
+                <iyz>0.000</iyz>
+                <izz>0.00001</izz>
+              </inertia>
+            </inertial>
+            <visual name='caster_back_right_visual'>
+                <geometry>
+                    <sphere>
+                        <radius>0.005</radius>
+                    </sphere>
+                </geometry>
+                <material>
+                    <ambient>0.0 1 0.0 1</ambient>
+                    <diffuse>0.0 1 0.0 1</diffuse>
+                    <specular>0.0 1 0.0 1</specular>
+                </material>
+              </visual>
+            <collision name='collision'>
+              <geometry>
+                <sphere>
+                  <radius>0.005</radius>
+                </sphere>
+              </geometry>
+            </collision>
+          </link>
+          <joint name='caster_back_right_joint' type='ball'>
+            <parent>base_link</parent>
+            <child>caster_back_right_link</child>
+          </joint>
+      
+          <link name='caster_back_left_link'>
+            <pose>0.15 0.05 -0.004 -1.57 0 0</pose>
+            <inertial>
+              <mass>0.001</mass>
+              <inertia>
+                <ixx>0.00001</ixx>
+                <ixy>0.000</ixy>
+                <ixz>0.000</ixz>
+                <iyy>0.00001</iyy>
+                <iyz>0.000</iyz>
+                <izz>0.00001</izz>
+              </inertia>
+            </inertial>
+            <visual name='caster_back_left_visual'>
+                <geometry>
+                    <sphere>
+                        <radius>0.005</radius>
+                    </sphere>
+                </geometry>
+                <material>
+                    <ambient>0.0 1 0.0 1</ambient>
+                    <diffuse>0.0 1 0.0 1</diffuse>
+                    <specular>0.0 1 0.0 1</specular>
+                </material>
+              </visual>
+            <collision name='collision'>
+              <geometry>
+                <sphere>
+                  <radius>0.005</radius>
+                </sphere>
+              </geometry>
+            </collision>
+          </link>
+          <joint name='caster_back_left_joint' type='ball'>
+            <parent>base_link</parent>
+            <child>caster_back_left_link</child>
+          </joint>
+      
+          <!-- Differential drive -->
+          <plugin filename="libignition-gazebo-diff-drive-system.so" 
+            name="ignition::gazebo::systems::DiffDrive">
+            <left_joint>wheel_left_joint</left_joint>
+            <right_joint>wheel_right_joint</right_joint>
+            <wheel_separation>0.19</wheel_separation>
+            <wheel_radius>0.033</wheel_radius>
+            <topic>cmd_vel</topic>
+          </plugin>
+        </model>
+    </world>
+</sdf>
