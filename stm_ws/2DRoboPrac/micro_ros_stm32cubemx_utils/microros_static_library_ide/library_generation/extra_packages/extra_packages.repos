@@ -7,7 +7,7 @@ repositories:
   custom_test_msgs:
     type: local
     path: extra_packages/custom_test_msgs
-    
-  drive_pkg:
+      
+  custom_test_msgs:
     type: local
-    path: extra_packages/drive_pkg
+    path: extra_packages/drive_msgs

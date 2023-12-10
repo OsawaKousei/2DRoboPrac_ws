@@ -39,6 +39,7 @@
 #include "usart.h"
 // カスタムメッセージのインクルード
 #include <custom_test_msgs/srv/add_three_ints.h>
+#include <drive_msgs/msg/diff_drive.h>
 
 /* USER CODE END Includes */
 
@@ -161,7 +162,7 @@ void service_callback(const void *request, void *response)
 void subscription_callback(const void * msgin)
 {
 	 // Cast received message to used type
-	  const geometry_msgs__msg__Twist * sub = (const geometry_msgs__msg__Twist *)msgin;
+	  const drive_msgs__msg__DiffDrive * sub = (const drive_msgs__msg__DiffDrive *)msgin;
 
 	  char hearing[] = "I'm hearing from f7";
 	  rosidl_runtime_c__String__assignn(&pub.data, hearing, sizeof(hearing));
@@ -169,7 +170,7 @@ void subscription_callback(const void * msgin)
 	  //データのpublish
 	  RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));
 
-	  HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET);
 }
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void *argument)
@@ -209,7 +210,7 @@ void StartDefaultTask(void *argument)
   	rcl_node_options_t node_ops = rcl_node_get_default_options();
 
   	RCCHECK(rcl_init_options_init(&init_options, allocator));
-      // ROS_DOMAIN_IDの設定。今回は123としてる。
+      // ROS_DOMAIN_IDの設定。
   	RCCHECK(rcl_init_options_set_domain_id(&init_options, 0));
   	rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator);
       // ノードの作成
@@ -228,7 +229,7 @@ void StartDefaultTask(void *argument)
 		RCCHECK(rclc_subscription_init_default(
 		  &subscriber,
 		  &node,
-		  ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist),
+		  ROSIDL_GET_MSG_TYPE_SUPPORT(drive_msgs, msg, DiffDrive),
 		  "/cmd_ras"));
       // エグゼキューターの作成。三番目の引数はextecuterに登録するコールバック関数の数。
   	RCCHECK(rclc_executor_init(&executor, &support.context, 2, &allocator));
@@ -247,7 +248,7 @@ void StartDefaultTask(void *argument)
     RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));
 
     //初期化
-    HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
   /* Infinite loop */
   for(;;)
   {

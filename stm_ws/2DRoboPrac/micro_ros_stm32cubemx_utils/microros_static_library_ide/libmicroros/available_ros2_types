@@ -241,4 +241,4 @@ control_msgs/JointTrajectory.action
 control_msgs/PointHead.action
 control_msgs/SingleJointPosition.action
 control_msgs/FollowJointTrajectory.action
-drive_pkg/DiffDrive.msg
+drive_msgs/DiffDrive.msg
