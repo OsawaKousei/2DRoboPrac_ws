@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(nav_dev)
+project(tf2_real)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -24,19 +24,4 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-ament_auto_add_executable(
-teleop_node src/teleop_node.cpp
-)
-
-ament_auto_add_executable(
-lidar_node src/lidar_node.cpp
-)
-
-ament_auto_package(
-  INSTALL_TO_SHARE
-    config
-    launch
-    maps
-    models
-    params
-)
+ament_auto_package()
