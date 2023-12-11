@@ -98,7 +98,7 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time,
                          'robot_description': doc.toxml()}]) # type: ignore
     
-    #mapトピックの設定
+    #mapトピックとodomの関係を定義
     map_static_tf = Node(package='tf2_ros',
                         executable='static_transform_publisher',
                         name='static_transform_publisher',

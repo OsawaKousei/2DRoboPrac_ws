@@ -22,7 +22,7 @@
 class StaticFramePublisher : public rclcpp::Node
 {
 public:
-  explicit StaticFramePublisher(char * transformation[])
+  explicit StaticFramePublisher(char * transformation[]) //explicit:暗黙的な型変換を防止？
   : Node("static_turtle_tf2_broadcaster")
   {
     tf_static_broadcaster_ = std::make_shared<tf2_ros::StaticTransformBroadcaster>(this);
@@ -36,8 +36,8 @@ private:
   {
     geometry_msgs::msg::TransformStamped t;
 
-    t.header.stamp = this->get_clock()->now();
-    t.header.frame_id = "world";
+    t.header.stamp = this->get_clock()->now(); //タイムスタンプ
+    t.header.frame_id = "world"; //大本のフレーム
     t.child_frame_id = transformation[1];
 
     t.transform.translation.x = atof(transformation[2]);
@@ -53,6 +53,7 @@ private:
     t.transform.rotation.z = q.z();
     t.transform.rotation.w = q.w();
 
+    //tfの送信
     tf_static_broadcaster_->sendTransform(t);
   }
 
