@@ -45,10 +45,6 @@ ament_auto_add_executable(
 diff_drive_node src/diff_drive_node.cpp
 )
 
-ament_auto_add_executable(
-simple_dd_node src/simple_dd_node.cpp
-)
-
 ament_auto_package(
   INSTALL_TO_SHARE
     config
