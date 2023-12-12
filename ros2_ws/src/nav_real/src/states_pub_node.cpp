@@ -6,6 +6,7 @@
 #include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "drive_msgs/msg/diff_drive.hpp"
+#include "drive_msgs/msg/diff_drive_enc.hpp"
 #include "sensor_msgs/msg/joint_state.hpp"
 #include "tf2_msgs/msg/tf_message.hpp"
 #include "geometry_msgs/msg/transform_stamped.hpp"
@@ -26,14 +27,16 @@ public:
     std::double_t dis_;
     std::double_t enc1;
     std::double_t enc2;
+    std::double_t enc2dis;
 
-    StatesPubNode() : Node("joint_pub_node") {
+    StatesPubNode() : Node("states_pub_node") {
         //使用するパラメータの宣言(param名,初期値)、小数点を入れないとint型になるので注意
         declare_parameter("robot_type", "default");
         declare_parameter("wheel_radious", -1.0);
         declare_parameter("wheel_distance", -1.0);
         declare_parameter("lxenc_radious", -1.0);
         declare_parameter("azenc_radious", -1.0);
+        declare_parameter("azenc_distance", -1.0);
 
         //パラメータの取得
         type_ = get_parameter("robot_type").as_string();
@@ -41,6 +44,7 @@ public:
         dis_ = get_parameter("wheel_distance").as_double();
         enc1 = get_parameter("lxenc_radious").as_double();
         enc2 = get_parameter("azenc_radious").as_double();
+        enc2dis = get_parameter("azenc_distance").as_double();
 
         //パラメータの確認
         RCLCPP_INFO(this->get_logger(), "robot type:%s\r\n",type_.c_str());
@@ -48,11 +52,11 @@ public:
         RCLCPP_INFO(this->get_logger(), "wheel distance:%f\r\n",dis_);
         RCLCPP_INFO(this->get_logger(), "lxenc_radious:%f\r\n",enc1);
         RCLCPP_INFO(this->get_logger(), "azenc_radious:%f\r\n",enc2);
+        RCLCPP_INFO(this->get_logger(), "azenc_distnace:%f\r\n",enc2dis);
         
         //通信周りの記述
         jointpub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states", 10);
         odompub_ = this->create_publisher<nav_msgs::msg::Odometry>("odom", 10);
-        tfpub_ = this->create_publisher<tf2_msgs::msg::TFMessage>("tf", 10);
 
         tf_broadcaster_ =std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
@@ -148,14 +152,19 @@ public:
 
             tf_broadcaster_->sendTransform(maptf);
         }; 
-
+        
         timer_ = this->create_wall_timer(1.25ms, pub_callback);
+
+        auto sub_callback = [this](const drive_msgs::msg::DiffDriveEnc &msg) -> void {
+
+        }; 
+
+        subscription_ = this->create_subscription<drive_msgs::msg::DiffDriveEnc>("enc_val",10,sub_callback);
     }
 private:
-    rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscription_;
+    rclcpp::Subscription<drive_msgs::msg::DiffDriveEnc>::SharedPtr subscription_;
     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr jointpub_;
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odompub_;
-    rclcpp::Publisher<tf2_msgs::msg::TFMessage>::SharedPtr tfpub_;
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     rclcpp::TimerBase::SharedPtr timer_; 
 };

@@ -4,11 +4,12 @@ diff_drive_node:
     wheel_radious: 0.03  # double
     wheel_distance: 0.1 # double
 
-dammy_enc_node:
+dammy_encorder_node:
   ros__parameters:
     robot_type: "differencial drive"
     lxenc_radious: 0.01
     azenc_radious: 0.01
+    azenc_distance: 1.0
 
 states_pub_node:
   ros__parameters:
@@ -17,8 +18,7 @@ states_pub_node:
     wheel_distance: 0.1
     lxenc_radious: 0.01
     azenc_radious: 0.01
-
-
+    azenc_distance: 1.0
 
 joy_transrate_node:
   ros__parameters:

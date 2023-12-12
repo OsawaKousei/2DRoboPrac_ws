@@ -17,8 +17,17 @@ def generate_launch_description():
     states_pub_node = Node(
                 package='nav_real',
                 executable='states_pub_node',
-                output='screen'
+                output='screen',
+                parameters=[os.path.join(share_pkg_dir,'config','params.yaml')]
                 )
+    
+    dammy_enc_node = Node(
+            package='nav_real',
+            executable='dammy_encorder_node',
+            output='screen',
+            parameters=[os.path.join(share_pkg_dir,'config','params.yaml')]
+            )
+
     
     #ロボットのsdfファイルのパスを取得
     sdf = os.path.join(
@@ -80,6 +89,7 @@ def generate_launch_description():
     return LaunchDescription([
         IncludeLaunchDescription(PythonLaunchDescriptionSource([lidar_launch])),
         states_pub_node,
+        dammy_enc_node,
         robot_state_publisher,
 
         #teleop_node,

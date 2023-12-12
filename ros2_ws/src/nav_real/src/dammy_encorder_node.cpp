@@ -14,6 +14,7 @@ public:
     std::string type_;
     std::double_t enc1;
     std::double_t enc2;
+    std::double_t enc2dis;
 
     //cmd_motorからエンコーダの値を計算
     void diffEnc(float enc[4],float m1,float m2){
@@ -31,16 +32,19 @@ public:
         declare_parameter("robot_type", "default");
         declare_parameter("lxenc_radious", -1.0);
         declare_parameter("azenc_radious", -1.0);
+        declare_parameter("azenc_distance", -1.0);
 
         //パラメータの取得
         type_ = get_parameter("robot_type").as_string();
         enc1 = get_parameter("lxenc_radious").as_double();
         enc2 = get_parameter("azenc_radious").as_double();
+        enc2dis = get_parameter("azenc_distance").as_double();
 
         //パラメータの確認
         RCLCPP_INFO(this->get_logger(), "robot type:%s\r\n",type_.c_str());
         RCLCPP_INFO(this->get_logger(), "lxenc_radious:%f\r\n",enc1);
         RCLCPP_INFO(this->get_logger(), "azenc_radious:%f\r\n",enc2);
+        RCLCPP_INFO(this->get_logger(), "azenc_distnace:%f\r\n",enc2dis);
         
         //通信周りの記述
         publisher_ = this->create_publisher<drive_msgs::msg::DiffDriveEnc>("enc_val", 10);
