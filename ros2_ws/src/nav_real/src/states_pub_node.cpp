@@ -24,22 +24,30 @@ public:
     std::string type_;
     std::double_t rad_;
     std::double_t dis_;
+    std::double_t enc1;
+    std::double_t enc2;
 
     StatesPubNode() : Node("joint_pub_node") {
         //使用するパラメータの宣言(param名,初期値)、小数点を入れないとint型になるので注意
         declare_parameter("robot_type", "default");
         declare_parameter("wheel_radious", -1.0);
         declare_parameter("wheel_distance", -1.0);
+        declare_parameter("lxenc_radious", -1.0);
+        declare_parameter("azenc_radious", -1.0);
 
         //パラメータの取得
         type_ = get_parameter("robot_type").as_string();
         rad_ = get_parameter("wheel_radious").as_double();
         dis_ = get_parameter("wheel_distance").as_double();
+        enc1 = get_parameter("lxenc_radious").as_double();
+        enc2 = get_parameter("azenc_radious").as_double();
 
         //パラメータの確認
         RCLCPP_INFO(this->get_logger(), "robot type:%s\r\n",type_.c_str());
         RCLCPP_INFO(this->get_logger(), "wheel radious:%f\r\n",rad_);
         RCLCPP_INFO(this->get_logger(), "wheel distance:%f\r\n",dis_);
+        RCLCPP_INFO(this->get_logger(), "lxenc_radious:%f\r\n",enc1);
+        RCLCPP_INFO(this->get_logger(), "azenc_radious:%f\r\n",enc2);
         
         //通信周りの記述
         jointpub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states", 10);

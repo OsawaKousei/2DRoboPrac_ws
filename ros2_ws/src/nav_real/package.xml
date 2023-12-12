@@ -21,7 +21,7 @@
   <depend>rclcpp_components</depend>
   <depend>key_event_nodes</depend>
   <depend>key_event_msgs</depend>
-  <depend>drive_msgs</depend>
+  <depend>drive_msgs</depend> <!--カスタムメッセージの依存関係-->
   <depend>tf2_ros</depend>
   <depend>tf2</depend>
 
