@@ -17,14 +17,19 @@ public:
     std::double_t enc2;
     std::double_t enc2dis;
 
-    //cmd_motorからエンコーダの値を計算
-    void diffEnc(float enc[4],float m1,float m2){
+    //モーターの速度司令保存用
+    float cmdM[2] = {0,0};
+    //エンコーダの値保存用
+    float enc[4] = {0,0,0,0};
+    //エンコーダの値更新レート
+    float rate = 2; //回/ms
 
-        //線形速度と回転速度の加算
-        enc[0] = m1;
-        enc[1] = m2;
-        enc[2] = (m1+m2)/2*rad_/enc1;
-        enc[3] = (m1-m2)/2*rad_/dis_*enc2dis/enc2;
+    //cmd_motorからエンコーダの値を計算
+    void diffEnc(){
+        enc[0] = enc[0] + cmdM[0]/(1000/rate);
+        enc[1] = enc[1] + cmdM[1]/(1000/rate);
+        enc[2] = enc[2] +  (cmdM[0]+cmdM[1])/2*rad_/enc1/(1000/rate);
+        enc[3] = enc[3] + (cmdM[0]-cmdM[1])/2*rad_/dis_*enc2dis/enc2/(1000/rate);
     }
 
     DammyEncorderNode() : Node("dammy_encorder_node") {
@@ -55,23 +60,27 @@ public:
         //通信周りの記述
         publisher_ = this->create_publisher<drive_msgs::msg::DiffDriveEnc>("enc_val", 10);
 
-        auto topic_callback = [this](const drive_msgs::msg::DiffDrive &msg) -> void {
-
-            auto message = drive_msgs::msg::DiffDriveEnc();
-            float ans[] = {0,0,0,0}; //ans[0]:右輪rps,ans[1]:左輪rps
-            diffEnc(ans, msg.m1, msg.m2); //(配列のポインタ渡し
-
-            message.name = "differencial drive";
-            message.m1enc = ans[0];
-            message.m2enc = ans[1];
-            message.lxenc = ans[2];
-            message.azenc = ans[3];
-
-            this->publisher_->publish(message);
+        auto sub_callback = [this](const drive_msgs::msg::DiffDrive &msg) -> void {
+            cmdM[0] = msg.m1;
+            cmdM[1] = msg.m2;
         }; 
 
-        subscription_ = this->create_subscription<drive_msgs::msg::DiffDrive>
-                ("cmd_motor", 10, topic_callback);
+        subscription_ = this->create_subscription<drive_msgs::msg::DiffDrive>("cmd_motor", 10, sub_callback);
+
+        auto tim_callback = [this]() -> void{
+            auto message = drive_msgs::msg::DiffDriveEnc();
+            diffEnc();
+
+            message.name = "differencial drive";
+            message.m1enc = enc[0];
+            message.m2enc = enc[1];
+            message.lxenc = enc[2];
+            message.azenc = enc[3];
+
+            this->publisher_->publish(message);
+        };
+
+        timer_ = this->create_wall_timer(2ms, tim_callback);
     }
 private:
     rclcpp::Subscription<drive_msgs::msg::DiffDrive>::SharedPtr subscription_;

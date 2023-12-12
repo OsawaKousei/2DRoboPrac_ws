@@ -53,15 +53,15 @@ public:
         RCLCPP_INFO(this->get_logger(), "lxenc_radious:%f\r\n",enc1);
         RCLCPP_INFO(this->get_logger(), "azenc_radious:%f\r\n",enc2);
         RCLCPP_INFO(this->get_logger(), "azenc_distnace:%f\r\n",enc2dis);
-        
-        //通信周りの記述
+
+        //publisher
         jointpub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states", 10);
         odompub_ = this->create_publisher<nav_msgs::msg::Odometry>("odom", 10);
-
+        //tf publishのためのbroadcasterS
         tf_broadcaster_ =std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
-        auto pub_callback = [this]() -> void {
-
+        //joint statesをrobot state publisherに向けてpublish
+        auto joint_publisher = [this]() -> void {
             auto joint = sensor_msgs::msg::JointState();
 
             joint.header.stamp = this->get_clock()->now();
@@ -83,7 +83,10 @@ public:
             joint.position[5] = 0.0;
 
             this->jointpub_->publish(joint);
+        };
 
+        //odomをpublish
+        auto odom_publisher = [this]() -> void {
             auto odom = nav_msgs::msg::Odometry();
 
             odom.header.stamp = this->get_clock()->now();
@@ -95,6 +98,7 @@ public:
             odom.pose.pose.position.y = 0;
             odom.pose.pose.position.z = 0;
 
+            //RPYをクオータニオンに変換
             tf2::Quaternion r;
             r.setRPY(0, 0, 0);
 
@@ -111,7 +115,9 @@ public:
             odom.twist.twist.angular.z = 0;
 
             this->odompub_->publish(odom);
+        };
 
+        auto tf_publisher = [this]() -> void {
             auto tf = geometry_msgs::msg::TransformStamped();
 
             tf.header.stamp = this->get_clock()->now();
@@ -130,6 +136,7 @@ public:
             tf.transform.rotation.z = q.z();
             tf.transform.rotation.w = q.w();
 
+            //<geometry_msgs::msg::TransformStamped>をtfに変換してpublish
             tf_broadcaster_->sendTransform(tf);
 
             auto maptf = geometry_msgs::msg::TransformStamped();
@@ -151,12 +158,19 @@ public:
             maptf.transform.rotation.w = q.w();
 
             tf_broadcaster_->sendTransform(maptf);
+        };
+
+        auto pub_callback = [this]() -> void {
+            
         }; 
         
-        timer_ = this->create_wall_timer(1.25ms, pub_callback);
+        timer_ = this->create_wall_timer(1000ms, pub_callback);
 
-        auto sub_callback = [this](const drive_msgs::msg::DiffDriveEnc &msg) -> void {
-
+        auto sub_callback = [this, joint_publisher,odom_publisher,tf_publisher]
+            (const drive_msgs::msg::DiffDriveEnc &msg) -> void {
+            joint_publisher();
+            odom_publisher();
+            tf_publisher();
         }; 
 
         subscription_ = this->create_subscription<drive_msgs::msg::DiffDriveEnc>("enc_val",10,sub_callback);
