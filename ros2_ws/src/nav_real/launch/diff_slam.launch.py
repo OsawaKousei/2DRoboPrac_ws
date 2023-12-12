@@ -10,6 +10,8 @@ import xacro
 
 def generate_launch_description():
     nav_dev_dir = get_package_share_directory('nav_dev')
+    share_pkg_dir = get_package_share_directory('nav_real')
+    lidar_launch = os.path.join(get_package_share_directory('urg_node2'),"launch","urg_node2.launch.py")
 
     #joint_state_pubの起動
     states_pub_node = Node(
@@ -76,6 +78,7 @@ def generate_launch_description():
         output='screen')
     
     return LaunchDescription([
+        IncludeLaunchDescription(PythonLaunchDescriptionSource([lidar_launch])),
         states_pub_node,
         robot_state_publisher,
 
