@@ -45,6 +45,10 @@ ament_auto_add_executable(
 diff_drive_node src/diff_drive_node.cpp
 )
 
+ament_auto_add_executable(
+states_pub_node src/states_pub_node.cpp
+)
+
 ament_auto_package(
   INSTALL_TO_SHARE
     config

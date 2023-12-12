@@ -10,7 +10,7 @@ import xacro
 
 def generate_launch_description():
     nav_dev_dir = get_package_share_directory('nav_dev')
-    
+
     #joint_state_pubの起動
     states_pub_node = Node(
                 package='nav_real',
@@ -29,7 +29,7 @@ def generate_launch_description():
     #xacroでsdfファイルをurdfに変換
     doc = xacro.parse(open(sdf))
     xacro.process_doc(doc)
-
+    
     #robot_state_publsherの起動設定
     robot_state_publisher = Node(
             package='robot_state_publisher',
@@ -37,47 +37,21 @@ def generate_launch_description():
             name='robot_state_publisher',
             output='both',
             parameters=[{'robot_description': doc.toxml()}]) # type: ignore
+
+    teleop_node = Node(
+                package='nav_dev',
+                executable='teleop_node',
+                output='screen',
+                #別ターミナルで起動する設定
+                prefix="xterm -e"
+                )  
     
-    #mapトピックとodomの関係を定義
-    map_static_tf = Node(package='tf2_ros',
-                        executable='static_transform_publisher',
-                        name='static_transform_publisher',
-                        output='log',
-                        arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'])
-    
-    #nav2の地図のパスを取得
-    map_dir = LaunchConfiguration(
-        'map',
-        default=os.path.join(
-            get_package_share_directory('nav_dev'),
-            'maps','test_map2',
-            'test_map2.yaml'))
-
-    #nav2のパラメータのパスを取得
-    param_file_name = 'nav_nav2.yaml'
-    param_dir = LaunchConfiguration(
-        'params_file',
-        default=os.path.join(
-            get_package_share_directory('nav_dev'),
-            'params',
-            param_file_name))
-
-    #nav2のランチファイルのパスを取得
-    nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
-
+  
     #rviz2の設定フィルのパスを取得
     rviz_config_dir = os.path.join(
         nav_dev_dir,
         'config',
-        'nav_nav2.rviz')
-    
-    #nav2の起動設定
-    nav2 = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([nav2_launch_file_dir, '/bringup_launch.py']),
-            launch_arguments={
-                'map': map_dir,
-                'params_file': param_dir}.items(),
-        )
+        'nav_slam.rviz')
     
     #rviz2の起動設定
     rviz2 = Node(
@@ -87,24 +61,32 @@ def generate_launch_description():
             arguments=['-d', rviz_config_dir],
             output='screen')
     
-   
+    #slam_toolboxの起動オプション設定
+    slam_params_file = LaunchConfiguration('slam_params_file')
+    declare_slam_params_file_cmd = DeclareLaunchArgument(
+        'slam_params_file',
+        default_value=os.path.join(get_package_share_directory("nav_dev"),
+                                   'params', 'slam_param.yaml'),
+        description='Full path to the ROS2 parameters file to use for the slam_toolbox node')
+
+    #slam_toolboxの起動設定
+    start_async_slam_toolbox_node = Node(
+        parameters=[
+          slam_params_file,
+        ],
+        package='slam_toolbox',
+        executable='async_slam_toolbox_node',
+        name='slam_toolbox',
+        output='screen')
     
     return LaunchDescription([
         states_pub_node,
-        map_static_tf,
-
         robot_state_publisher,
 
-        DeclareLaunchArgument(
-            'map',
-            default_value=map_dir,
-            description='Full path to map file to load'),
+        #teleop_node,
 
-        DeclareLaunchArgument(
-            'params_file',
-            default_value=param_dir,
-            description='Full path to param file to load'),
+        #rviz2,
 
-        nav2,
-        rviz2,
+        declare_slam_params_file_cmd,
+        start_async_slam_toolbox_node,
     ])
