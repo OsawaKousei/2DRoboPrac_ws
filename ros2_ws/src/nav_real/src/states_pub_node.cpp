@@ -61,7 +61,7 @@ public:
         tf_broadcaster_ =std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
         //joint statesをrobot state publisherに向けてpublish
-        auto joint_publisher = [this]() -> void {
+        auto joint_publisher = [this](float m1enc, float m2enc) -> void {
             auto joint = sensor_msgs::msg::JointState();
 
             joint.header.stamp = this->get_clock()->now();
@@ -77,8 +77,8 @@ public:
             joint.position.resize(6);
             joint.position[0] = 0.0;
             joint.position[1] = 0.0;
-            joint.position[2] = 0.0;
-            joint.position[3] = 0.0;
+            joint.position[2] = m1enc;
+            joint.position[3] = m2enc;
             joint.position[4] = 0.0;
             joint.position[5] = 0.0;
 
@@ -168,7 +168,7 @@ public:
 
         auto sub_callback = [this, joint_publisher,odom_publisher,tf_publisher]
             (const drive_msgs::msg::DiffDriveEnc &msg) -> void {
-            joint_publisher();
+            joint_publisher(msg.m1enc,msg.m2enc);
             odom_publisher();
             tf_publisher();
         }; 
