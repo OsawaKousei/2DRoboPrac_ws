@@ -25,8 +25,28 @@ def generate_launch_description():
             package='nav_real',
             executable='dammy_encorder_node',
             output='screen',
-            parameters=[os.path.join(share_pkg_dir,'config','params.yaml')]
+            parameters=[os.path.join(share_pkg_dir,'config','params.yaml')],
+            prefix="xterm -e"
             )
+    
+    joy_node = Node(
+                package='joy',
+                executable='joy_node',
+                output='screen'
+                )
+    joy_transrate_node = Node(
+                package='nav_real',
+                executable='joy_transrate_node',
+                output='screen',
+                parameters=[os.path.join(share_pkg_dir,'config','params.yaml')]
+                )
+
+    diff_drive_node = Node(
+                package='nav_real',
+                executable='diff_drive_node',
+                output='screen',
+                parameters=[os.path.join(share_pkg_dir,'config','params.yaml')]
+                )
 
     
     #ロボットのsdfファイルのパスを取得
@@ -45,15 +65,7 @@ def generate_launch_description():
             name='robot_state_publisher',
             output='both',
             parameters=[{'robot_description': doc.toxml()}]) # type: ignore
-
-    teleop_node = Node(
-                package='nav_dev',
-                executable='teleop_node',
-                output='screen',
-                #別ターミナルで起動する設定
-                prefix="xterm -e"
-                )  
-      
+     
     #rviz2の設定フィルのパスを取得
     rviz_config_dir = os.path.join(
         nav_dev_dir,
@@ -88,11 +100,14 @@ def generate_launch_description():
     
     return LaunchDescription([
         IncludeLaunchDescription(PythonLaunchDescriptionSource([lidar_launch])),
+
         states_pub_node,
         dammy_enc_node,
         robot_state_publisher,
 
-        #teleop_node,
+        joy_node,
+        joy_transrate_node,
+        diff_drive_node,
 
         rviz2,
 
