@@ -31,8 +31,8 @@ public:
     void diffEnc(){
         enc[0] = enc[0] + cmdM[0]/(1000/rate);
         enc[1] = enc[1] + cmdM[1]/(1000/rate);
-        enc[2] = enc[2] +  cmdV[0]*(1000/rate)*(2*M_PI*enc1);
-        enc[3] = enc[3] + cmdV[1]*(1000/rate)*enc2dis*(2*M_PI*enc2);
+        enc[2] = enc[2] +  cmdV[0]/(1000/rate)/(2*M_PI*enc1);
+        enc[3] = enc[3] + cmdV[1]/(1000/rate)*enc2dis/(2*M_PI*enc2);
     }
 
     DammyEncorderNode() : Node("dammy_encorder_node") {
