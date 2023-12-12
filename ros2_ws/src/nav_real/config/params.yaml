@@ -27,7 +27,7 @@ joy_transrate_node:
   ros__parameters:
     robot_type: "differencial drive"
     max_lx: 0.25  #最大速度m/s
-    max_az: 6.0 #最大速度rad/s
+    max_az: 1.57 #最大速度rad/s
 
 
 

@@ -76,7 +76,7 @@ public:
             cmdV[1] = msg.angular.z;
         }; 
 
-        cmdsub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_motor", 10, cmd_callback);
+        cmdsub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 10, cmd_callback);
 
         auto tim_callback = [this]() -> void{
             auto message = drive_msgs::msg::DiffDriveEnc();
