@@ -27,7 +27,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: LaserScan
+    SyncSource: ""
   - Class: slam_toolbox::SlamToolboxPlugin
     Name: SlamToolboxPlugin
   - Class: slam_toolbox::SlamToolboxPlugin
@@ -86,7 +86,7 @@ Visualization Manager:
         Value: Arrow
       Topic:
         Depth: 5
-        Durability Policy: System Default
+        Durability Policy: Transient Local
         Filter size: 10
         History Policy: Keep All
         Reliability Policy: System Default

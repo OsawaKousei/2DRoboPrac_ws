@@ -195,10 +195,10 @@ public:
             tf2::Quaternion p;
             p.setRPY(0, 0, 0);
 
-            maptf.transform.rotation.x = q.x();
-            maptf.transform.rotation.y = q.y();
-            maptf.transform.rotation.z = q.z();
-            maptf.transform.rotation.w = q.w();
+            maptf.transform.rotation.x = p.x();
+            maptf.transform.rotation.y = p.y();
+            maptf.transform.rotation.z = p.z();
+            maptf.transform.rotation.w = p.w();
 
             tf_broadcaster_->sendTransform(maptf);
         };
