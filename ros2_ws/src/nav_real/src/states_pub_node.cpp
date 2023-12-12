@@ -13,7 +13,7 @@
 #include "tf2_ros/transform_broadcaster.h"
 #include "tf2/LinearMath/Quaternion.h"
 #include "nav_msgs/msg/odometry.hpp"
-# include <bits/stdc++.h>
+#include <cmath>
 #include "rclcpp/qos.hpp"
 
 using namespace std::chrono_literals;
@@ -21,16 +21,52 @@ using namespace std::chrono_literals;
 class StatesPubNode : public rclcpp::Node {
 public:
 
-    //public変数を宣言
+    //ロボットの種類
     std::string type_;
+    //右輪と左輪の半径
     std::double_t rad_;
+    //右輪と左輪の距離
     std::double_t dis_;
+    //lxエンコーダの半径
     std::double_t enc1;
+    //azエンコーダの半径
     std::double_t enc2;
+    //ロボットの中心からazエンコーダまでの距離
     std::double_t enc2dis;
 
+    //lxエンコーダの回転数
+    float lx = 0;
+    //azエンコーダの回転数
+    float az = 0;
+    //lxエンコーダの回転数の差分
+    float lx_d = 0;
+    //ロボットのx座標
+    float x = 0;
+    //ロボットのy座標
+    float y = 0;
+    //ロボットの向き(rad)
+    float th = 0;
+
+    //ロボットの姿勢を計算
+    void calcPose(){
+        //azはエンコーダーの回転数、enc2はエンコーダーの半径、enc2disはロボットの中心からエンコーダーまでの距離
+        //azをラジアンに変換してロボットの姿勢を計算
+        th = az*2*M_PI*enc2/(enc2dis);
+
+        //lx_dはlxエンコーダの回転数の差分、enc1はlxエンコーダの半径
+        //lx_dとenc1からロボットの移動距離を計算
+        float x_d = lx_d * 2 * M_PI * enc1;
+
+        //xはロボットのx座標、yはロボットのy座標
+        //thはロボットの向き
+        //x,yからthの向きにx_dだけ進んだ座標を計算
+        x = x + x_d * cos(th);
+        y = y + x_d * sin(th);
+    }
+
+    
     StatesPubNode() : Node("states_pub_node") {
-        //使用するパラメータの宣言(param名,初期値)、小数点を入れないとint型になるので注意
+        //パラメータの宣言
         declare_parameter("robot_type", "default");
         declare_parameter("wheel_radious", -1.0);
         declare_parameter("wheel_distance", -1.0);
@@ -46,7 +82,7 @@ public:
         enc2 = get_parameter("azenc_radious").as_double();
         enc2dis = get_parameter("azenc_distance").as_double();
 
-        //パラメータの確認
+        //パラメータの表示
         RCLCPP_INFO(this->get_logger(), "robot type:%s\r\n",type_.c_str());
         RCLCPP_INFO(this->get_logger(), "wheel radious:%f\r\n",rad_);
         RCLCPP_INFO(this->get_logger(), "wheel distance:%f\r\n",dis_);
@@ -54,18 +90,19 @@ public:
         RCLCPP_INFO(this->get_logger(), "azenc_radious:%f\r\n",enc2);
         RCLCPP_INFO(this->get_logger(), "azenc_distnace:%f\r\n",enc2dis);
 
-        //publisher
+        //publisherの作成
         jointpub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states", 10);
         odompub_ = this->create_publisher<nav_msgs::msg::Odometry>("odom", 10);
-        //tf publishのためのbroadcasterS
+        //tfをpublishするためのtf_broadcasterを作成
         tf_broadcaster_ =std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
-        //joint statesをrobot state publisherに向けてpublish
+        //joint statesをpublish
         auto joint_publisher = [this](float m1enc, float m2enc) -> void {
+            //joint statesを作成
             auto joint = sensor_msgs::msg::JointState();
 
+            //joint statesの値を設定
             joint.header.stamp = this->get_clock()->now();
-
             joint.name.resize(6);
             joint.name[0] = "base_joint";
             joint.name[1] = "lidar_joint";
@@ -73,15 +110,18 @@ public:
             joint.name[3] = "wheel_right_joint";
             joint.name[4] = "caster_back_right_joint";
             joint.name[5] = "caster_back_left_joint";
-
             joint.position.resize(6);
             joint.position[0] = 0.0;
             joint.position[1] = 0.0;
-            joint.position[2] = m1enc;
-            joint.position[3] = m2enc;
+            //m1encは右輪エンコーダーの回転数、m2encは左輪エンコーダの回転数
+            //rad_は右輪と左輪の半径
+            //m1encとm2encから右輪と左輪の角度を計算
+            joint.position[2] = m1enc*2*M_PI*rad_;
+            joint.position[3] = m2enc*2*M_PI*rad_;
             joint.position[4] = 0.0;
             joint.position[5] = 0.0;
 
+            //joint statesをpublish
             this->jointpub_->publish(joint);
         };
 
@@ -94,19 +134,21 @@ public:
 
             odom.child_frame_id = "base_footprint";
 
-            odom.pose.pose.position.x = 0;
-            odom.pose.pose.position.y = 0;
+            odom.pose.pose.position.x = x;
+            odom.pose.pose.position.y = y;
             odom.pose.pose.position.z = 0;
 
-            //RPYをクオータニオンに変換
+            //ロボットの向きをクォータニオンで表現
             tf2::Quaternion r;
-            r.setRPY(0, 0, 0);
+            r.setRPY(0, 0, th);
 
+            //クォータニオンをodomに設定
             odom.pose.pose.orientation.x = r.x();
             odom.pose.pose.orientation.y = r.y();
             odom.pose.pose.orientation.z = r.z();
             odom.pose.pose.orientation.w = r.w();
 
+            //twistを設定
             odom.twist.twist.linear.x = 0;
             odom.twist.twist.linear.y = 0;
             odom.twist.twist.linear.z = 0;
@@ -114,6 +156,7 @@ public:
             odom.twist.twist.angular.y = 0;
             odom.twist.twist.angular.z = 0;
 
+            //odomをpublish
             this->odompub_->publish(odom);
         };
 
@@ -124,12 +167,12 @@ public:
             tf.header.frame_id = "odom";
             tf.child_frame_id = "base_footprint";
 
-            tf.transform.translation.x = 0;
-            tf.transform.translation.y = 0;
+            tf.transform.translation.x = x;
+            tf.transform.translation.y = y;
             tf.transform.translation.z = 0;
 
             tf2::Quaternion q;
-            q.setRPY(0, 0, 0);
+            q.setRPY(0, 0, th);
 
             tf.transform.rotation.x = q.x();
             tf.transform.rotation.y = q.y();
@@ -160,20 +203,35 @@ public:
             tf_broadcaster_->sendTransform(maptf);
         };
 
-        auto pub_callback = [this]() -> void {
-            
-        }; 
-        
-        timer_ = this->create_wall_timer(1000ms, pub_callback);
-
-        auto sub_callback = [this, joint_publisher,odom_publisher,tf_publisher]
+        //subscriptionのコールバック関数
+        auto sub_callback = [this, joint_publisher]
             (const drive_msgs::msg::DiffDriveEnc &msg) -> void {
+            //joint statesをpublish
+            //msg.m1encは右輪エンコーダーの回転数、msg.m2encは左輪エンコーダの回転数
             joint_publisher(msg.m1enc,msg.m2enc);
+
+            //lxエンコーダの回転数の差分を計算
+            lx_d = msg.lxenc - lx;
+            //エンコーダの値を更新
+            lx = msg.lxenc;
+            az = msg.azenc;
+        }; 
+        //subscriptionを作成
+        subscription_ = this->create_subscription<drive_msgs::msg::DiffDriveEnc>("enc_val",10,sub_callback);
+        
+        //timerのコールバック関数
+        auto pub_callback = [this, odom_publisher,tf_publisher]() -> void {
+            //ロボットの姿勢を計算
+            calcPose();
+            
+            //odomをpublish
             odom_publisher();
+            //tfをpublish
             tf_publisher();
         }; 
-
-        subscription_ = this->create_subscription<drive_msgs::msg::DiffDriveEnc>("enc_val",10,sub_callback);
+        
+        //timerを作成
+        timer_ = this->create_wall_timer(2ms, pub_callback);
     }
 private:
     rclcpp::Subscription<drive_msgs::msg::DiffDriveEnc>::SharedPtr subscription_;

@@ -3,6 +3,7 @@
 #include "geometry_msgs/msg/twist.hpp"
 #include "drive_msgs/msg/diff_drive.hpp"
 #include "drive_msgs/msg/diff_drive_enc.hpp"
+#include "cmath"
 
 using namespace std::chrono_literals;
 
@@ -19,6 +20,8 @@ public:
 
     //モーターの速度司令保存用
     float cmdM[2] = {0,0};
+    //ロボットの速度司令保存用
+    float cmdV[2] = {0,0};
     //エンコーダの値保存用
     float enc[4] = {0,0,0,0};
     //エンコーダの値更新レート
@@ -28,8 +31,8 @@ public:
     void diffEnc(){
         enc[0] = enc[0] + cmdM[0]/(1000/rate);
         enc[1] = enc[1] + cmdM[1]/(1000/rate);
-        enc[2] = enc[2] +  (cmdM[0]+cmdM[1])/2*rad_/enc1/(1000/rate);
-        enc[3] = enc[3] + (cmdM[0]-cmdM[1])/2*rad_/dis_*enc2dis/enc2/(1000/rate);
+        enc[2] = enc[2] +  cmdV[0]*(1000/rate)*(2*M_PI*enc1);
+        enc[3] = enc[3] + cmdV[1]*(1000/rate)*enc2dis*(2*M_PI*enc2);
     }
 
     DammyEncorderNode() : Node("dammy_encorder_node") {
@@ -67,6 +70,14 @@ public:
 
         subscription_ = this->create_subscription<drive_msgs::msg::DiffDrive>("cmd_motor", 10, sub_callback);
 
+        auto cmd_callback = [this](const geometry_msgs::msg::Twist &msg) -> void {
+            //ロボットの速度司令を代入
+            cmdV[0] = msg.linear.x;
+            cmdV[1] = msg.angular.z;
+        }; 
+
+        cmdsub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_motor", 10, cmd_callback);
+
         auto tim_callback = [this]() -> void{
             auto message = drive_msgs::msg::DiffDriveEnc();
             diffEnc();
@@ -84,6 +95,7 @@ public:
     }
 private:
     rclcpp::Subscription<drive_msgs::msg::DiffDrive>::SharedPtr subscription_;
+    rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmdsub_;
     rclcpp::Publisher<drive_msgs::msg::DiffDriveEnc>::SharedPtr publisher_;
     rclcpp::TimerBase::SharedPtr timer_;
 };

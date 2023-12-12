@@ -11,7 +11,8 @@
         "*.repos": "yaml",
         "*.world": "xml",
         "*.xacro": "xml",
-        "ranges": "cpp"
+        "ranges": "cpp",
+        "chrono": "cpp"
     },
     "C_Cpp.default.intelliSenseMode": "linux-gcc-x86",
     "C_Cpp.formatting": "disabled",
