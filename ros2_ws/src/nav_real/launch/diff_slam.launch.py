@@ -15,9 +15,6 @@ def generate_launch_description():
     states_pub_node = Node(
                 package='nav_real',
                 executable='states_pub_node',
-                parameters=[{
-                    'qos_overrides./odom.publisher.durability': 'transient_local'
-                }],
                 output='screen'
                 )
     
@@ -45,8 +42,7 @@ def generate_launch_description():
                 #別ターミナルで起動する設定
                 prefix="xterm -e"
                 )  
-    
-  
+      
     #rviz2の設定フィルのパスを取得
     rviz_config_dir = os.path.join(
         nav_dev_dir,
@@ -85,7 +81,7 @@ def generate_launch_description():
 
         #teleop_node,
 
-        #rviz2,
+        rviz2,
 
         declare_slam_params_file_cmd,
         start_async_slam_toolbox_node,

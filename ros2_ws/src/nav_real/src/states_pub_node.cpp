@@ -13,6 +13,7 @@
 #include "tf2/LinearMath/Quaternion.h"
 #include "nav_msgs/msg/odometry.hpp"
 # include <bits/stdc++.h>
+#include "rclcpp/qos.hpp"
 
 using namespace std::chrono_literals;
 
@@ -42,8 +43,8 @@ public:
         
         //通信周りの記述
         jointpub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states", 10);
-        odompub_ = this->create_publisher<nav_msgs::msg::Odometry>("odom",10);
-        tfpub_ = this->create_publisher<tf2_msgs::msg::TFMessage>("tf",10);
+        odompub_ = this->create_publisher<nav_msgs::msg::Odometry>("odom", 10);
+        tfpub_ = this->create_publisher<tf2_msgs::msg::TFMessage>("tf", 10);
 
         tf_broadcaster_ =std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
@@ -81,10 +82,14 @@ public:
             odom.pose.pose.position.x = 0;
             odom.pose.pose.position.y = 0;
             odom.pose.pose.position.z = 0;
-            odom.pose.pose.orientation.x = 0;
-            odom.pose.pose.orientation.y = 0;
-            odom.pose.pose.orientation.z = 0;
-            odom.pose.pose.orientation.w = 0;
+
+            tf2::Quaternion r;
+            r.setRPY(0, 0, 0);
+
+            odom.pose.pose.orientation.x = r.x();
+            odom.pose.pose.orientation.y = r.y();
+            odom.pose.pose.orientation.z = r.z();
+            odom.pose.pose.orientation.w = r.w();
 
             odom.twist.twist.linear.x = 0;
             odom.twist.twist.linear.y = 0;
@@ -114,6 +119,26 @@ public:
             tf.transform.rotation.w = q.w();
 
             tf_broadcaster_->sendTransform(tf);
+
+            auto maptf = geometry_msgs::msg::TransformStamped();
+
+            maptf.header.stamp = this->get_clock()->now();
+            maptf.header.frame_id = "map";
+            maptf.child_frame_id = "odom";
+
+            maptf.transform.translation.x = 0;
+            maptf.transform.translation.y = 0;
+            maptf.transform.translation.z = 0;
+
+            tf2::Quaternion p;
+            p.setRPY(0, 0, 0);
+
+            maptf.transform.rotation.x = q.x();
+            maptf.transform.rotation.y = q.y();
+            maptf.transform.rotation.z = q.z();
+            maptf.transform.rotation.w = q.w();
+
+            tf_broadcaster_->sendTransform(maptf);
         }; 
 
         timer_ = this->create_wall_timer(1.25ms, pub_callback);
@@ -124,7 +149,7 @@ private:
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odompub_;
     rclcpp::Publisher<tf2_msgs::msg::TFMessage>::SharedPtr tfpub_;
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
-    rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::TimerBase::SharedPtr timer_; 
 };
 
 int main(int argc, char *argv[]) {
