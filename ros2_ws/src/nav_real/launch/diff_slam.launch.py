@@ -25,8 +25,7 @@ def generate_launch_description():
             package='nav_real',
             executable='dammy_encorder_node',
             output='screen',
-            parameters=[os.path.join(share_pkg_dir,'config','params.yaml')],
-            prefix="xterm -e"
+            parameters=[os.path.join(share_pkg_dir,'config','params.yaml')]
             )
     
     joy_node = Node(

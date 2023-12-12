@@ -10,18 +10,18 @@ dammy_encorder_node:
     robot_type: "differencial drive"
     wheel_radious: 0.03 #駆動輪半径m
     wheel_distance: 0.1 #駆動輪間距離m
-    lxenc_radious: 0.01 #前後エンコーダ半径m
-    azenc_radious: 0.01 #回転エンコーダ半径、駆動輪軸の垂直二等分線上に配置することm
-    azenc_distance: 1.0 #回転エンコーダと回転中心の距離m
+    lxenc_radious: 0.02 #前後エンコーダ半径m
+    azenc_radious: 0.02 #回転エンコーダ半径、駆動輪軸の垂直二等分線上に配置することm
+    azenc_distance: 0.1 #回転エンコーダと回転中心の距離m
 
 states_pub_node:
   ros__parameters:
     robot_type: "differencial drive"
     wheel_radious: 0.03
     wheel_distance: 0.1
-    lxenc_radious: 0.01
-    azenc_radious: 0.01
-    azenc_distance: 1.0
+    lxenc_radious: 0.02
+    azenc_radious: 0.02
+    azenc_distance: 0.1
 
 joy_transrate_node:
   ros__parameters:
