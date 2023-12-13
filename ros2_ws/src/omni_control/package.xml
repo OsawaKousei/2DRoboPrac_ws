@@ -3,35 +3,34 @@
 <package format="3">
   <name>omni_control</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Package for omni control</description>
   <maintainer email="jwithelis@gmail.com">n622/jwith</maintainer>
   <license>Apache License 2.0</license>
 
+  <!--基本の依存関係-->
   <buildtool_depend>ament_cmake</buildtool_depend>
-
-  <depend>rosidl_default_generators</depend>
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
   <depend>rclcpp</depend>  
   
+  <!--標準メッセージ型の依存関係-->
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>sensor_msgs</depend>
   <depend>nav_msgs</depend>
-  <depend>tf2_msgs</depend>
 
-  <depend>rclcpp_components</depend>
-  <depend>key_event_nodes</depend>
-  <depend>key_event_msgs</depend>
-  <depend>drive_msgs</depend> <!--カスタムメッセージの依存関係-->
+  <!--カスタムメッセージの依存関係-->
+  <depend>drive_msgs</depend> 
+
+  <!--tfを扱うための依存関係-->
+  <depend>tf2_msgs</depend>
   <depend>tf2_ros</depend>
   <depend>tf2</depend>
-
   <exec_depend>robot_state_publisher</exec_depend>
-  <exec_depend>ros_ign_bridge</exec_depend>
-  <exec_depend>ros_ign_gazebo</exec_depend>
-
+ 
+  <!--msgのための依存関係-->
+  <depend>rosidl_default_generators</depend>
   <exec_depend>rosidl_default_runtime</exec_depend>
   <member_of_group>rosidl_interface_packages</member_of_group>
-
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
