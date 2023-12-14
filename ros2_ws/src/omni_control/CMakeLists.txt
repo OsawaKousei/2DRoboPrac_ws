@@ -33,6 +33,11 @@ ament_auto_add_executable(
 omni_drive_node src/omni_drive_node.cpp
 )
 
+#omni_raspi_nodeを実行ファイルとしてビルド
+ament_auto_add_executable(
+omni_raspi_node src/omni_raspi_node.cpp
+)
+
 #実行ファイルのビルド、共有ファイルのインストール
 ament_auto_package(
   INSTALL_TO_SHARE

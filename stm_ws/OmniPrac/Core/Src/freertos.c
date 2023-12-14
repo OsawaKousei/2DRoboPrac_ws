@@ -121,6 +121,18 @@ const osThreadAttr_t SysCeckTask_attributes = {
   .stack_size = sizeof(SysCeckTaskBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for MotorRunTask */
+osThreadId_t MotorRunTaskHandle;
+uint32_t MotorRunTaskBuffer[ 512 ];
+osStaticThreadDef_t MotorRunTaskControlBlock;
+const osThreadAttr_t MotorRunTask_attributes = {
+  .name = "MotorRunTask",
+  .cb_mem = &MotorRunTaskControlBlock,
+  .cb_size = sizeof(MotorRunTaskControlBlock),
+  .stack_mem = &MotorRunTaskBuffer[0],
+  .stack_size = sizeof(MotorRunTaskBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -352,6 +364,7 @@ void airSetting(){
 
 void StartDefaultTask(void *argument);
 void StartSysCheckTask(void *argument);
+void StartMotorRunTask(void *argument);
 
 extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -388,6 +401,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of SysCeckTask */
   SysCeckTaskHandle = osThreadNew(StartSysCheckTask, NULL, &SysCeckTask_attributes);
+
+  /* creation of MotorRunTask */
+  MotorRunTaskHandle = osThreadNew(StartMotorRunTask, NULL, &MotorRunTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -478,7 +494,7 @@ void subscription_callback(const void * msgin)
 void StartDefaultTask(void *argument)
 {
   /* init code for USB_DEVICE */
-  //MX_USB_DEVICE_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN StartDefaultTask */
   // micro-ROSの初期化
   	printf("start default task");
@@ -687,6 +703,24 @@ void StartSysCheckTask(void *argument)
 	  osDelay(1000);
   }
   /* USER CODE END StartSysCheckTask */
+}
+
+/* USER CODE BEGIN Header_StartMotorRunTask */
+/**
+* @brief Function implementing the MotorRunTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartMotorRunTask */
+void StartMotorRunTask(void *argument)
+{
+  /* USER CODE BEGIN StartMotorRunTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartMotorRunTask */
 }
 
 /* Private application code --------------------------------------------------*/
