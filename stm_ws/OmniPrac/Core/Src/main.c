@@ -50,7 +50,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-NUM_OF_DEVICES num_of_devices;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -74,33 +74,6 @@ PUTCHAR_PROTOTYPE {
     return ch;
 }
 
-void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan){
-    WhenTxMailbox0_1_2CompleteCallbackCalled();
-}
-
-void HAL_CAN_TxMailbox0AbortCallback(CAN_HandleTypeDef *hcan){
-    WhenTxMailbox0_1_2AbortCallbackCalled();
-}
-
-void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan){
-    WhenTxMailbox0_1_2CompleteCallbackCalled();
-}
-
-void HAL_CAN_TxMailbox1AbortCallback(CAN_HandleTypeDef *hcan){
-    WhenTxMailbox0_1_2AbortCallbackCalled();
-}
-
-void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan){
-    WhenTxMailbox0_1_2CompleteCallbackCalled();
-}
-
-void HAL_CAN_TxMailbox2AbortCallback(CAN_HandleTypeDef *hcan){
-    WhenTxMailbox0_1_2AbortCallbackCalled();
-}
-
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
-    WhenCANRxFifo0MsgPending(hcan, &num_of_devices);
-}
 /* USER CODE END 0 */
 
 /**
@@ -136,19 +109,7 @@ int main(void)
   MX_TIM1_Init();
   MX_CAN1_Init();
   /* USER CODE BEGIN 2 */
-  printf("startProgram\r\n");
 
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-
-	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
-	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);
-
-	HAL_GPIO_WritePin(GPIOB, M11_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_RESET);
-
-	HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_RESET);
   /* USER CODE END 2 */
 
   /* Init scheduler */
