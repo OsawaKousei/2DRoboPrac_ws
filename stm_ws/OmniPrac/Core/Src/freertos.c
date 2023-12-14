@@ -43,6 +43,7 @@
 // カスタムメッセージのインクルード
 #include <custom_test_msgs/srv/add_three_ints.h>
 #include <drive_msgs/msg/diff_drive.h>
+#include <drive_msgs/msg/omni.h>
 
 //canlibを使うためのinclude
 #include "can.h"
@@ -125,6 +126,7 @@ const osThreadAttr_t SysCeckTask_attributes = {
 /* USER CODE BEGIN FunctionPrototypes */
 //このコード固有の変数
 bool finishCANsetting = false;
+float cmd_motor[4] = {0,0,0,0};
 
 bool cubemx_transport_open(struct uxrCustomTransport * transport);
 bool cubemx_transport_close(struct uxrCustomTransport * transport);
@@ -457,7 +459,7 @@ void service_callback(const void *request, void *response)
 void subscription_callback(const void * msgin)
 {
 	 // Cast received message to used type
-	  const drive_msgs__msg__DiffDrive * sub = (const drive_msgs__msg__DiffDrive *)msgin;
+	  const drive_msgs__msg__Omni * sub = (const drive_msgs__msg__Omni *)msgin;
 
 	  char hearing[] = "I'm hearing from f7";
 	  rosidl_runtime_c__String__assignn(&pub.data, hearing, sizeof(hearing));
@@ -465,9 +467,12 @@ void subscription_callback(const void * msgin)
 	  //データのpublish
 	  RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));
 
-	  run_motor(sub->m1,sub->m2);
+	  cmd_motor[0] = sub->mfontright;
+	  cmd_motor[1] = sub->mfrontleft;
+	  cmd_motor[2] = sub->mbackright;
+	  cmd_motor[3] = sub->mbackleft;
 
-	  HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET);
+	  printf("%f:%f:%f:%f",cmd_motor[0],cmd_motor[1],cmd_motor[2],cmd_motor[3]);
 }
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void *argument)
@@ -526,7 +531,7 @@ void StartDefaultTask(void *argument)
 		RCCHECK(rclc_subscription_init_default(
 		  &subscriber,
 		  &node,
-		  ROSIDL_GET_MSG_TYPE_SUPPORT(drive_msgs, msg, DiffDrive),
+		  ROSIDL_GET_MSG_TYPE_SUPPORT(drive_msgs, msg, Omni),
 		  "/cmd_ras"));
       // エグゼキューターの作成。三番目の引数はextecuterに登録するコールバック関数の数。
   	RCCHECK(rclc_executor_init(&executor, &support.context, 2, &allocator));
