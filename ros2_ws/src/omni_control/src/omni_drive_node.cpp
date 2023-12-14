@@ -4,11 +4,11 @@
 #include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "drive_msgs/msg/diff_drive.hpp"
-# include <bits/stdc++.h>
+#include <cmath>
 
 using namespace std::chrono_literals;
 
-class DiffDriveNode : public rclcpp::Node {
+class OmniDriveNode : public rclcpp::Node {
 public:
 
     //public変数を宣言
@@ -17,7 +17,7 @@ public:
     std::double_t dis_;
 
     //cmd_velからモータの制御値を計算
-    void diffDrive(float cmd[2],float lx,float az){ //cmd[0]:右輪rps,cmd[1]:左輪rps,lx:m/s,az:rad/s
+    void OmniDrive(float cmd[2],float lx,float az){ //cmd[0]:右輪rps,cmd[1]:左輪rps,lx:m/s,az:rad/s
 
         //線形速度と回転速度の加算
         cmd[0] = (lx + dis_*az/2)/(2.0*M_PI*rad_);
@@ -25,7 +25,7 @@ public:
         
     }
 
-    DiffDriveNode() : Node("diff_drive_node") {
+    OmniDriveNode() : Node("diff_drive_node") {
         //使用するパラメータの宣言(param名,初期値)、小数点を入れないとint型になるので注意
         declare_parameter("robot_type", "default");
         declare_parameter("wheel_radious", -1.0);
@@ -48,7 +48,7 @@ public:
 
             auto message = drive_msgs::msg::DiffDrive();
             float ans[] = {0,0}; //ans[0]:右輪rps,ans[1]:左輪rps
-            diffDrive(ans, msg.linear.x, msg.angular.z); //(配列のポインタ渡し,x軸方向の速度m/s,z軸回りの角速度rad/s)
+            OmniDrive(ans, msg.linear.x, msg.angular.z); //(配列のポインタ渡し,x軸方向の速度m/s,z軸回りの角速度rad/s)
 
             message.name = "differencial drive";
             message.m1 = ans[0];
@@ -68,7 +68,7 @@ private:
 
 int main(int argc, char *argv[]) {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<DiffDriveNode>());
+    rclcpp::spin(std::make_shared<OmniDriveNode>());
     rclcpp::shutdown();
     return 0;
 }

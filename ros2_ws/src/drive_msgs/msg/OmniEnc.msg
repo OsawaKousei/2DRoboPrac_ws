@@ -5,4 +5,4 @@ float64 encbackright
 float64 encbackleft
 float64 enclx
 float64 encly
-float64 encadittional
+float64 encadditional

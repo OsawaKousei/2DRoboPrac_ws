@@ -1,3 +1,4 @@
+# omni teleop用のrviz設定ファイル
 Panels:
   - Class: rviz_common/Displays
     Help Height: 0

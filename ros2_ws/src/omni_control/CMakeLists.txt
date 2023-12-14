@@ -23,6 +23,11 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+#omni_joy_nodeを実行ファイルとしてビルド
+ament_auto_add_executable(
+omni_joy_node src/omni_joy_node.cpp
+)
+
 #実行ファイルのビルド、共有ファイルのインストール
 ament_auto_package(
   INSTALL_TO_SHARE

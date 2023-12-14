@@ -12,7 +12,8 @@
         "*.world": "xml",
         "*.xacro": "xml",
         "ranges": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "cmath": "cpp"
     },
     "C_Cpp.default.intelliSenseMode": "linux-gcc-x86",
     "C_Cpp.formatting": "disabled",

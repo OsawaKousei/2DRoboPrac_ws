@@ -10,7 +10,7 @@ import xacro
 
 def generate_launch_description():
     nav_dev_dir = get_package_share_directory('nav_dev')
-    share_pkg_dir = get_package_share_directory('nav_real')
+    pkg_dir = get_package_share_directory('omni_control')
     lidar_launch = os.path.join(get_package_share_directory('urg_node2'),"launch","urg_node2.launch.py")
 
     #joint_state_pubの起動
@@ -18,14 +18,14 @@ def generate_launch_description():
                 package='nav_real',
                 executable='states_pub_node',
                 output='screen',
-                parameters=[os.path.join(share_pkg_dir,'config','params.yaml')]
+                parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
                 )
     
     dammy_enc_node = Node(
             package='nav_real',
             executable='dammy_encorder_node',
             output='screen',
-            parameters=[os.path.join(share_pkg_dir,'config','params.yaml')]
+            parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
             )
     
     joy_node = Node(
@@ -33,18 +33,18 @@ def generate_launch_description():
                 executable='joy_node',
                 output='screen'
                 )
-    joy_transrate_node = Node(
-                package='nav_real',
-                executable='joy_transrate_node',
+    omni_joy_node = Node(
+                package='omni_control',
+                executable='omni_joy_node',
                 output='screen',
-                parameters=[os.path.join(share_pkg_dir,'config','params.yaml')]
+                parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
                 )
 
     diff_drive_node = Node(
                 package='nav_real',
                 executable='diff_drive_node',
                 output='screen',
-                parameters=[os.path.join(share_pkg_dir,'config','params.yaml')]
+                parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
                 )
 
     
@@ -80,13 +80,5 @@ def generate_launch_description():
             output='screen')
     
     return LaunchDescription([
-        states_pub_node,
-        dammy_enc_node,
-        robot_state_publisher,
-
-        joy_node,
-        joy_transrate_node,
-        diff_drive_node,
-
-        rviz2,
+        omni_joy_node,
     ])
