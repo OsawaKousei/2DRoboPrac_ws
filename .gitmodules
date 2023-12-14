@@ -1,0 +1,3 @@
+[submodule "stm_ws/OmniPrac/CANLib"]
+	path = stm_ws/OmniPrac/CANLib
+	url = https://gitlab.com/kikaiken/canlib.git
