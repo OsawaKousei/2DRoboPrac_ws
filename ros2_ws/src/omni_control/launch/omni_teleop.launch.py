@@ -20,29 +20,23 @@ def generate_launch_description():
                 output='screen',
                 parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
                 )
-    
-    dammy_enc_node = Node(
-            package='nav_real',
-            executable='dammy_encorder_node',
-            output='screen',
-            parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
-            )
-    
+    #joyの起動   
     joy_node = Node(
                 package='joy',
                 executable='joy_node',
                 output='screen'
                 )
+    #omni_joyの起動
     omni_joy_node = Node(
                 package='omni_control',
                 executable='omni_joy_node',
                 output='screen',
                 parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
                 )
-
-    diff_drive_node = Node(
-                package='nav_real',
-                executable='diff_drive_node',
+    #omni_driveの起動
+    omni_drive_node = Node(
+                package='omni_control',
+                executable='omni_drive_node',
                 output='screen',
                 parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
                 )
@@ -80,5 +74,7 @@ def generate_launch_description():
             output='screen')
     
     return LaunchDescription([
+        joy_node,
         omni_joy_node,
+        omni_drive_node,
     ])
