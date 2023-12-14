@@ -220,7 +220,7 @@ void subscription_callback(const void * msgin)
 void StartDefaultTask(void *argument)
 {
   /* init code for USB_DEVICE */
-  //MX_USB_DEVICE_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN StartDefaultTask */
   // micro-ROSの初期化
   	printf("start default task");
