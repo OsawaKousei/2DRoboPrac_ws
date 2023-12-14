@@ -225,7 +225,7 @@ void mcmdMoter1Setting(){
 		 MCMD_init(&mcmd4M1_struct);
 		 HAL_Delay(10);
 		 MCMD_Calib(&mcmd4M1_struct);  // キャリブレーションを行う
-		 HAL_Delay(5000);  // キャリブレーションが終わるまで待つ
+		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
 		 MCMD_SetTarget(&mcmd4M1_struct, 0.00f);  // 目標値を設定
 }
 
@@ -260,7 +260,7 @@ void mcmdMoter2Setting(){
 		 MCMD_init(&mcmd4M2_struct);
 		 HAL_Delay(10);
 		 MCMD_Calib(&mcmd4M2_struct);  // キャリブレーションを行う
-		 HAL_Delay(5000);  // キャリブレーションが終わるまで待つ
+		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
 		 MCMD_SetTarget(&mcmd4M2_struct, 0.00f);  // 目標値を設定
 }
 
@@ -294,7 +294,7 @@ void mcmdMoter3Setting(){
 		 MCMD_init(&mcmd4M3_struct);
 		 HAL_Delay(10);
 		 MCMD_Calib(&mcmd4M3_struct);  // キャリブレーションを行う
-		 HAL_Delay(5000);  // キャリブレーションが終わるまで待つ
+		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
 		 MCMD_SetTarget(&mcmd4M3_struct, 0.00f);  // 目標値を設定
 }
 
@@ -328,7 +328,7 @@ void mcmdMoter4Setting(){
 		 MCMD_init(&mcmd4M4_struct);
 		 HAL_Delay(10);
 		 MCMD_Calib(&mcmd4M4_struct);  // キャリブレーションを行う
-		 HAL_Delay(5000);  // キャリブレーションが終わるまで待つ
+		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
 		 MCMD_SetTarget(&mcmd4M4_struct, 0.00f);  // 目標値を設定
 }
 
@@ -477,18 +477,16 @@ void subscription_callback(const void * msgin)
 	 // Cast received message to used type
 	  const drive_msgs__msg__Omni * sub = (const drive_msgs__msg__Omni *)msgin;
 
-	  char hearing[] = "I'm hearing from f7";
-	  rosidl_runtime_c__String__assignn(&pub.data, hearing, sizeof(hearing));
-
-	  //データのpublish
-	  RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));
-
 	  cmd_motor[0] = sub->mfontright;
 	  cmd_motor[1] = sub->mfrontleft;
 	  cmd_motor[2] = sub->mbackright;
 	  cmd_motor[3] = sub->mbackleft;
 
-	  printf("%f:%f:%f:%f",cmd_motor[0],cmd_motor[1],cmd_motor[2],cmd_motor[3]);
+	  char hearing[] = "I'm hearing from f7";
+	  rosidl_runtime_c__String__assignn(&pub.data, hearing, sizeof(hearing));
+
+	  //データのpublish
+	  RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));
 }
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void *argument)
@@ -691,7 +689,6 @@ void StartSysCheckTask(void *argument)
 		  		mcmdMoter2Checker();
 		  		mcmdMoter3Checker();
 		  		mcmdMoter4Checker();
-		  		osDelay(2000);
 		  		//servoChecker();
 		  		//airChecker();
 		  		finishCheck = true;
@@ -718,7 +715,36 @@ void StartMotorRunTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	  MCMD_SetTarget(&mcmd4M1_struct, 0.0f);  // 目標値を設定
+	  MCMD_SetTarget(&mcmd4M2_struct, 0.0f);  // 目標値を設定
+	  MCMD_SetTarget(&mcmd4M3_struct, 0.0f);  // 目標値を設定
+	  MCMD_SetTarget(&mcmd4M4_struct, 0.0f);  // 目標値を設定
+
+	  if(cmd_motor[0] >= 1){
+		  MCMD_SetTarget(&mcmd4M1_struct, 0.05f);  // 目標値を設定
+	  }else if(cmd_motor[0] <= -1){
+		  MCMD_SetTarget(&mcmd4M1_struct, -0.05f);  // 目標値を設定
+	  }
+
+	  if(cmd_motor[1] >= 1){
+		  MCMD_SetTarget(&mcmd4M2_struct, 0.05f);  // 目標値を設定
+	  }else if(cmd_motor[1] <= -1){
+		  MCMD_SetTarget(&mcmd4M2_struct, -0.05f);  // 目標値を設定
+	  }
+
+	  if(cmd_motor[2] >= 1){
+		  MCMD_SetTarget(&mcmd4M3_struct, -0.05f);  // 目標値を設定
+	  }else if(cmd_motor[2] <= -1){
+		  MCMD_SetTarget(&mcmd4M3_struct, 0.05f);  // 目標値を設定
+	  }
+
+	  if(cmd_motor[3] >= 1){
+		  MCMD_SetTarget(&mcmd4M4_struct, 0.05f);  // 目標値を設定
+	  }else if(cmd_motor[3] <= -1){
+		  MCMD_SetTarget(&mcmd4M4_struct, -0.05f);  // 目標値を設定
+	  }
+
+    osDelay(10);
   }
   /* USER CODE END StartMotorRunTask */
 }
