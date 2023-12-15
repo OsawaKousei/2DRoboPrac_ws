@@ -63,6 +63,7 @@ public:
             cmd[2] = 1;
             cmd[3] = 1;
         }
+
     }
 
     OmniDriveNode() : Node("omni_drive_node") {

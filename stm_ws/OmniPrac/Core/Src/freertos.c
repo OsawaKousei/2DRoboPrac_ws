@@ -213,7 +213,7 @@ void canSetting(){
 void mcmdMoter1Setting(){
 	    // 接続先のMCMDの設定
 	    mcmd4M1_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M1_struct.device.node_id = 5;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
+	    mcmd4M1_struct.device.node_id = 1;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
 	    mcmd4M1_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
@@ -242,13 +242,14 @@ void mcmdMoter1Setting(){
 		 MCMD_Calib(&mcmd4M1_struct);  // キャリブレーションを行う
 		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
 		 MCMD_SetTarget(&mcmd4M1_struct, 0.00f);  // 目標値を設定
+		 MCMD_Control_Enable(&mcmd4M1_struct);  // 制御開始
 }
 
 //モータ2のmcmd設定
 void mcmdMoter2Setting(){
 	    // 接続先のMCMDの設定
 	    mcmd4M2_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M2_struct.device.node_id = 5;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
+	    mcmd4M2_struct.device.node_id = 1;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
 	    mcmd4M2_struct.device.device_num = 1;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
@@ -277,6 +278,7 @@ void mcmdMoter2Setting(){
 		 MCMD_Calib(&mcmd4M2_struct);  // キャリブレーションを行う
 		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
 		 MCMD_SetTarget(&mcmd4M2_struct, 0.00f);  // 目標値を設定
+		 MCMD_Control_Enable(&mcmd4M2_struct);  // 制御開始
 }
 
 void mcmdMoter3Setting(){
@@ -311,6 +313,7 @@ void mcmdMoter3Setting(){
 		 MCMD_Calib(&mcmd4M3_struct);  // キャリブレーションを行う
 		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
 		 MCMD_SetTarget(&mcmd4M3_struct, 0.00f);  // 目標値を設定
+		 MCMD_Control_Enable(&mcmd4M3_struct);  // 制御開始
 }
 
 void mcmdMoter4Setting(){
@@ -345,6 +348,7 @@ void mcmdMoter4Setting(){
 		 MCMD_Calib(&mcmd4M4_struct);  // キャリブレーションを行う
 		 HAL_Delay(50);  // キャリブレーションが終わるまで待つ
 		 MCMD_SetTarget(&mcmd4M4_struct, 0.00f);  // 目標値を設定
+		 MCMD_Control_Enable(&mcmd4M4_struct);  // 制御開始
 }
 
 
@@ -464,6 +468,9 @@ void subscription_callback(const void * msgin)
 	  cmd_motor[2] = sub->mbackright;
 	  cmd_motor[3] = sub->mbackleft;
 
+	  rosidl_runtime_c__String__init(&pub);
+	  char hear[] = "I'm hearing from f7";
+	  rosidl_runtime_c__String__assignn(&pub.data, hear, sizeof(hear));
 	  RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));
 }
 /* USER CODE END Header_StartDefaultTask */
@@ -678,7 +685,7 @@ void StartSysCheckTask(void *argument)
 		  		//mcmdMoter4Checker();
 		  		//servoChecker();
 		  		//airChecker();
-		  		osDelay(8000);
+		  		//osDelay(8000);
 		  		finishCheck = true;
 		  	  }
 	  }
@@ -697,6 +704,14 @@ void StartSysCheckTask(void *argument)
 * @retval None
 */
 /* USER CODE END Header_StartMotorRunTask */
+float dutyLimmit = 0.5;
+float dutyScaler = 0.05;
+float dutyLimmiter(float input){
+	if(input >= dutyLimmit){
+		input = dutyLimmit;
+	}
+	return input;
+}
 void motorRun(){
 	//初期化
 	MCMD_SetTarget(&mcmd4M1_struct, 0.0f);
@@ -704,29 +719,10 @@ void motorRun(){
 	MCMD_SetTarget(&mcmd4M3_struct, 0.0f);
 	MCMD_SetTarget(&mcmd4M4_struct, 0.0f);
 
-	if(cmd_motor[0] >= 1){
-	  MCMD_SetTarget(&mcmd4M1_struct, 0.05f);
-	}else if(cmd_motor[0] <= -1){
-	  MCMD_SetTarget(&mcmd4M1_struct, -0.05f);
-	}
-
-	if(cmd_motor[1] >= 1){
-	  MCMD_SetTarget(&mcmd4M2_struct, 0.05f);
-	}else if(cmd_motor[1] <= -1){
-	  MCMD_SetTarget(&mcmd4M2_struct, -0.05f);
-	}
-
-	if(cmd_motor[2] >= 1){
-	  MCMD_SetTarget(&mcmd4M3_struct, -0.05f);
-	}else if(cmd_motor[2] <= -1){
-	  MCMD_SetTarget(&mcmd4M3_struct, 0.05f);
-	}
-
-	if(cmd_motor[3] >= 1){
-	  MCMD_SetTarget(&mcmd4M4_struct, 0.05f);
-	}else if(cmd_motor[3] <= -1){
-	  MCMD_SetTarget(&mcmd4M4_struct, -0.05f);
-	}
+	MCMD_SetTarget(&mcmd4M1_struct, dutyLimmiter(cmd_motor[0]*dutyScaler));
+	MCMD_SetTarget(&mcmd4M2_struct, dutyLimmiter(cmd_motor[1]*dutyScaler));
+	MCMD_SetTarget(&mcmd4M3_struct, dutyLimmiter(cmd_motor[2]*dutyScaler*-1.0));
+	MCMD_SetTarget(&mcmd4M4_struct, dutyLimmiter(cmd_motor[3]*dutyScaler));
 }
 void StartMotorRunTask(void *argument)
 {
@@ -734,7 +730,7 @@ void StartMotorRunTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-
+	  motorRun();
 
     osDelay(10);
   }
