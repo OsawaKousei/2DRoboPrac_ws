@@ -44,6 +44,7 @@
 #include <custom_test_msgs/srv/add_three_ints.h>
 #include <drive_msgs/msg/diff_drive.h>
 #include <drive_msgs/msg/omni.h>
+#include <drive_msgs/msg/omni_enc.h>
 
 //canlibを使うためのinclude
 #include "can.h"
@@ -71,6 +72,7 @@ custom_test_msgs__srv__AddThreeInts_Request req;
 custom_test_msgs__srv__AddThreeInts_Response res;
 geometry_msgs__msg__Twist sub;
 std_msgs__msg__String pub;
+drive_msgs__msg__OmniEnc enc;
 
 //CANモジュール基盤の設定
 NUM_OF_DEVICES num_of_devices;
@@ -96,6 +98,7 @@ CAN_Device air_device;
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 rcl_publisher_t publisher;
+rcl_publisher_t encpublisher;
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -107,7 +110,7 @@ const osThreadAttr_t defaultTask_attributes = {
   .cb_size = sizeof(defaultTaskControlBlock),
   .stack_mem = &defaultTaskBuffer[0],
   .stack_size = sizeof(defaultTaskBuffer),
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityRealtime,
 };
 /* Definitions for SysCeckTask */
 osThreadId_t SysCeckTaskHandle;
@@ -131,7 +134,19 @@ const osThreadAttr_t MotorRunTask_attributes = {
   .cb_size = sizeof(MotorRunTaskControlBlock),
   .stack_mem = &MotorRunTaskBuffer[0],
   .stack_size = sizeof(MotorRunTaskBuffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityHigh,
+};
+/* Definitions for EncorderTask */
+osThreadId_t EncorderTaskHandle;
+uint32_t EncorderTaskBuffer[ 512 ];
+osStaticThreadDef_t EncorderTaskControlBlock;
+const osThreadAttr_t EncorderTask_attributes = {
+  .name = "EncorderTask",
+  .cb_mem = &EncorderTaskControlBlock,
+  .cb_size = sizeof(EncorderTaskControlBlock),
+  .stack_mem = &EncorderTaskBuffer[0],
+  .stack_size = sizeof(EncorderTaskBuffer),
+  .priority = (osPriority_t) osPriorityHigh,
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -184,7 +199,7 @@ void canSetting(){
 	CAN_SystemInit(&hcan1); // F7のCAN通信のinit
 
 	// デバイス数の設定
-	num_of_devices.mcmd3 = 2;
+	num_of_devices.mcmd3 = 1;
 	num_of_devices.mcmd4 = 0;
 	num_of_devices.air = 0;
 	num_of_devices.servo = 0;
@@ -198,7 +213,7 @@ void canSetting(){
 void mcmdMoter1Setting(){
 	    // 接続先のMCMDの設定
 	    mcmd4M1_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M1_struct.device.node_id =0;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
+	    mcmd4M1_struct.device.node_id = 5;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
 	    mcmd4M1_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
@@ -233,7 +248,7 @@ void mcmdMoter1Setting(){
 void mcmdMoter2Setting(){
 	    // 接続先のMCMDの設定
 	    mcmd4M2_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M2_struct.device.node_id = 0;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
+	    mcmd4M2_struct.device.node_id = 5;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
 	    mcmd4M2_struct.device.device_num = 1;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
@@ -365,6 +380,7 @@ void airSetting(){
 void StartDefaultTask(void *argument);
 void StartSysCheckTask(void *argument);
 void StartMotorRunTask(void *argument);
+void StartEncorderTask(void *argument);
 
 extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -405,6 +421,9 @@ void MX_FREERTOS_Init(void) {
   /* creation of MotorRunTask */
   MotorRunTaskHandle = osThreadNew(StartMotorRunTask, NULL, &MotorRunTask_attributes);
 
+  /* creation of EncorderTask */
+  EncorderTaskHandle = osThreadNew(StartEncorderTask, NULL, &EncorderTask_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -421,45 +440,8 @@ void MX_FREERTOS_Init(void) {
   * @param  argument: Not used
   * @retval None
   */
-//duty制限
-double limit = 250.0;
-double duty_limmiter(double input){
-	if(input > limit){
-		input = limit;
-	}
-	return input;
-}
-//駆動用関数
-void run_motor(double m1,double m2){
+int count = 1;
 
-	//初期化
-	HAL_GPIO_WritePin(GPIOB, M11_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_RESET);
-
-	//制御値を設定
-	if(m1 > 0){
-		HAL_GPIO_WritePin(GPIOB, M11_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_SET);
-		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty_limmiter(m1*100.0));
-	}else if(m1 < 0){
-		HAL_GPIO_WritePin(GPIOB, M11_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOB, M12_Pin, GPIO_PIN_RESET);
-		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty_limmiter(m1*100.0*-1.0));
-	}
-
-	if(m2 > 0){
-		HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_SET);
-		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty_limmiter(m2*100.0));
-	}else if(m2 < 0){
-		HAL_GPIO_WritePin(GPIOB, M21_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOB, M22_Pin, GPIO_PIN_RESET);
-		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty_limmiter(m2*100.0*-1.0));
-	}
-
-}
 // サービスのコールバック関数を定義
 void service_callback(const void *request, void *response)
 {
@@ -482,10 +464,6 @@ void subscription_callback(const void * msgin)
 	  cmd_motor[2] = sub->mbackright;
 	  cmd_motor[3] = sub->mbackleft;
 
-	  char hearing[] = "I'm hearing from f7";
-	  rosidl_runtime_c__String__assignn(&pub.data, hearing, sizeof(hearing));
-
-	  //データのpublish
 	  RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));
 }
 /* USER CODE END Header_StartDefaultTask */
@@ -541,6 +519,14 @@ void StartDefaultTask(void *argument)
 	  ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, String),
 	  "/from_f767zi"));
 
+	 //publisherの作成
+		RCCHECK(rclc_publisher_init_default(
+		  &encpublisher,
+		  &node,
+		  ROSIDL_GET_MSG_TYPE_SUPPORT(drive_msgs, msg, OmniEnc),
+		  "/enc_val"));
+
+
 	 //subscriberの作成
 		RCCHECK(rclc_subscription_init_default(
 		  &subscriber,
@@ -571,8 +557,8 @@ void StartDefaultTask(void *argument)
 	//servoSetting();
 	mcmdMoter1Setting();
 	mcmdMoter2Setting();
-	mcmdMoter3Setting();
-	mcmdMoter4Setting();
+	//mcmdMoter3Setting();
+	//mcmdMoter4Setting();
 	//airSetting();
 	printf("calibrationFinished\r\n");
 
@@ -583,8 +569,9 @@ void StartDefaultTask(void *argument)
   {
 	  // エグゼキューターを実行してリクエストを処理
 	  rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));
+	  RCSOFTCHECK(rcl_publish(&encpublisher, &enc, NULL));
 
-	  osDelay(100);
+	  osDelay(10);
   }
   // 終了処理
   	RCCHECK(rcl_service_fini(&service, &node));
@@ -613,7 +600,7 @@ void mcmdMoter1Checker(){
 		 MCMD_SetTarget(&mcmd4M1_struct, 0.05f);  // 目標値を設定
 		 MCMD_Control_Enable(&mcmd4M1_struct);  // 制御開始
 		 printf("MCMDM1controllStart\r\n");
-		 osDelay(1000);
+		 osDelay(2000);
 		 MCMD_SetTarget(&mcmd4M1_struct, 0.00f);  // 目標値を設定
 	}
 
@@ -622,7 +609,7 @@ void mcmdMoter2Checker(){
 		 MCMD_SetTarget(&mcmd4M2_struct, 0.05f);  // 目標値を設定
 		 MCMD_Control_Enable(&mcmd4M2_struct);  // 制御開始
 		 printf("MCMDM2controllStart\r\n");
-		 osDelay(1000);
+		 osDelay(2000);
 		 MCMD_SetTarget(&mcmd4M2_struct, 0.00f);  // 目標値を設定
 	}
 
@@ -631,7 +618,7 @@ void mcmdMoter3Checker(){
 		 MCMD_SetTarget(&mcmd4M3_struct, 0.05f);  // 目標値を設定
 		 MCMD_Control_Enable(&mcmd4M3_struct);  // 制御開始
 		 printf("MCMDM3controllStart\r\n");
-		 osDelay(1000);
+		 osDelay(2000);
 		 MCMD_SetTarget(&mcmd4M3_struct, 0.00f);  // 目標値を設定
 	}
 
@@ -640,7 +627,7 @@ void mcmdMoter4Checker(){
 		 MCMD_SetTarget(&mcmd4M4_struct, 0.05f);  // 目標値を設定
 		 MCMD_Control_Enable(&mcmd4M4_struct);  // 制御開始
 		 printf("MCMDM4controllStart\r\n");
-		 osDelay(1000);
+		 osDelay(2000);
 		 MCMD_SetTarget(&mcmd4M4_struct, 0.00f);  // 目標値を設定
 	}
 
@@ -685,16 +672,17 @@ void StartSysCheckTask(void *argument)
   {
 	  if(finishCANsetting){
 		  if(!finishCheck){
-		  		mcmdMoter1Checker();
-		  		mcmdMoter2Checker();
-		  		mcmdMoter3Checker();
-		  		mcmdMoter4Checker();
+		  		//mcmdMoter1Checker();
+		  		//mcmdMoter2Checker();
+		  		//mcmdMoter3Checker();
+		  		//mcmdMoter4Checker();
 		  		//servoChecker();
 		  		//airChecker();
+		  		osDelay(8000);
 		  		finishCheck = true;
 		  	  }
 	  }
-	  freeRTOSChecker();
+	  //freeRTOSChecker();
 	  //mcmdEncorder1Checker();
 	  //mcmdEncorder2Checker();
 	  osDelay(1000);
@@ -709,44 +697,69 @@ void StartSysCheckTask(void *argument)
 * @retval None
 */
 /* USER CODE END Header_StartMotorRunTask */
+void motorRun(){
+	//初期化
+	MCMD_SetTarget(&mcmd4M1_struct, 0.0f);
+	MCMD_SetTarget(&mcmd4M2_struct, 0.0f);
+	MCMD_SetTarget(&mcmd4M3_struct, 0.0f);
+	MCMD_SetTarget(&mcmd4M4_struct, 0.0f);
+
+	if(cmd_motor[0] >= 1){
+	  MCMD_SetTarget(&mcmd4M1_struct, 0.05f);
+	}else if(cmd_motor[0] <= -1){
+	  MCMD_SetTarget(&mcmd4M1_struct, -0.05f);
+	}
+
+	if(cmd_motor[1] >= 1){
+	  MCMD_SetTarget(&mcmd4M2_struct, 0.05f);
+	}else if(cmd_motor[1] <= -1){
+	  MCMD_SetTarget(&mcmd4M2_struct, -0.05f);
+	}
+
+	if(cmd_motor[2] >= 1){
+	  MCMD_SetTarget(&mcmd4M3_struct, -0.05f);
+	}else if(cmd_motor[2] <= -1){
+	  MCMD_SetTarget(&mcmd4M3_struct, 0.05f);
+	}
+
+	if(cmd_motor[3] >= 1){
+	  MCMD_SetTarget(&mcmd4M4_struct, 0.05f);
+	}else if(cmd_motor[3] <= -1){
+	  MCMD_SetTarget(&mcmd4M4_struct, -0.05f);
+	}
+}
 void StartMotorRunTask(void *argument)
 {
   /* USER CODE BEGIN StartMotorRunTask */
   /* Infinite loop */
   for(;;)
   {
-	  MCMD_SetTarget(&mcmd4M1_struct, 0.0f);  // 目標値を設定
-	  MCMD_SetTarget(&mcmd4M2_struct, 0.0f);  // 目標値を設定
-	  MCMD_SetTarget(&mcmd4M3_struct, 0.0f);  // 目標値を設定
-	  MCMD_SetTarget(&mcmd4M4_struct, 0.0f);  // 目標値を設定
 
-	  if(cmd_motor[0] >= 1){
-		  MCMD_SetTarget(&mcmd4M1_struct, 0.05f);  // 目標値を設定
-	  }else if(cmd_motor[0] <= -1){
-		  MCMD_SetTarget(&mcmd4M1_struct, -0.05f);  // 目標値を設定
-	  }
-
-	  if(cmd_motor[1] >= 1){
-		  MCMD_SetTarget(&mcmd4M2_struct, 0.05f);  // 目標値を設定
-	  }else if(cmd_motor[1] <= -1){
-		  MCMD_SetTarget(&mcmd4M2_struct, -0.05f);  // 目標値を設定
-	  }
-
-	  if(cmd_motor[2] >= 1){
-		  MCMD_SetTarget(&mcmd4M3_struct, -0.05f);  // 目標値を設定
-	  }else if(cmd_motor[2] <= -1){
-		  MCMD_SetTarget(&mcmd4M3_struct, 0.05f);  // 目標値を設定
-	  }
-
-	  if(cmd_motor[3] >= 1){
-		  MCMD_SetTarget(&mcmd4M4_struct, 0.05f);  // 目標値を設定
-	  }else if(cmd_motor[3] <= -1){
-		  MCMD_SetTarget(&mcmd4M4_struct, -0.05f);  // 目標値を設定
-	  }
 
     osDelay(10);
   }
   /* USER CODE END StartMotorRunTask */
+}
+
+/* USER CODE BEGIN Header_StartEncorderTask */
+/**
+* @brief Function implementing the EncorderTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartEncorderTask */
+void StartEncorderTask(void *argument)
+{
+  /* USER CODE BEGIN StartEncorderTask */
+  /* Infinite loop */
+  for(;;)
+  {
+	  enc.enclx = Get_MCMD_Feedback(&(mcmd4M1_struct.device)).value;
+	  enc.encadditional = Get_MCMD_Feedback(&(mcmd4M2_struct.device)).value;
+
+    osDelay(10);
+  }
+  /* USER CODE END StartEncorderTask */
 }
 
 /* Private application code --------------------------------------------------*/
