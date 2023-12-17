@@ -12,10 +12,6 @@ ament_auto_find_build_dependencies()
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-install(DIRECTORY launch models maps params config
-  DESTINATION share/${PROJECT_NAME}
-)
-
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -36,4 +32,11 @@ ament_auto_add_executable(
 lidar_node src/lidar_node.cpp
 )
 
-ament_auto_package()
+ament_auto_package(
+  INSTALL_TO_SHARE
+    config
+    launch
+    maps
+    models
+    params
+)

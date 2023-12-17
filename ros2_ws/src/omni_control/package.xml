@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>omni_control</name>
+  <version>0.0.0</version>
+  <description>Package for omni control</description>
+  <maintainer email="jwithelis@gmail.com">n622/jwith</maintainer>
+  <license>Apache License 2.0</license>
+
+  <!--基本の依存関係-->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+  <depend>rclcpp</depend>  
+  
+  <!--標準メッセージ型の依存関係-->
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+
+  <!--カスタムメッセージの依存関係-->
+  <depend>drive_msgs</depend> 
+
+  <!--tfを扱うための依存関係-->
+  <depend>tf2_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2</depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+ 
+  <!--msgのための依存関係-->
+  <depend>rosidl_default_generators</depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

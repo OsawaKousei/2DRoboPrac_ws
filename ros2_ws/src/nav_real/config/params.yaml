@@ -1,11 +1,34 @@
 diff_drive_node:
   ros__parameters:
-    robot_type: "differencial drive"  # string
+    robot_type: "differencial drive" #string
     wheel_radious: 0.03  # double
     wheel_distance: 0.1 # double
 
+
+dammy_encorder_node:
+  ros__parameters:
+    robot_type: "differencial drive"
+    wheel_radious: 0.03 #駆動輪半径m
+    wheel_distance: 0.1 #駆動輪間距離m
+    lxenc_radious: 0.02 #前後エンコーダ半径m
+    azenc_radious: 0.02 #回転エンコーダ半径、駆動輪軸の垂直二等分線上に配置することm
+    azenc_distance: 0.1 #回転エンコーダと回転中心の距離m
+
+states_pub_node:
+  ros__parameters:
+    robot_type: "differencial drive"
+    wheel_radious: 0.03
+    wheel_distance: 0.1
+    lxenc_radious: 0.02
+    azenc_radious: 0.02
+    azenc_distance: 0.1
+
 joy_transrate_node:
   ros__parameters:
-    robot_type: "differencial drive"  # string
-    max_lx: 0.25  # double
-    max_az: 6.0 # double
+    robot_type: "differencial drive"
+    max_lx: 0.25  #最大速度m/s
+    max_az: 6.28 #最大速度rad/s
+
+
+
+

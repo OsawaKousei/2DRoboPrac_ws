@@ -5,6 +5,7 @@
 #include "string"
 #include "iostream"
 #include "sensor_msgs/msg/laser_scan.hpp"
+#include "sensor_msgs/msg/joint_state.hpp"
 #include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
 
 
@@ -45,6 +46,10 @@ public:
                 count ++;
             };
 
+        auto joint_callback = [this](const sensor_msgs::msg::JointState &msg) -> void {
+                count ++;
+            };
+
         subscription_ = this->create_subscription<std_msgs::msg::String>
                 ("practice_topic", 10, topic_callback);
 
@@ -53,6 +58,9 @@ public:
         
         amclsub_ = this->create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>
                 ("/amcl_pose", 10, amcl_callback);
+        
+        jointsub_ = this->create_subscription<sensor_msgs::msg::JointState>
+                ("/joint_states", 10, joint_callback);
             
     }
 private:
@@ -62,6 +70,7 @@ private:
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
     rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr sensorsub_;
     rclcpp::Subscription<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr amclsub_;
+    rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr jointsub_;
 };
 
 int main(int argc, char *argv[]) {

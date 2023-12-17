@@ -43,6 +43,15 @@ public:
             message.linear.x = lx_ * msg.axes[1];
             message.angular.z = az_ * msg.axes[0];
 
+            //十字キーでの操作を上書き
+            if(msg.axes[5] != 0){
+                message.linear.x = lx_ * msg.axes[5];
+            }
+            if (msg.axes[4] != 0)
+            {
+                message.angular.z = az_ * msg.axes[4];
+            }
+            
             this->publisher_->publish(message);
         }; 
 

@@ -46,7 +46,11 @@ diff_drive_node src/diff_drive_node.cpp
 )
 
 ament_auto_add_executable(
-simple_dd_node src/simple_dd_node.cpp
+states_pub_node src/states_pub_node.cpp
+)
+
+ament_auto_add_executable(
+dammy_encorder_node src/dammy_encorder_node.cpp
 )
 
 ament_auto_package(
