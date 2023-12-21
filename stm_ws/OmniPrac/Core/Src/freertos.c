@@ -203,7 +203,7 @@ void canSetting(){
 	CAN_SystemInit(&hcan1); // F7のCAN通信のinit
 
 	// デバイス数の設定
-	num_of_devices.mcmd3 = 1;
+	num_of_devices.mcmd3 = 2;
 	num_of_devices.mcmd4 = 0;
 	num_of_devices.air = 0;
 	num_of_devices.servo = 0;
@@ -221,17 +221,17 @@ void mcmdMoter1Setting(){
 	    mcmd4M1_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
-	    mcmd4M1_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;  //制御タイプを設定
-	    mcmd4M1_struct.ctrl_param.PID_param.kp = 0.3f;  // Pゲイン 1.0
-	    mcmd4M1_struct.ctrl_param.PID_param.ki = 0.0f;  // Iゲイン 0.0
-	    mcmd4M1_struct.ctrl_param.PID_param.kd = 0.0f;  // Dゲイン 0.0 (Dゲインは使いにくい)
+	    mcmd4M1_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
+	    mcmd4M1_struct.ctrl_param.PID_param.kp = 0.075f;
+	    mcmd4M1_struct.ctrl_param.PID_param.ki = 0.025f;
+	    mcmd4M1_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M1_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
 	    mcmd4M1_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
 	    mcmd4M1_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
 	    mcmd4M1_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;  // timeupは未実装なのでDISABLE。
 	    mcmd4M1_struct.enc_dir = MCMD_DIR_FW;  // Encoderの回転方向設定
-	    mcmd4M1_struct.rot_dir = MCMD_DIR_BC;  // モーターの回転方向設定
-	    mcmd4M1_struct.quant_per_unit = 59.0/6400.0f;  // エンコーダーの分解能に対する制御値の変化量の割合
+	    mcmd4M1_struct.rot_dir = MCMD_DIR_FW;  // モーターの回転方向設定
+	    mcmd4M1_struct.quant_per_unit = 1.0/1024.0f; 	 // エンコーダーの分解能に対する制御値の変化量の割合
 
 	    // 原点サーチの設定
 	    mcmd4M1_struct.limit_sw_type = LIMIT_SW_NO;  // 原点サーチにNomaly Closedのスイッチを用いる
@@ -257,17 +257,17 @@ void mcmdMoter2Setting(){
 	    mcmd4M2_struct.device.device_num = 1;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
-	    mcmd4M2_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;  //制御タイプを設定
-	    mcmd4M2_struct.ctrl_param.PID_param.kp = 0.3f;  // Pゲイン 1.0
-	    mcmd4M2_struct.ctrl_param.PID_param.ki = 0.0f;  // Iゲイン 0.0
-	    mcmd4M2_struct.ctrl_param.PID_param.kd = 0.0f;  // Dゲイン 0.0 (Dゲインは使いにくい)
+	    mcmd4M2_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
+	    mcmd4M2_struct.ctrl_param.PID_param.kp = 0.075f;
+	    mcmd4M2_struct.ctrl_param.PID_param.ki = 0.025f;
+	    mcmd4M2_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M2_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
 	    mcmd4M2_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
 	    mcmd4M2_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
 	    mcmd4M2_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;  // timeupは未実装なのでDISABLE。
 	    mcmd4M2_struct.enc_dir = MCMD_DIR_FW;  // Encoderの回転方向設定
-	    mcmd4M2_struct.rot_dir = MCMD_DIR_BC;  // モーターの回転方向設定
-	    mcmd4M2_struct.quant_per_unit = 59.0/6400.0f;  // エンコーダーの分解能に対する制御値の変化量の割合
+	    mcmd4M2_struct.rot_dir = MCMD_DIR_FW;  // モーターの回転方向設定
+	    mcmd4M2_struct.quant_per_unit = 1.0/1024.0f;  // エンコーダーの分解能に対する制御値の変化量の割合
 
 	    // 原点サーチの設定
 	    mcmd4M2_struct.limit_sw_type = LIMIT_SW_NO;  // 原点サーチにNomaly Closedのスイッチを用いる
@@ -285,24 +285,24 @@ void mcmdMoter2Setting(){
 		 MCMD_Control_Enable(&mcmd4M2_struct);  // 制御開始
 }
 
-void mcmdMoter3Setting(){
+void mcmdMoter3Setting(){ //モーターの回転方向異常
 	    // 接続先のMCMDの設定
 	    mcmd4M3_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
 	    mcmd4M3_struct.device.node_id = 5;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
 	    mcmd4M3_struct.device.device_num = 1;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
-	    mcmd4M3_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;  //制御タイプを設定
-	    mcmd4M3_struct.ctrl_param.PID_param.kp = 0.3f;  // Pゲイン 1.0
-	    mcmd4M3_struct.ctrl_param.PID_param.ki = 0.0f;  // Iゲイン 0.0
-	    mcmd4M3_struct.ctrl_param.PID_param.kd = 0.0f;  // Dゲイン 0.0 (Dゲインは使いにくい)
+	    mcmd4M3_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
+	    mcmd4M3_struct.ctrl_param.PID_param.kp = 0.075f;
+	    mcmd4M3_struct.ctrl_param.PID_param.ki = 0.025f;
+	    mcmd4M3_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M3_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
 	    mcmd4M3_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
 	    mcmd4M3_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
 	    mcmd4M3_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;  // timeupは未実装なのでDISABLE。
 	    mcmd4M3_struct.enc_dir = MCMD_DIR_FW;  // Encoderの回転方向設定
 	    mcmd4M3_struct.rot_dir = MCMD_DIR_BC;  // モーターの回転方向設定
-	    mcmd4M3_struct.quant_per_unit = 59.0/6400.0f;  // エンコーダーの分解能に対する制御値の変化量の割合
+	    mcmd4M3_struct.quant_per_unit = 1.0/1024.0f;   // エンコーダーの分解能に対する制御値の変化量の割合
 
 	    // 原点サーチの設定
 	    mcmd4M3_struct.limit_sw_type = LIMIT_SW_NO;  // 原点サーチにNomaly Closedのスイッチを用いる
@@ -327,17 +327,17 @@ void mcmdMoter4Setting(){
 	    mcmd4M4_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
-	    mcmd4M4_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;  //制御タイプを設定
-	    mcmd4M4_struct.ctrl_param.PID_param.kp = 0.3f;  // Pゲイン 1.0
-	    mcmd4M4_struct.ctrl_param.PID_param.ki = 0.0f;  // Iゲイン 0.0
-	    mcmd4M4_struct.ctrl_param.PID_param.kd = 0.0f;  // Dゲイン 0.0 (Dゲインは使いにくい)
+	    mcmd4M4_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
+	    mcmd4M4_struct.ctrl_param.PID_param.kp = 0.075f;
+	    mcmd4M4_struct.ctrl_param.PID_param.ki = 0.025f;
+	    mcmd4M4_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M4_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
 	    mcmd4M4_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
 	    mcmd4M4_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
 	    mcmd4M4_struct.ctrl_param.timup_monitor = TIMUP_MONITOR_DISABLE;  // timeupは未実装なのでDISABLE。
 	    mcmd4M4_struct.enc_dir = MCMD_DIR_FW;  // Encoderの回転方向設定
-	    mcmd4M4_struct.rot_dir = MCMD_DIR_BC;  // モーターの回転方向設定
-	    mcmd4M4_struct.quant_per_unit = 59.0/6400.0f;  // エンコーダーの分解能に対する制御値の変化量の割合
+	    mcmd4M4_struct.rot_dir = MCMD_DIR_FW;  // モーターの回転方向設定
+	    mcmd4M4_struct.quant_per_unit = 1.0/1024.0f;   // エンコーダーの分解能に対する制御値の変化量の割合
 
 	    // 原点サーチの設定
 	    mcmd4M4_struct.limit_sw_type = LIMIT_SW_NO;  // 原点サーチにNomaly Closedのスイッチを用いる
@@ -363,9 +363,9 @@ void mcmdMoter5Setting(){
 
 	    // 制御パラメータの設定
 	    mcmd4M5_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
-	    mcmd4M5_struct.ctrl_param.PID_param.kp = 0.075f;  // Pゲイン 1.0
-	    mcmd4M5_struct.ctrl_param.PID_param.ki = 0.025f;  // Iゲイン 0.0
-	    mcmd4M5_struct.ctrl_param.PID_param.kd = 0.01f;  // Dゲイン 0.0 (Dゲインは使いにくい)
+	    mcmd4M5_struct.ctrl_param.PID_param.kp = 0.075f;
+	    mcmd4M5_struct.ctrl_param.PID_param.ki = 0.025f;
+	    mcmd4M5_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M5_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
 	    mcmd4M5_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
 	    mcmd4M5_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
@@ -397,10 +397,10 @@ void mcmdMoter6Setting(){
 	    mcmd4M6_struct.device.device_num = 1;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
-	    mcmd4M6_struct.ctrl_param.ctrl_type = MCMD_CTRL_DUTY;  //制御タイプを設定
-	    mcmd4M6_struct.ctrl_param.PID_param.kp = 0.3f;  // Pゲイン 1.0
-	    mcmd4M6_struct.ctrl_param.PID_param.ki = 0.0f;  // Iゲイン 0.0
-	    mcmd4M6_struct.ctrl_param.PID_param.kd = 0.0f;  // Dゲイン 0.0 (Dゲインは使いにくい)
+	    mcmd4M6_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
+	    mcmd4M6_struct.ctrl_param.PID_param.kp = 0.075f;
+	    mcmd4M6_struct.ctrl_param.PID_param.ki = 0.025f;
+	    mcmd4M6_struct.ctrl_param.PID_param.kd = 0.01f;
 	    mcmd4M6_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
 	    mcmd4M6_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
 	    mcmd4M6_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
@@ -541,11 +541,6 @@ void subscription_callback(const void * msgin)
 	  cmd_motor[1] = sub->mfrontleft;
 	  cmd_motor[2] = sub->mbackright;
 	  cmd_motor[3] = sub->mbackleft;
-
-	  rosidl_runtime_c__String__init(&pub);
-	  char hear[] = "I'm hearing from f7";
-	  rosidl_runtime_c__String__assignn(&pub.data, hear, sizeof(hear));
-	  RCSOFTCHECK(rcl_publish(&publisher, &pub, NULL));
 }
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void *argument)
@@ -636,11 +631,11 @@ void StartDefaultTask(void *argument)
 	//記事ではmcmdなどの初期化コードを描くことになっている場所
 	canSetting();
 	//servoSetting();
-	//mcmdMoter1Setting();
-	//mcmdMoter2Setting();
-	//mcmdMoter3Setting();
-	//mcmdMoter4Setting();
-	mcmdMoter5Setting();
+	mcmdMoter1Setting();
+	mcmdMoter2Setting();
+	mcmdMoter3Setting();
+	mcmdMoter4Setting();
+	//mcmdMoter5Setting();
 	//mcmdMoter6Setting();
 	//airSetting();
 	printf("calibrationFinished\r\n");
@@ -819,7 +814,7 @@ void StartSysCheckTask(void *argument)
 * @retval None
 */
 /* USER CODE END Header_StartMotorRunTask */
-float velLimmit = 2.0f;
+float velLimmit = 3.0f;
 float velLimmiter(float input){
 	if(input >= velLimmit){
 		input = velLimmit;
@@ -832,11 +827,15 @@ void motorRun(){
 	MCMD_SetTarget(&mcmd4M2_struct, 0.0f);
 	MCMD_SetTarget(&mcmd4M3_struct, 0.0f);
 	MCMD_SetTarget(&mcmd4M4_struct, 0.0f);
+	MCMD_SetTarget(&mcmd4M5_struct, 0.0f);
+	MCMD_SetTarget(&mcmd4M6_struct, 0.0f);
 
 	MCMD_SetTarget(&mcmd4M1_struct, velLimmiter(cmd_motor[0]));
 	MCMD_SetTarget(&mcmd4M2_struct, velLimmiter(cmd_motor[1]));
-	MCMD_SetTarget(&mcmd4M3_struct, velLimmiter(cmd_motor[2]*-1.0));
+	MCMD_SetTarget(&mcmd4M3_struct, velLimmiter(cmd_motor[2]));
 	MCMD_SetTarget(&mcmd4M4_struct, velLimmiter(cmd_motor[3]));
+	//MCMD_SetTarget(&mcmd4M5_struct, velLimmiter(cmd_motor[3]));
+	//MCMD_SetTarget(&mcmd4M4_struct, velLimmiter(cmd_motor[3]));
 }
 void StartMotorRunTask(void *argument)
 {
@@ -864,8 +863,13 @@ void StartEncorderTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  enc.enclx = Get_MCMD_Feedback(&(mcmd4M5_struct.device)).value;
-	  enc.encadditional = Get_MCMD_Feedback(&(mcmd4M6_struct.device)).value;
+	  enc.encfontright = Get_MCMD_Feedback(&(mcmd4M1_struct.device)).value;
+	  enc.encfrontleft = Get_MCMD_Feedback(&(mcmd4M2_struct.device)).value;
+	  enc.encbackright = Get_MCMD_Feedback(&(mcmd4M3_struct.device)).value;
+	  enc.encbackleft = Get_MCMD_Feedback(&(mcmd4M4_struct.device)).value;
+	  //enc.enclx = Get_MCMD_Feedback(&(mcmd4M5_struct.device)).value;
+	  //enc.encly = 0.0f;
+	  //enc.encadditional = Get_MCMD_Feedback(&(mcmd4M6_struct.device)).value;
 
     osDelay(10);
   }

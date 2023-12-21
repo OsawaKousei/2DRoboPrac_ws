@@ -3,6 +3,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "drive_msgs/msg/omni.hpp"
 #include "drive_msgs/msg/omni_enc.hpp"
+#include "cmath"
 
 using namespace std::chrono_literals;
 
@@ -49,10 +50,10 @@ public:
             auto message = drive_msgs::msg::Omni();
 
             message.name = msg.name;
-            message.mbackright = msg.mbackright;
-            message.mbackleft = msg.mbackleft;
-            message.mfontright = msg.mfontright;
-            message.mfrontleft = msg.mfrontleft;
+            message.mbackright = msg.mbackright/(2*M_PI*w_rad);
+            message.mbackleft = msg.mbackleft/(2*M_PI*w_rad);
+            message.mfontright = msg.mfontright/(2*M_PI*w_rad);
+            message.mfrontleft = msg.mfrontleft/(2*M_PI*w_rad);
 
             this->motorpub->publish(message);
         }; 
@@ -66,12 +67,12 @@ public:
             auto message = drive_msgs::msg::OmniEnc();
 
             message.name = msg.name;
-            message.encfontright = msg.encfontright;
-            message.encfrontleft = msg.encfrontleft;
-            message.encbackright = msg.encbackright;
-            message.encbackright = msg.encbackright;
-            message.enclx = msg.enclx;
-            message.encly = msg.encly;
+            message.encfontright = msg.encfontright*2*M_PI*w_rad;
+            message.encfrontleft = msg.encfrontleft*2*M_PI*w_rad;
+            message.encbackright = msg.encbackright*2*M_PI*w_rad;
+            message.encbackright = msg.encbackright*2*M_PI*w_rad;
+            message.enclx = msg.enclx*2*M_PI*e_rad;
+            message.encly = msg.encly*2*M_PI*e_rad;
 
             this->encpub->publish(message);
         }; 

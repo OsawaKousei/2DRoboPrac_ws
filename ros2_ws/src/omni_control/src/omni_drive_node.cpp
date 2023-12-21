@@ -25,45 +25,30 @@ public:
         }
 
         //モーターの制御値を計算
-        //もし、lxが正なら、前輪は順転、後輪は逆転する
-        if(lx > 0){
-            cmd[0] = -1;
-            cmd[1] = 1;
-            cmd[2] = -1;
-            cmd[3] = 1;
-        }else if(lx < 0){ //もし、lxが負なら、前輪は逆転、後輪は順転する
-            cmd[0] = 1;
-            cmd[1] = -1;
-            cmd[2] = 1;
-            cmd[3] = -1;
+        //lx
+        if(lx != 0){
+            cmd[0] = -lx/sin(M_PI/4);
+            cmd[1] = lx/sin(M_PI/4);
+            cmd[2] = -lx/sin(M_PI/4);
+            cmd[3] = lx/sin(M_PI/4);    
+        }
+        
+
+        //ly
+        if(ly != 0){
+            cmd[0] = -ly/cos(M_PI/4);
+            cmd[1] = -ly/cos(M_PI/4);
+            cmd[2] = ly/cos(M_PI/4);
+            cmd[3] = ly/cos(M_PI/4);
         }
 
-        //もし、lyが正なら、右輪は順転、左輪は逆転する
-        if(ly > 0){
-            cmd[0] = -1;
-            cmd[1] = -1;
-            cmd[2] = 1;
-            cmd[3] = 1;
-        }else if(ly < 0){ //もし、lyが負なら、右輪は逆転、左輪は順転する
-            cmd[0] = 1;
-            cmd[1] = 1;
-            cmd[2] = -1;
-            cmd[3] = -1;
+        //az
+        if(az != 0){
+            cmd[0] = az;
+            cmd[1] = az;
+            cmd[2] = az;
+            cmd[3] = az;
         }
-
-        //もし、azが正なら、全ての輪は順転する
-        if(az > 0){
-            cmd[0] = -1;
-            cmd[1] = -1;
-            cmd[2] = -1;
-            cmd[3] = -1;
-        }else if(az < 0){ //もし、azが負なら、全ての輪は逆転する
-            cmd[0] = 1;
-            cmd[1] = 1;
-            cmd[2] = 1;
-            cmd[3] = 1;
-        }
-
     }
 
     OmniDriveNode() : Node("omni_drive_node") {
