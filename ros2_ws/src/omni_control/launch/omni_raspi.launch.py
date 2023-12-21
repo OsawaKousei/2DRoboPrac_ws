@@ -10,14 +10,13 @@ from launch_ros.actions import Node
 def generate_launch_description():
     lidar_launch = os.path.join(get_package_share_directory('urg_node2'),"launch","urg_node2.launch.py")
 
-    raspi_node = Node(
+    hardware_node = Node(
                 package='nav_real',
-                executable='raspi_node',
+                executable='omni_hardware_node',
                 output='screen'
                 )
     
     return LaunchDescription([       
         IncludeLaunchDescription(PythonLaunchDescriptionSource([lidar_launch])),
-
-        raspi_node,
+        hardware_node
     ])

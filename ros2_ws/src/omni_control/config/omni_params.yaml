@@ -1,19 +1,11 @@
 # omni_states_nodeのパラメータ
-omni_drive_node:
-  ros__parameters:
-    robot_type: "omni" #ロボットの種類
-    wheel_radious: 0.03 #駆動輪半径m
-    wheel_distance: 0.1 #駆動輪ーロボット中心間距離m
-
-# omni_encorder_nodeのパラメータ
 omni_states_node:
   ros__parameters:
     robot_type: "omni" #ロボットの種類
-    wheel_radious: 0.03 #駆動輪半径m
-    wheel_distance: 0.1 #駆動輪中心間距離m
-    enclx_radious: 0.02 #前後エンコーダ半径m
-    encly_radious: 0.02 #左右エンコーダ半径m
-    encadditional_distance: 0.1 #追加エンコーダ半径m
+    wheel_radious: 0.065 #駆動輪半径m
+    wheel_distance: 0.25 #駆動輪中心間距離m
+    enc_radious: 0.03 #エンコーダ半径m
+    enc_distance: 0.15 #回転エンコーダーーロボット中心間距離
 
 # omni_joy_nodeのパラメータ
 omni_joy_node:

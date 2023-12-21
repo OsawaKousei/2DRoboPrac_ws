@@ -11,11 +11,6 @@ using namespace std::chrono_literals;
 class OmniDriveNode : public rclcpp::Node {
 public:
 
-    //パラメータ保存用
-    std::string type; //ロボットの種類
-    std::double_t rad; //車輪の半径 
-    std::double_t dis; //車輪ーロボットの中心間の距離
-
     //cmd_velからモータの制御値を計算
     void OmniDrive(float cmd[4],float lx,float ly, float az){ //cmd[0]:右前,cmd[1]:左前,cmd[2]:右後,cmd[3]:左後、lx:線形速度、az:回転速度
 
@@ -52,21 +47,7 @@ public:
     }
 
     OmniDriveNode() : Node("omni_drive_node") {
-        //使用するパラメータの宣言(param名,初期値)、小数点を入れないとint型になるので注意
-        declare_parameter("robot_type", "default");
-        declare_parameter("wheel_radious", -1.0);
-        declare_parameter("wheel_distance", -1.0);
 
-        //パラメータの取得
-        type = get_parameter("robot_type").as_string();
-        rad = get_parameter("wheel_radious").as_double();
-        dis = get_parameter("wheel_distance").as_double();
-
-        //パラメータの確認
-        RCLCPP_INFO(this->get_logger(), "robot type:%s\r\n",type.c_str());
-        RCLCPP_INFO(this->get_logger(), "wheel radious:%f\r\n",rad);
-        RCLCPP_INFO(this->get_logger(), "wheel distance:%f\r\n",dis);
-        
         //各モーターの速度司令を送るパブリッシャーの設定
         publisher_ = this->create_publisher<drive_msgs::msg::Omni>("cmd_motor", 10);
 

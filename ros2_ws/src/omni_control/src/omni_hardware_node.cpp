@@ -49,7 +49,6 @@ public:
 
             auto message = drive_msgs::msg::Omni();
 
-            message.name = msg.name;
             message.mbackright = msg.mbackright/(2*M_PI*w_rad);
             message.mbackleft = msg.mbackleft/(2*M_PI*w_rad);
             message.mfontright = msg.mfontright/(2*M_PI*w_rad);
@@ -66,13 +65,13 @@ public:
 
             auto message = drive_msgs::msg::OmniEnc();
 
-            message.name = msg.name;
             message.encfontright = msg.encfontright*2*M_PI*w_rad;
             message.encfrontleft = msg.encfrontleft*2*M_PI*w_rad;
             message.encbackright = msg.encbackright*2*M_PI*w_rad;
             message.encbackright = msg.encbackright*2*M_PI*w_rad;
             message.enclx = msg.enclx*2*M_PI*e_rad;
             message.encly = msg.encly*2*M_PI*e_rad;
+            message.encadditional = msg.encadditional*2*M_PI*e_rad;
 
             this->encpub->publish(message);
         }; 
