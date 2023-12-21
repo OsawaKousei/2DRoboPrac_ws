@@ -363,9 +363,9 @@ void mcmdMoter5Setting(){
 
 	    // 制御パラメータの設定
 	    mcmd4M5_struct.ctrl_param.ctrl_type = MCMD_CTRL_VEL;  //制御タイプを設定
-	    mcmd4M5_struct.ctrl_param.PID_param.kp = 0.1f;  // Pゲイン 1.0
-	    mcmd4M5_struct.ctrl_param.PID_param.ki = 0.05f;  // Iゲイン 0.0
-	    mcmd4M5_struct.ctrl_param.PID_param.kd = 0.0f;  // Dゲイン 0.0 (Dゲインは使いにくい)
+	    mcmd4M5_struct.ctrl_param.PID_param.kp = 0.075f;  // Pゲイン 1.0
+	    mcmd4M5_struct.ctrl_param.PID_param.ki = 0.025f;  // Iゲイン 0.0
+	    mcmd4M5_struct.ctrl_param.PID_param.kd = 0.01f;  // Dゲイン 0.0 (Dゲインは使いにくい)
 	    mcmd4M5_struct.ctrl_param.accel_limit = ACCEL_LIMIT_ENABLE;  // PIDの偏差をclipするか
 	    mcmd4M5_struct.ctrl_param.accel_limit_size = 2.0f;  // PIDの偏差をclipする場合の絶対値のmax値
 	    mcmd4M5_struct.ctrl_param.feedback = MCMD_FB_ENABLE;  // MCMDからF7にフィードバックを送信するか否か
@@ -605,7 +605,7 @@ void StartDefaultTask(void *argument)
 		  &encpublisher,
 		  &node,
 		  ROSIDL_GET_MSG_TYPE_SUPPORT(drive_msgs, msg, OmniEnc),
-		  "/enc_val"));
+		  "/enc_val_f7"));
 
 
 	 //subscriberの作成
@@ -613,7 +613,7 @@ void StartDefaultTask(void *argument)
 		  &subscriber,
 		  &node,
 		  ROSIDL_GET_MSG_TYPE_SUPPORT(drive_msgs, msg, Omni),
-		  "/cmd_ras"));
+		  "/cmd_motor_f7"));
       // エグゼキューターの作成。三番目の引数はextecuterに登録するコールバック関数の数。
   	RCCHECK(rclc_executor_init(&executor, &support.context, 2, &allocator));
 
@@ -712,7 +712,7 @@ void mcmdMoter4Checker(){
 
 //M5の動作確認用
 void mcmdMoter5Checker(){
-		 MCMD_SetTarget(&mcmd4M5_struct, 0.1f);  // 目標値を設定
+		 MCMD_SetTarget(&mcmd4M5_struct, 0.25f);  // 目標値を設定
 		 printf("MCMDM5controllStart\r\n");
 		 osDelay(2000);
 		 //MCMD_SetTarget(&mcmd4M4_struct, 0.00f);  // 目標値を設定
@@ -795,10 +795,10 @@ void StartSysCheckTask(void *argument)
 		  		//mcmdMoter2Checker();
 		  		//mcmdMoter3Checker();
 		  	    //mcmdMoter4Checker();
-			  mcmdMoter5Checker();
+			    //mcmdMoter5Checker();
 		  		//servoChecker();
 		  		//airChecker();
-		  		osDelay(8000);
+		  		//osDelay(8000);
 		  		finishCheck = true;
 		  	  }
 	  }
@@ -819,11 +819,10 @@ void StartSysCheckTask(void *argument)
 * @retval None
 */
 /* USER CODE END Header_StartMotorRunTask */
-float dutyLimmit = 0.5;
-float dutyScaler = 0.05;
-float dutyLimmiter(float input){
-	if(input >= dutyLimmit){
-		input = dutyLimmit;
+float velLimmit = 2.0f;
+float velLimmiter(float input){
+	if(input >= velLimmit){
+		input = velLimmit;
 	}
 	return input;
 }
@@ -834,10 +833,10 @@ void motorRun(){
 	MCMD_SetTarget(&mcmd4M3_struct, 0.0f);
 	MCMD_SetTarget(&mcmd4M4_struct, 0.0f);
 
-	MCMD_SetTarget(&mcmd4M1_struct, dutyLimmiter(cmd_motor[0]*dutyScaler));
-	MCMD_SetTarget(&mcmd4M2_struct, dutyLimmiter(cmd_motor[1]*dutyScaler));
-	MCMD_SetTarget(&mcmd4M3_struct, dutyLimmiter(cmd_motor[2]*dutyScaler*-1.0));
-	MCMD_SetTarget(&mcmd4M4_struct, dutyLimmiter(cmd_motor[3]*dutyScaler));
+	MCMD_SetTarget(&mcmd4M1_struct, velLimmiter(cmd_motor[0]));
+	MCMD_SetTarget(&mcmd4M2_struct, velLimmiter(cmd_motor[1]));
+	MCMD_SetTarget(&mcmd4M3_struct, velLimmiter(cmd_motor[2]*-1.0));
+	MCMD_SetTarget(&mcmd4M4_struct, velLimmiter(cmd_motor[3]));
 }
 void StartMotorRunTask(void *argument)
 {

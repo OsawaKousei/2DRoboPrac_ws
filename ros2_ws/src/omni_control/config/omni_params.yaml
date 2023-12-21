@@ -23,6 +23,15 @@ omni_joy_node:
     max_ly: 0.25 #y方向最大速度m/s
     max_az: 1.57 #z周り最大角速度rad/s
 
+# omni_hardware_nodeのパラメータ
+omni_hardware_node:
+  ros__parameters:
+    robot_type: "omni" #ロボットの種類
+    wheel_radious: 0.03 #駆動輪半径m
+    wheel_distance: 0.1 #駆動輪中心間距離m
+    enc_radious: 0.02 #エンコーダ半径m
+    enc_distance: 0.1 #回転エンコーダーーロボット中心間距離
+
 
 
 

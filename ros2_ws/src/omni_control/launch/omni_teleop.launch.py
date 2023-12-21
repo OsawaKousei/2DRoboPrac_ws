@@ -40,6 +40,14 @@ def generate_launch_description():
                 output='screen',
                 parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
                 )
+    
+    #omni_hardwareの起動
+    omni_hardware_node = Node(
+                package='omni_control',
+                executable='omni_hardware_node',
+                output='screen',
+                parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
+                )
 
     
     #ロボットのsdfファイルのパスを取得
@@ -77,4 +85,5 @@ def generate_launch_description():
         joy_node,
         omni_joy_node,
         omni_drive_node,
+        omni_hardware_node,
     ])
