@@ -203,7 +203,7 @@ void canSetting(){
 	CAN_SystemInit(&hcan1); // F7のCAN通信のinit
 
 	// デバイス数の設定
-	num_of_devices.mcmd3 = 1;
+	num_of_devices.mcmd3 = 3;
 	num_of_devices.mcmd4 = 0;
 	num_of_devices.air = 0;
 	num_of_devices.servo = 0;
@@ -358,7 +358,7 @@ void mcmdMoter4Setting(){
 void mcmdMoter5Setting(){
 	    // 接続先のMCMDの設定
 	    mcmd4M5_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M5_struct.device.node_id =0;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
+	    mcmd4M5_struct.device.node_id =1;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
 	    mcmd4M5_struct.device.device_num = 0;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
@@ -393,7 +393,7 @@ void mcmdMoter5Setting(){
 void mcmdMoter6Setting(){
 	    // 接続先のMCMDの設定
 	    mcmd4M6_struct.device.node_type = NODE_MCMD3;  // nodeのタイプ
-	    mcmd4M6_struct.device.node_id =0;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
+	    mcmd4M6_struct.device.node_id =1;  // 基板の番号 (基板上の半固定抵抗を回す事で設定できる)
 	    mcmd4M6_struct.device.device_num = 1;  // モーターの番号(0→M1,1→M2)
 
 	    // 制御パラメータの設定
@@ -631,10 +631,10 @@ void StartDefaultTask(void *argument)
 	//記事ではmcmdなどの初期化コードを描くことになっている場所
 	canSetting();
 	//servoSetting();
-	//mcmdMoter1Setting();
-	//mcmdMoter2Setting();
-	//mcmdMoter3Setting();
-	//mcmdMoter4Setting();
+	mcmdMoter1Setting();
+	mcmdMoter2Setting();
+	mcmdMoter3Setting();
+	mcmdMoter4Setting();
 	mcmdMoter5Setting();
 	mcmdMoter6Setting();
 	//airSetting();
@@ -843,7 +843,7 @@ void StartMotorRunTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  //motorRun();
+	  motorRun();
 
     osDelay(10);
   }
@@ -863,10 +863,10 @@ void StartEncorderTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  //enc.encfontright = Get_MCMD_Feedback(&(mcmd4M1_struct.device)).value;
-	  //enc.encfrontleft = Get_MCMD_Feedback(&(mcmd4M2_struct.device)).value;
-	  //enc.encbackright = Get_MCMD_Feedback(&(mcmd4M3_struct.device)).value;
-	  //enc.encbackleft = Get_MCMD_Feedback(&(mcmd4M4_struct.device)).value;
+	  enc.encfontright = Get_MCMD_Feedback(&(mcmd4M1_struct.device)).value;
+	  enc.encfrontleft = Get_MCMD_Feedback(&(mcmd4M2_struct.device)).value;
+	  enc.encbackright = Get_MCMD_Feedback(&(mcmd4M3_struct.device)).value;
+	  enc.encbackleft = Get_MCMD_Feedback(&(mcmd4M4_struct.device)).value;
 	  enc.enclx = Get_MCMD_Feedback(&(mcmd4M5_struct.device)).value;
 	  enc.encly = 0.0f;
 	  enc.encadditional = Get_MCMD_Feedback(&(mcmd4M6_struct.device)).value;
