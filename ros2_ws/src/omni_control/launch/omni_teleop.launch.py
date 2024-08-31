@@ -15,8 +15,8 @@ def generate_launch_description():
 
     #joint_state_pubの起動
     states_pub_node = Node(
-                package='nav_real',
-                executable='states_pub_node',
+                package='omni_control',
+                executable='omni_states_node',
                 output='screen',
                 parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
                 )
@@ -37,6 +37,13 @@ def generate_launch_description():
     omni_drive_node = Node(
                 package='omni_control',
                 executable='omni_drive_node',
+                output='screen'
+                )
+    
+    #omni_hardwareの起動
+    omni_hardware_node = Node(
+                package='omni_control',
+                executable='omni_hardware_node',
                 output='screen',
                 parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
                 )
@@ -77,4 +84,8 @@ def generate_launch_description():
         joy_node,
         omni_joy_node,
         omni_drive_node,
+        #omni_hardware_node,
+        states_pub_node,
+        robot_state_publisher,
+        rviz2,
     ])

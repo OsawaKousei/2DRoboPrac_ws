@@ -8,16 +8,17 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 
 def generate_launch_description():
+    pkg_dir = get_package_share_directory('omni_control')
     lidar_launch = os.path.join(get_package_share_directory('urg_node2'),"launch","urg_node2.launch.py")
 
-    raspi_node = Node(
-                package='nav_real',
-                executable='raspi_node',
-                output='screen'
+    hardware_node = Node(
+                package='omni_control',
+                executable='omni_hardware_node',
+                output='screen',
+                parameters=[os.path.join(pkg_dir,'config','omni_params.yaml')]
                 )
     
     return LaunchDescription([       
         IncludeLaunchDescription(PythonLaunchDescriptionSource([lidar_launch])),
-
-        raspi_node,
+        hardware_node
     ])

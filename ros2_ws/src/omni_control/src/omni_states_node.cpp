@@ -5,8 +5,8 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/twist.hpp"
-#include "drive_msgs/msg/diff_drive.hpp"
-#include "drive_msgs/msg/diff_drive_enc.hpp"
+#include "drive_msgs/msg/omni.hpp"
+#include "drive_msgs/msg/omni_enc.hpp"
 #include "sensor_msgs/msg/joint_state.hpp"
 #include "tf2_msgs/msg/tf_message.hpp"
 #include "geometry_msgs/msg/transform_stamped.hpp"
@@ -18,21 +18,19 @@
 
 using namespace std::chrono_literals;
 
-class StatesPubNode : public rclcpp::Node {
+class OmniStatesNode : public rclcpp::Node {
 public:
 
     //ロボットの種類
-    std::string type_;
-    //右輪と左輪の半径
-    std::double_t rad_;
-    //右輪と左輪の距離
-    std::double_t dis_;
-    //lxエンコーダの半径
-    std::double_t enc1;
-    //azエンコーダの半径
-    std::double_t enc2;
-    //ロボットの中心からazエンコーダまでの距離
-    std::double_t enc2dis;
+    std::string type;
+    //車輪の半径
+    std::double_t w_rad;
+    //車輪-中心間距離
+    std::double_t w_dis;
+    //エンコーダの半径
+    std::double_t e_rad;
+    //回転エンコーダー-中心間距離
+    std::double_t e_dis;
 
     //lxエンコーダの回転数
     float lx = 0;
@@ -51,44 +49,36 @@ public:
     void calcPose(){
         //azはエンコーダーの回転数、enc2はエンコーダーの半径、enc2disはロボットの中心からエンコーダーまでの距離
         //azをラジアンに変換してロボットの姿勢を計算
-        th = az*2*M_PI*enc2/(enc2dis);
-
-        //lx_dはlxエンコーダの回転数の差分、enc1はlxエンコーダの半径
-        //lx_dとenc1からロボットの移動距離を計算
-        float x_d = lx_d * 2 * M_PI * enc1;
+        th = az/(e_dis);
 
         //xはロボットのx座標、yはロボットのy座標
         //thはロボットの向き
         //x,yからthの向きにx_dだけ進んだ座標を計算
-        x = x + x_d * cos(th);
-        y = y + x_d * sin(th);
+        x = x + lx_d * cos(th);
+        y = y + lx_d * sin(th);
     }
 
-    
-    StatesPubNode() : Node("states_pub_node") {
+    OmniStatesNode() : Node("omni_states_node") {
         //パラメータの宣言
         declare_parameter("robot_type", "default");
         declare_parameter("wheel_radious", -1.0);
         declare_parameter("wheel_distance", -1.0);
-        declare_parameter("lxenc_radious", -1.0);
-        declare_parameter("azenc_radious", -1.0);
-        declare_parameter("azenc_distance", -1.0);
+        declare_parameter("enc_radious", -1.0);
+        declare_parameter("enc_distance", -1.0);
 
         //パラメータの取得
-        type_ = get_parameter("robot_type").as_string();
-        rad_ = get_parameter("wheel_radious").as_double();
-        dis_ = get_parameter("wheel_distance").as_double();
-        enc1 = get_parameter("lxenc_radious").as_double();
-        enc2 = get_parameter("azenc_radious").as_double();
-        enc2dis = get_parameter("azenc_distance").as_double();
+        type = get_parameter("robot_type").as_string();
+        w_rad= get_parameter("wheel_radious").as_double();
+        w_dis = get_parameter("wheel_distance").as_double();
+        e_rad = get_parameter("enc_radious").as_double();
+        e_dis = get_parameter("enc_distance").as_double();
 
         //パラメータの表示
-        RCLCPP_INFO(this->get_logger(), "robot type:%s\r\n",type_.c_str());
-        RCLCPP_INFO(this->get_logger(), "wheel radious:%f\r\n",rad_);
-        RCLCPP_INFO(this->get_logger(), "wheel distance:%f\r\n",dis_);
-        RCLCPP_INFO(this->get_logger(), "lxenc_radious:%f\r\n",enc1);
-        RCLCPP_INFO(this->get_logger(), "azenc_radious:%f\r\n",enc2);
-        RCLCPP_INFO(this->get_logger(), "azenc_distnace:%f\r\n",enc2dis);
+        RCLCPP_INFO(this->get_logger(), "robot type:%s\r\n",type.c_str());
+        RCLCPP_INFO(this->get_logger(), "wheel radious:%f\r\n",w_rad);
+        RCLCPP_INFO(this->get_logger(), "wheel distance:%f\r\n",w_dis);
+        RCLCPP_INFO(this->get_logger(), "enc radious:%f\r\n",e_rad);
+        RCLCPP_INFO(this->get_logger(), "enc distance:%f\r\n",e_dis);
 
         //publisherの作成
         jointpub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states", 10);
@@ -116,8 +106,8 @@ public:
             //m1encは右輪エンコーダーの回転数、m2encは左輪エンコーダの回転数
             //rad_は右輪と左輪の半径
             //m1encとm2encから右輪と左輪の角度を計算
-            joint.position[2] = m1enc*2*M_PI*rad_;
-            joint.position[3] = m2enc*2*M_PI*rad_;
+            joint.position[2] = m1enc*2*M_PI*w_rad;
+            joint.position[3] = m2enc*2*M_PI*w_rad;
             joint.position[4] = 0.0;
             joint.position[5] = 0.0;
 
@@ -205,19 +195,19 @@ public:
 
         //subscriptionのコールバック関数
         auto sub_callback = [this, joint_publisher]
-            (const drive_msgs::msg::DiffDriveEnc &msg) -> void {
+            (const drive_msgs::msg::OmniEnc &msg) -> void {
             //joint statesをpublish
             //msg.m1encは右輪エンコーダーの回転数、msg.m2encは左輪エンコーダの回転数
-            joint_publisher(msg.m1enc,msg.m2enc);
+            joint_publisher(msg.encfontright, msg.encfrontleft);
 
             //lxエンコーダの回転数の差分を計算
-            lx_d = msg.lxenc - lx;
+            lx_d = msg.enclx - lx;
             //エンコーダの値を更新
-            lx = msg.lxenc;
-            az = msg.azenc;
+            lx = msg.enclx;
+            az = msg.encadditional;
         }; 
         //subscriptionを作成
-        subscription_ = this->create_subscription<drive_msgs::msg::DiffDriveEnc>("enc_val",10,sub_callback);
+        subscription_ = this->create_subscription<drive_msgs::msg::OmniEnc>("enc_val",10,sub_callback);
         
         //timerのコールバック関数
         auto pub_callback = [this, odom_publisher,tf_publisher]() -> void {
@@ -234,7 +224,7 @@ public:
         timer_ = this->create_wall_timer(2ms, pub_callback);
     }
 private:
-    rclcpp::Subscription<drive_msgs::msg::DiffDriveEnc>::SharedPtr subscription_;
+    rclcpp::Subscription<drive_msgs::msg::OmniEnc>::SharedPtr subscription_;
     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr jointpub_;
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odompub_;
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
@@ -243,7 +233,7 @@ private:
 
 int main(int argc, char *argv[]) {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<StatesPubNode>());
+    rclcpp::spin(std::make_shared<OmniStatesNode>());
     rclcpp::shutdown();
     return 0;
 }
